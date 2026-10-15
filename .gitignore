@@ -1,0 +1,38 @@
+# Each paper folder carries its own .gitignore for data, outputs and logs.
+# The rules below apply to the whole repository.
+
+# ─── Credentials / secrets (NEVER commit) ───────────────────────────
+.env
+*.env
+*api*key*
+*apikey*
+*token*
+*secret*
+*credential*
+id_rsa*
+*.pem
+api.json
+
+# ─── Model weights / large binaries ─────────────────────────────────
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.safetensors
+
+# ─── Python / tooling caches ────────────────────────────────────────
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ─── OS / editor cruft ──────────────────────────────────────────────
+._*
+.DS_Store
+.vscode/
+.idea/
