@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated manuscript."
+title: "Evaluation leakage through learnt components in cross-domain Vis-NIR classification: apple origin and five public data sets"
+authors:
+  - family-names: Li
+    given-names: Panlin
+    affiliation: Xinjiang Agricultural University
+  - family-names: Zhang
+    given-names: Qingli
+    affiliation: Xinjiang Agricultural University
+  - family-names: Jiao
+    given-names: Qitai
+    affiliation: Xinjiang Agricultural University
+  - family-names: Li
+    given-names: Yuchang
+    affiliation: Xinjiang Agricultural University
+  - family-names: Sun
+    given-names: Jiamei
+    affiliation: Xinjiang Agricultural University
+  - family-names: Huang
+    given-names: Hua
+    affiliation: Xinjiang Agricultural University
+    email: huanghua@xjau.edu.cn
+    orcid: "https://orcid.org/0000-0003-0615-9402"
+repository-code: "https://github.com/2004lryan/016apple-nir-crossyear"
+license: MIT
+date-released: "2026-09-25"
