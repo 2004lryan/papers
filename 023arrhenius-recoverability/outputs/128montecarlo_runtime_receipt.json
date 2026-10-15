@@ -1,0 +1,71 @@
+{
+  "script": "128montecarlo_runtime_receipt.py",
+  "target_script": "123montecarlo_criterion_study.py",
+  "purpose": "稿件 §sec:mc 算力披露句所引墙钟时间的可核查凭据；本收据由本脚本生成，可随时重跑重出。",
+  "measured": {
+    "n_repeats": 3,
+    "per_run": [
+      {
+        "repeat": 1,
+        "wall_clock_sec": 590.65,
+        "user_sec": 335.15,
+        "sys_sec": 222.92,
+        "cpu_sec": 558.08,
+        "loadavg_1min_at_start": 2.37
+      },
+      {
+        "repeat": 2,
+        "wall_clock_sec": 546.18,
+        "user_sec": 327.42,
+        "sys_sec": 198.05,
+        "cpu_sec": 525.48,
+        "loadavg_1min_at_start": 5.58
+      },
+      {
+        "repeat": 3,
+        "wall_clock_sec": 528.37,
+        "user_sec": 324.98,
+        "sys_sec": 186.46,
+        "cpu_sec": 511.43,
+        "loadavg_1min_at_start": 2.6
+      }
+    ],
+    "cpu_sec_median": 525.48,
+    "cpu_sec_min": 511.43,
+    "cpu_sec_max": 558.08,
+    "wall_clock_sec_median": 546.18,
+    "wall_clock_sec_min": 528.37,
+    "wall_clock_sec_max": 590.65,
+    "user_sec_total": 987.55,
+    "cpu_hours_total_this_receipt": 0.443,
+    "threads": "single process (no BLAS fan-out configured)",
+    "note": "稿面引用的时间区间必须落在 per_run 实测值之内。【2026-08-21 订正，RYA-569】本机为共享工作站；实测表明受同机负载影响的不只是墙钟——同机任务耗尽物理内存时换页开销进入 sys_sec，总 CPU 随之数倍上涨，而 user_sec 相对稳定。故刻画算法本身的量是 user_sec，稿面引用它，总 CPU 与墙钟一并报出仅作参考；本收据只覆盖 123montecarlo_criterion_study 一个脚本，不构成全部正式实验的算力总账。"
+  },
+  "machine": {
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "python": "3.13.5",
+    "machine": "arm64"
+  },
+  "reproducibility": {
+    "method": "脚本原样在隔离沙箱重跑（03data 只读符号链接，输出改写到沙箱 04outputs），未触碰项目 04outputs 冻结件",
+    "sandbox": "${HOME}/.cache/rya105_mc_runtime_receipt",
+    "frozen_artifact": "04outputs/123montecarlo_criterion_study.json",
+    "frozen_sha256": "3a1470f119505724f10d4dd06e36d0f79c6af866a70ccc42c3fc6682b037915b",
+    "rerun_sha256": "3a1470f119505724f10d4dd06e36d0f79c6af866a70ccc42c3fc6682b037915b",
+    "rerun_sha256_all_repeats": [
+      "3a1470f119505724f10d4dd06e36d0f79c6af866a70ccc42c3fc6682b037915b",
+      "3a1470f119505724f10d4dd06e36d0f79c6af866a70ccc42c3fc6682b037915b",
+      "3a1470f119505724f10d4dd06e36d0f79c6af866a70ccc42c3fc6682b037915b"
+    ],
+    "rerun_deterministic_across_repeats": true,
+    "byte_identical": true,
+    "n_keys_compared": 427,
+    "n_keys_differing": 0,
+    "differing_keys": []
+  },
+  "honesty": [
+    "墙钟随机器负载波动；本收据记录的是本次测量值，不是唯一正确值。",
+    "byte_identical 为真只说明同一 numpy/scipy 环境下确定性可复现（123 全程 default_rng(SEED)）。",
+    "123 或其依赖一经改动本收据即失效，须重跑 128 重出。"
+  ]
+}

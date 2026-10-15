@@ -1,0 +1,50 @@
+{
+  "study": "Ψ_n 对廉价初值 θ̂ 误差的鲁棒性（真实苹果硬度动力学）",
+  "data_source": "Foods 2023 (PMC10253207 T16) 苹果硬度；基准 Ψ_n/realCV 取自 54c5_realkinetics-designsweep.csv",
+  "design_variety": "Royal Gala",
+  "pilot": {
+    "Ea_kJmol": 68.53122371489714,
+    "lnA": 23.523463069443448,
+    "r2_arrhenius": 0.9587179514236677
+  },
+  "n_overdetermined_subsets": 16,
+  "L1_linear_psi": {
+    "note": "论文头条 Ψ_n=线性 Arrhenius Fisher，θ̂ 不进入排序（解析不变）；baseline 取自论文 CSV",
+    "spearman_psi_vs_realerr": -0.8147058823529412,
+    "invariant_under_pilot_perturbation": true
+  },
+  "L2_gweighted_psi": {
+    "note": "理论 g-加权 Fisher，θ 经 k(T) 进入；扰动 (Ea,lnA) 报排序稳定性",
+    "baseline_spearman": -0.7852941176470588,
+    "perturbation": {
+      "pm10pct": {
+        "n": 204,
+        "spearman_mean": -0.7818627450980391,
+        "spearman_min": -0.8617647058823529,
+        "spearman_max": -0.5147058823529412,
+        "spearman_std": 0.03447379865195761,
+        "frac_same_sign_as_baseline": 1.0,
+        "frac_strong": 1.0
+      },
+      "pm20pct": {
+        "n": 202,
+        "spearman_mean": -0.7327366214164853,
+        "spearman_min": -0.8705882352941177,
+        "spearman_max": 0.6008853159880895,
+        "spearman_std": 0.16153652213119102,
+        "frac_same_sign_as_baseline": 0.9900990099009901,
+        "frac_strong": 0.9356435643564357
+      },
+      "pm30pct": {
+        "n": 191,
+        "spearman_mean": -0.6827348192210885,
+        "spearman_min": -0.8588235294117647,
+        "spearman_max": 0.5061710682435311,
+        "spearman_std": 0.26746109725007905,
+        "frac_same_sign_as_baseline": 0.9581151832460733,
+        "frac_strong": 0.8795811518324608
+      }
+    }
+  },
+  "verdict": "初值鲁棒性（真实苹果硬度，Royal Gala，16 超定子集；基准取自论文产物 54c5 CSV）。(L1) 论文头条线性 Ψ_n 的设计排序【解析地】不依赖初值 θ̂（θ̂ 不进入 λ_min，σ_lnk 为公共尺度），Spearman(Ψ_n,真实误差)=-0.81。(L2) 理论 g-加权 Ψ_n 在初值 (Ea,lnA) 各扰动 ±10/20/30% 下，设计排序 Spearman 均保持负号（最差档同号率 96%，最低 -0.87，baseline -0.79）。结论：Ψ_n 的设计筛选力不因廉价初值偏差而失效——外审提出的『初值佯谬』得到定量回应。"
+}

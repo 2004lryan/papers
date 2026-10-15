@@ -1,0 +1,108 @@
+{
+  "script": "(ablation record, produced by comparing two runs of 123montecarlo_criterion_study.py)",
+  "question": "把 k 搜索网格由「真值构造」换成「只由设计自身的时间窗构造」，§sec:mc 的结论是否改变",
+  "before": {
+    "k_grid": "exp(linspace(log(k_true.min())-4, log(k_true.max())+4, 400))",
+    "uses_truth": true
+  },
+  "after": {
+    "k_grid": "exp(linspace(log(1e-4/t_max), log(1e4/t_min), 2000))",
+    "uses_truth": false,
+    "rationale": "t_grid 是实验者开跑前定好的量，故该网格在真实部署中可照搬"
+  },
+  "comparison": {
+    "n_numeric_keys": 162,
+    "n_keys_rel_change_gt_2pct": 0,
+    "n_keys_rel_change_gt_1pct": 1,
+    "max_rel_change": 0.015528440866857363,
+    "top10_largest_relative_changes": [
+      {
+        "key": ".decision_relevant_regret.by_criterion.cond.ci95_of_median[0]",
+        "before": 0.8227969435122238,
+        "after": 0.8100201898294632,
+        "rel": 0.015528440866857363
+      },
+      {
+        "key": ".decision_relevant_regret.by_criterion.cond.mean_regret_vs_oracle",
+        "before": 6.941554878725768,
+        "after": 6.889656544823478,
+        "rel": 0.007476471022558009
+      },
+      {
+        "key": ".decision_relevant_regret.by_criterion.cond.p90_regret_vs_oracle",
+        "before": 18.15327515657525,
+        "after": 18.045474603136793,
+        "rel": 0.005938352859671858
+      },
+      {
+        "key": ".decision_relevant_regret.by_criterion.c_deg.p90_regret_vs_oracle",
+        "before": 0.5996266230971818,
+        "after": 0.5963382163663049,
+        "rel": 0.005484090606070341
+      },
+      {
+        "key": ".decision_relevant_regret.by_criterion.c_Ea.p90_regret_vs_oracle",
+        "before": 0.5996266230971818,
+        "after": 0.5963382163663049,
+        "rel": 0.005484090606070341
+      },
+      {
+        "key": ".decision_relevant_regret.by_criterion.E.p90_regret_vs_oracle",
+        "before": 0.5996266230971818,
+        "after": 0.5963382163663049,
+        "rel": 0.005484090606070341
+      },
+      {
+        "key": ".decision_relevant_regret.by_criterion.A.p90_regret_vs_oracle",
+        "before": 0.5996266230971818,
+        "after": 0.5963382163663049,
+        "rel": 0.005484090606070341
+      },
+      {
+        "key": ".decision_relevant_regret.by_criterion.cond.ci95_of_median[1]",
+        "before": 0.9609909611469967,
+        "after": 0.9656677816967651,
+        "rel": 0.004866664452479794
+      },
+      {
+        "key": ".unrecoverable_branch_saturation.median_observed_over_extrapolated",
+        "before": 0.950250398415496,
+        "after": 0.947588646923802,
+        "rel": 0.002801105367735043
+      },
+      {
+        "key": ".unrecoverable_branch_saturation.ci95[1]",
+        "before": 0.981194215836523,
+        "after": 0.9785559827695735,
+        "rel": 0.0026887980222144964
+      }
+    ]
+  },
+  "headline_slopes": {
+    ".E_vs_D_gap_bootstrap.point": {
+      "before": 0.054359765316692565,
+      "after": 0.054358354889420854
+    },
+    ".decision_relevant_regret.by_criterion.cond.median_regret_vs_oracle": {
+      "before": 0.8925715451712901,
+      "after": 0.8908743884844901
+    },
+    ".two_axis_rate_validation.all.slope": {
+      "before": -0.48252305694525366,
+      "after": -0.48252083023350345
+    },
+    ".two_axis_rate_validation.controlled_axis.vary_n_fix_dT.slope_median": {
+      "before": -0.4884538912217713,
+      "after": -0.48848770624258897
+    },
+    ".two_axis_rate_validation.controlled_axis.vary_dT_fix_n.slope_median": {
+      "before": -0.4905613325593524,
+      "after": -0.4905968775588355
+    }
+  },
+  "conclusion": "oracle 网格并未对结论做功：全部 162 个数值键无一相对变动超过 2%，三条速率斜率均只在小数第四位变动。原实现报告的边界命中率为 0 只能说明未被截断，本消融则直接证明去掉真值信息后结论不变。已据此把 123 的网格改为与真值无关的版本。",
+  "honesty": [
+    "两次运行使用同一随机种子与同一设计库参数，唯一差别是 k 网格的构造与点数（400->2000）。",
+    "点数提高是为了在更宽的搜索区间上保持可比的对数分辨率，非为改善结果。"
+  ]
+}

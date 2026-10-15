@@ -1,0 +1,98 @@
+{
+  "script": "138eigendirection_angle_check.py",
+  "seed": 20260821,
+  "purpose": "改码前的独立几何预检：同方差代理与异方差定义量的最小特征方向夹角，以及它对 rmse_deg 的预期影响。用于给义务 1f9bcf45 的修复定一个【可证伪的预注册预测】。",
+  "task_brief_mechanism_refuted": {
+    "R_GAS_used_by_123": 0.008314,
+    "unit": "kJ/(mol*K)（因 E_a 以 kJ/mol 计）",
+    "x_eq_1_over_RT_range_over_T_-18_to_40C": [
+      0.3840940360528331,
+      0.47140524158316555
+    ],
+    "second_column_value": 1.0,
+    "column_magnitude_ratio": [
+      2.1213170999999997,
+      2.6035291
+    ],
+    "task_brief_claimed_ratio": 10000.0,
+    "verdict": "任务书的 4.2e-4 对应 R=8.314 J/(mol·K)，与脚本实际单位不符；两列真实量级比只有 2.1–2.6 倍，故『方向被钉在 e_1』的论据不成立",
+    "max_possible_rotation_deg": 4.227950836548709
+  },
+  "random_designs": {
+    "n": 4000,
+    "sigma_heteroscedasticity": "逐温度 1–10× 随机（σ 基准锚定 0.06–0.60）",
+    "angle_deg_median": 0.09081631342821611,
+    "angle_deg_p95": 0.7398225386023953,
+    "angle_deg_max": 1.9313769541055028,
+    "crb_rmse_ratio_median": 1.0000012561776228,
+    "crb_rmse_ratio_p95": 1.000083361243749,
+    "crb_rmse_ratio_max": 1.0005682539594334
+  },
+  "adversarial_cases": [
+    {
+      "case": "3T 窄窗 2℃，异方差 1000×",
+      "T_C": [
+        4.0,
+        5.0,
+        6.0
+      ],
+      "sigma_ratio_max_over_min": 1000.0,
+      "angle_deg": 0.07431760913955708,
+      "crb_rmse_ratio_het_over_hom": 1.0000008412178814
+    },
+    {
+      "case": "3T 宽窗 −18–40℃，异方差 1000×",
+      "T_C": [
+        -18.0,
+        11.0,
+        40.0
+      ],
+      "sigma_ratio_max_over_min": 1000.0,
+      "angle_deg": 2.1083620429124146,
+      "crb_rmse_ratio_het_over_hom": 1.0006774131175895
+    },
+    {
+      "case": "2T，异方差 1e6",
+      "T_C": [
+        0.0,
+        25.0
+      ],
+      "sigma_ratio_max_over_min": 1000000.0,
+      "angle_deg": 0.8860331045764679,
+      "crb_rmse_ratio_het_over_hom": 1.0001195825782716
+    },
+    {
+      "case": "4T，一个 σ→0（权重发散）",
+      "T_C": [
+        -18.0,
+        0.0,
+        20.0,
+        40.0
+      ],
+      "sigma_ratio_max_over_min": 30000000.0,
+      "angle_deg": 2.120827186926589,
+      "crb_rmse_ratio_het_over_hom": 1.000685461877551
+    },
+    {
+      "case": "6T 等距，σ 单调 100×",
+      "T_C": [
+        -18.0,
+        -6.4,
+        5.199999999999999,
+        16.799999999999997,
+        28.4,
+        40.0
+      ],
+      "sigma_ratio_max_over_min": 100.0,
+      "angle_deg": 2.003677424969414,
+      "crb_rmse_ratio_het_over_hom": 1.0006117526084273
+    }
+  ],
+  "worst_angle_deg_overall": 2.120827186926589,
+  "worst_crb_rmse_ratio_overall": 1.000685461877551,
+  "prediction": "① 夹角是 0.1°–2° 量级，不是任务书说的 1e-3°；② 但 rmse 沿方向的二次型在主轴附近二阶平坦，故 rmse_deg 的相对变化 ~ O(sin²θ/2)，由上面的 CRB 比值给出定量预测（中位与 p95 见 random_designs）；③ 因该比值 ≥1 且逐设计不同，头条 log-log 斜率可以在末位轻微移动，**不预测『逐位不变』**；预测的是移动量落在 CRB 比值所允许的范围内。",
+  "falsifier": "若 123 全量重跑后 rmse_deg_het/rmse_deg 的中位数或 p95 明显超出本表的 CRB 预测，则说明除方向错配外仍有别的缺陷，须停下报告而非改稿去追新数字。",
+  "honesty": [
+    "本脚本只做几何 + CRB 一阶代理，不含仿真误差；决定性核验由 123 全量重跑落盘的 rmse_deg 与 rmse_deg_het 两列直接对比给出。"
+  ]
+}

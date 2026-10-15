@@ -1,0 +1,183 @@
+{
+  "script": "122criterion_bakeoff.py",
+  "source_csv": "04outputs/54c5_realkinetics-designsweep.csv",
+  "n_subsets_total": 26,
+  "n_overdetermined": 16,
+  "N_convention": "N = n_temps（Arrhenius 阶段观测数）；Î₁ = I_total/n_temps，见 criteria() docstring",
+  "psi_n_vs_lambda_min_max_relerr": 0.0,
+  "reconstruction_check": {
+    "ratio_relative_spread": 8.766763359774654e-12,
+    "implied_sigma_lnk": 0.06209759748206603,
+    "spearman_vs_csv_lambda_min": 0.9999999999999999,
+    "cond_max_relerr_vs_csv": 3.6342484577289724e-11,
+    "note": "σ=1 重建与脚本 54 输出成恒定比例且排序 Spearman=1，故口径一致"
+  },
+  "lemma_fisher_numerical_check": {
+    "min_abs_cos_krug_vs_min_eigvec": 0.9999999999316744,
+    "note": "理论补偿线方向（斜率=调和均值温度）与数值最小特征方向的最小 |cos|；≈1 即引理 fisher 在全部 26 个真实子集上成立",
+    "weighting_convention": "本脚本【不】沾 2026-08-23 在 43trichotomy_formal.py 上坐实的那条缺陷（取证义务 9974b904a90b：krug() 比的是不加权 E[r]，而 lem:fisher 断言的是加权 E_w[r]）。理由是本脚本的口径下加权与不加权恒等：fisher_sigma1() 装配的行是 [-1/(R·T_K), 1]，每行权重均一（无 g=kt·e^{-kt} 因子），故以行权重加权的均值就等于算术均值，而 krug_direction() 取的 1/(R·T_hm) = mean(1/(R·T_K)) 正是该算术均值；两函数又吃同一个 T_C 数组，故二者按构造一致——上面 min_abs_cos≈1 即由此而来。43 的不对称之处在于 fim() 按 g^2 加权而 krug() 根本看不到 g。实测（RYA-588，2000 组随机设计）：本口径下 max|加权−不加权| = 1.67e-16（机器精度），43 口径下同一量的最大相对差为 5.58e-2。故本脚本不随 43 连坐改动。"
+  },
+  "spearman_marginal_vs_realCV": {
+    "crit_E": -0.8294117647058824,
+    "crit_D": -0.8294117647058824,
+    "crit_A": -0.8294117647058824,
+    "crit_c_deg": -0.8294117647058824,
+    "crit_c_krug": -0.8294117647058824,
+    "crit_c_Ea": -0.8294117647058824,
+    "crit_cond": 0.6588235294117648,
+    "deltaT": -0.7959235002185201,
+    "n_temps": -0.5843090896943717
+  },
+  "spearman_partial_controlling_deltaT": {
+    "crit_E": -0.40293502077469073,
+    "crit_D": -0.40293502077469073,
+    "crit_A": -0.40293502077469073,
+    "crit_c_deg": -0.40293502077469073,
+    "crit_c_krug": -0.40293502077469073,
+    "crit_c_Ea": -0.40293502077469073,
+    "crit_cond": -0.3509434051908596
+  },
+  "ranking_by_abs_marginal": [
+    [
+      "crit_E",
+      -0.8294117647058824
+    ],
+    [
+      "crit_D",
+      -0.8294117647058824
+    ],
+    [
+      "crit_A",
+      -0.8294117647058824
+    ],
+    [
+      "crit_c_deg",
+      -0.8294117647058824
+    ],
+    [
+      "crit_c_krug",
+      -0.8294117647058824
+    ],
+    [
+      "crit_c_Ea",
+      -0.8294117647058824
+    ],
+    [
+      "deltaT",
+      -0.7959235002185201
+    ],
+    [
+      "crit_cond",
+      0.6588235294117648
+    ],
+    [
+      "n_temps",
+      -0.5843090896943717
+    ]
+  ],
+  "criterion_collapse_in_near_singular_regime": {
+    "criteria_rank_equivalent_to_E": [
+      "crit_A",
+      "crit_c_Ea",
+      "crit_c_deg",
+      "crit_c_krug"
+    ],
+    "median_condition_number": 95962.2525686516,
+    "pairwise_spearman": {
+      "crit_E|crit_D": 0.9945299145299145,
+      "crit_E|crit_A": 0.9999999999999999,
+      "crit_E|crit_c_deg": 0.9999999999999999,
+      "crit_E|crit_c_krug": 0.9999999999999999,
+      "crit_E|crit_c_Ea": 0.9999999999999999,
+      "crit_E|crit_cond": -0.8365811965811965,
+      "crit_D|crit_A": 0.9945299145299145,
+      "crit_D|crit_c_deg": 0.9945299145299145,
+      "crit_D|crit_c_krug": 0.9945299145299145,
+      "crit_D|crit_c_Ea": 0.9945299145299145,
+      "crit_D|crit_cond": -0.8078632478632478,
+      "crit_A|crit_c_deg": 0.9999999999999999,
+      "crit_A|crit_c_krug": 0.9999999999999999,
+      "crit_A|crit_c_Ea": 0.9999999999999999,
+      "crit_A|crit_cond": -0.8365811965811965,
+      "crit_c_deg|crit_c_krug": 0.9999999999999999,
+      "crit_c_deg|crit_c_Ea": 0.9999999999999999,
+      "crit_c_deg|crit_cond": -0.8365811965811965,
+      "crit_c_krug|crit_c_Ea": 0.9999999999999999,
+      "crit_c_krug|crit_cond": -0.8365811965811965,
+      "crit_c_Ea|crit_cond": -0.8365811965811965
+    },
+    "interpretation": "在本文关心的近奇异设计区，条件数中位数达 9.6e+04，tr(M^-1)≈1/λ_min，故 A-最优、以及沿任何与补偿线不正交方向的 c-最优，都被 1/λ_min 支配，与 E-最优（本文 Ψ）秩等价（26 个全部子集上成对 Spearman=1.000）。D-最优不完全塌缩（与 E 成对 Spearman=0.9945<1），但这只说明它与 E 的排序略有出入；就对【真实误差】的秩相关而言，两者在 16 个超定子集上逐位相同（均为 -0.8294），故不得据此断言 D-最优偏离真实误差排序。",
+    "sample_note": "pairwise_spearman 与 criteria_rank_equivalent_to_E 算在 full（26 个全部子集）上；spearman_marginal_vs_realCV / spearman_partial_controlling_deltaT / E_vs_D_is_NOT_established 算在 od（16 个超定子集）上。引用时必须分别标注 n。"
+  },
+  "E_vs_D_is_NOT_established": {
+    "bootstrap_marginal_gap": {
+      "point": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "P_D_at_least_as_good": 1.0,
+      "n_resamples": 5000
+    },
+    "bootstrap_partial_gap": {
+      "point": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "P_D_at_least_as_good": 1.0,
+      "n_resamples": 5000
+    },
+    "observed_marginal_gap": 0.0,
+    "observed_partial_gap": 0.0,
+    "n_discordant_pairs": 0,
+    "n_pairs_total": 120,
+    "A_over_E_range": [
+      1.9999606316805665,
+      1.9999911756947923
+    ],
+    "lambda_min_fold_range": 5.13485352448651,
+    "lambda_max_fold_range": 1.6704137627187918,
+    "verdict": "E 相对 D 的优势【未达统计可辨】：两个 bootstrap CI 均含零，且 120 对中有 0 对排序不同（逐对排序完全一致）。不得作为结论写入正文。"
+  },
+  "E_vs_cond": {
+    "bootstrap_marginal_gap": {
+      "point": 0.17814967591606418,
+      "ci95": [
+        -0.04477779265109443,
+        0.5030140023443246
+      ],
+      "P_cond_at_least_as_good": 0.0586,
+      "n_resamples": 5000
+    },
+    "bootstrap_partial_gap": {
+      "point": 0.013641663030217924,
+      "ci95": [
+        -0.5984751633269871,
+        0.5794881716738418
+      ],
+      "P_cond_at_least_as_good": 0.4716,
+      "n_resamples": 5000
+    },
+    "observed_marginal_gap": 0.1705882352941176,
+    "observed_partial_gap": 0.05199161558383114,
+    "spearman_cond_vs_lambda_min_hat1": -1.0,
+    "gap_is_exactly_the_N_factor": true,
+    "n_discordant_pairs": 23,
+    "n_pairs_total": 120,
+    "direction_check": {
+      "expected_sign_marginal": "+（cond 越大越病态，应对应越大的真实误差）",
+      "observed_marginal": 0.6588235294117648,
+      "marginal_direction_ok": true,
+      "observed_partial": -0.3509434051908596,
+      "partial_direction_ok": false,
+      "note": "控 ΔT 后 cond 由 +0.6588 翻为 -0.3509，即与预期方向相反；但这不是 cond 独有——所有【不含样本量因子】的判据（λmin(Î₁)、det(Î₁)、tr(Î₁⁻¹)）在同一口径下给出同一个 |偏 Spearman|=0.3509 且同样指向反面（见 104 的双口径消融表）。cond 的特殊之处在于它对信息阵的公共缩放不变，【按构造】无法携带样本量因子。"
+    }
+  },
+  "honesty": [
+    "子集嵌套非独立，只报秩相关不报 p 值（与正文 §res-c5 同口径）",
+    "单一品种、单一真实数据集、16 个超定子集，结论为基准级而非机制级",
+    "若 D 或 A 胜出即照实报告",
+    "E vs D 与 E vs cond 用同一支自助、同一批重抽样下标、同一 |Spearman| 口径，不为想赢的比较另配统计"
+  ]
+}

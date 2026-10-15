@@ -1,0 +1,33 @@
+You are a paper-to-evidence auditor with ZERO prior context about this research. Compare paper text against raw result files only. Do not trust any narrative; only the files.
+
+PAPER FILES (claims):
+- 06doc/01manuscript/Elsevier_zh.tex
+- 06doc/01manuscript/Elsevier_en.tex
+
+AUDIT SCOPE (this is a targeted delta audit; audit ONLY these two sentences, in both language versions which must carry identical numbers):
+1. The Monte-Carlo protocol sentence: Elsevier_zh.tex line 639 (the sentence beginning 「抽取 $1000$ 个相互独立的 Arrhenius 设计」 through 「…不是 bootstrap 噪声传播敏感性。」) and its English counterpart at Elsevier_en.tex line 559. Verify every quantitative value in it that is derivable from the evidence files below (design count, sigma ranges/median, count inside the measured band, split sizes, Spearman gap and its CI if present in evidence).
+2. The initial-value robustness sentence: Elsevier_zh.tex line 454 (the sentence containing 「对 pilot $(\hat E_a,\widehat{\log A})$ 各施加 $\pm10$--$30\%$ 扰动」) and its English counterpart at Elsevier_en.tex line 394. Verify the two percentages for the worst tier (±30%), the subset count, and the five-seed-mean convention stated in the paper.
+
+RAW EVIDENCE FILES:
+For scope item 1:
+- 04outputs/123montecarlo_criterion_study-designs.csv  (per-design table, 1000 rows; column sigma_lnk is the induced noise scale, sigma_y the response-scale draw)
+- 04outputs/123montecarlo_criterion_study.json
+For scope item 2 (output of rerunning the repository's committed script 103sensitivity_pilot.py once per seed, seeds 20060515/20041210/19810915/2023/2024):
+- ${SANDBOX}/04outputs/105_seeds/103sensitivity_pilot-seed20060515.json
+- ${SANDBOX}/04outputs/105_seeds/103sensitivity_pilot-seed20041210.json
+- ${SANDBOX}/04outputs/105_seeds/103sensitivity_pilot-seed19810915.json
+- ${SANDBOX}/04outputs/105_seeds/103sensitivity_pilot-seed2023.json
+- ${SANDBOX}/04outputs/105_seeds/103sensitivity_pilot-seed2024.json
+(relevant JSON path inside each: L2_gweighted_psi.perturbation.pm30pct with fields n, frac_same_sign_as_baseline, frac_strong; n_overdetermined_subsets is the subset count)
+
+RULES:
+- Only standard rounding to displayed precision is allowed (e.g. 0.404010 -> 0.404 ok; 95.58% -> 96% ok under half-up integer rounding; anything beyond that is a mismatch).
+- Recompute aggregates yourself from the evidence files (e.g. min/max/median of sigma_lnk; count of designs with sigma_lnk in [0.06,0.60]; five-seed means of the pm30pct fractions).
+- zh and en must be numerically identical; flag any divergence.
+
+OUTPUT: a JSON object only, no prose outside it:
+{
+ "claims": [ {"claim_id":int, "location":"zh:L639|en:L559|...", "paper_text":"short quote", "paper_value":"...", "evidence_file":"...", "evidence_value":"...", "status":"exact_match|rounding_ok|number_mismatch|missing_evidence", "details":"..."} , ...],
+ "zh_en_consistent": true|false,
+ "overall_verdict": "PASS|WARN|FAIL"
+}

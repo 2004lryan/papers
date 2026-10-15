@@ -1,0 +1,468 @@
+{
+  "data_source": "10.3390/foods11142004 (PMC9319022, PMID 35885247, Foods 2022 11(14):2004, Table 3 Ammonia+TBARS, read_html-extracted)",
+  "dataset_name": "Long-life food quality kinetics (Ammonia + TBARS), Foods 2022 11(14):2004",
+  "independence": "与 C5 主用 PMC10253207(苹果硬度衰减) 完全不同体系: 罐头/方便食品 vs 鲜果; 氨/TBARS【累积上升】 vs 硬度【衰减下降】; −18~40°C/月 vs 2~10°C/小时; 不同课题组/DOI",
+  "positioning": "第二独立真实数据【复现尝试】诊断 Ψ 的设计预测效力(cor:design 设计侧推论)。结论(诚实): (A)Arrhenius 可拟合性在全新体系上稳健复现; (B)同质 Ψ_n(54c5 口径)在本体系【不复现】, 异质 Ψ_het 修正后恢复——揭示该诊断【条件于同质噪声假设】, 与本项目 R34/R35 '阈值域校准/梯度在真实噪声下脆弱' 一致。【非】三分律相变本身或 converse(后者由半合成+理论支撑)",
+  "kinetic_model": "零阶累积 y=y0+k·t (食品贮存氨/脂质氧化 TBARS 常用); Arrhenius ln k=lnA-Ea/(R T); Ψ_n=N·λ_min(Fisher), Fisher 列=[-1/(R T),1]/σ_lnk",
+  "honesty": "他组公开发表数据(附DOI/PMID/PMCID); pandas.read_html 真实提取(脚本55,存pmc_real/CSV)+独立 Europe PMC fullTextXML 重抓逐值核对(132测量行×2列 0 处不一致); 本脚本从CSV读取解析不手填; −18°C 冷冻点速率低且采样稀,Arrhenius 天然较差(不剔除,如实报告); 非单调/病态序列自动排除Ψ扫描",
+  "temperatures_C": [
+    -18.0,
+    5.0,
+    25.0,
+    40.0
+  ],
+  "time_months": [
+    0,
+    1,
+    3,
+    6,
+    9,
+    12,
+    15,
+    18,
+    21,
+    24
+  ],
+  "products": [
+    "InstantGoulashSoup",
+    "SzegedGoulash",
+    "CannedChickenMeat",
+    "PorkPate",
+    "CannedTunaFish"
+  ],
+  "attributes": [
+    "Ammonia",
+    "TBARS"
+  ],
+  "n_series": 10,
+  "per_series": [
+    {
+      "name": "InstantGoulashSoup",
+      "attr": "Ammonia",
+      "k_per_T": [
+        5.546236559139785,
+        5.234444444444445,
+        7.80595238095238,
+        21.47846715328467
+      ],
+      "r2_linear": [
+        0.9121316241484646,
+        0.7678201323319545,
+        0.7396580086431137,
+        0.9328454436632376
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        7,
+        5
+      ],
+      "Ea_kJmol": 13.778142449804216,
+      "lnA": 7.948468233532321,
+      "r2_arrhenius": 0.6406963629883757,
+      "mean_linear_r2": 0.8381138021966926,
+      "n_good_T": 4,
+      "sigma_lnk": 0.33943402339642437,
+      "monotone": true
+    },
+    {
+      "name": "InstantGoulashSoup",
+      "attr": "TBARS",
+      "k_per_T": [
+        1.6337634408602157,
+        2.40611111111111,
+        4.05595238095238,
+        30.295985401459856
+      ],
+      "r2_linear": [
+        0.9601154812076037,
+        0.7158368977181826,
+        0.89580565368625,
+        0.8974470396561689
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        7,
+        5
+      ],
+      "Ea_kJmol": 29.35472811031857,
+      "lnA": 13.957248027689314,
+      "r2_arrhenius": 0.7373443514163881,
+      "mean_linear_r2": 0.8673012680670513,
+      "n_good_T": 4,
+      "sigma_lnk": 0.5763632479073542,
+      "monotone": true
+    },
+    {
+      "name": "SzegedGoulash",
+      "attr": "Ammonia",
+      "k_per_T": [
+        0.7017204301075267,
+        0.9005555555555556,
+        1.842222222222222,
+        6.202049622437972
+      ],
+      "r2_linear": [
+        0.9820494503442005,
+        0.7212347755119966,
+        0.9026729188010609,
+        0.9557810162584347
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        9,
+        10
+      ],
+      "Ea_kJmol": 23.27855592715456,
+      "lnA": 10.337223774686743,
+      "r2_arrhenius": 0.8193826031625532,
+      "mean_linear_r2": 0.8904345402289231,
+      "n_good_T": 4,
+      "sigma_lnk": 0.3595443591585037,
+      "monotone": true
+    },
+    {
+      "name": "SzegedGoulash",
+      "attr": "TBARS",
+      "k_per_T": [
+        3.506021505376343,
+        5.3455555555555545,
+        7.575,
+        15.683972877176762
+      ],
+      "r2_linear": [
+        0.7127978875220121,
+        0.5830227893641683,
+        0.6626923263192355,
+        0.9501626953688905
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        9,
+        10
+      ],
+      "Ea_kJmol": 15.928905273072038,
+      "lnA": 8.662367847647117,
+      "r2_arrhenius": 0.9104563697654663,
+      "mean_linear_r2": 0.7271689246435766,
+      "n_good_T": 4,
+      "sigma_lnk": 0.16433638639932144,
+      "monotone": true
+    },
+    {
+      "name": "CannedChickenMeat",
+      "attr": "Ammonia",
+      "k_per_T": [
+        1.2913978494623657,
+        3.829444444444444,
+        5.0440476190476184,
+        7.554744525547446
+      ],
+      "r2_linear": [
+        0.8490116472968849,
+        0.9614826884970954,
+        0.8998413613461121,
+        0.9349595944017894
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        8,
+        5
+      ],
+      "Ea_kJmol": 19.512348971937335,
+      "lnA": 9.56022270187201,
+      "r2_arrhenius": 0.9611644269374068,
+      "mean_linear_r2": 0.9113238228854705,
+      "n_good_T": 4,
+      "sigma_lnk": 0.12902848357320748,
+      "monotone": true
+    },
+    {
+      "name": "CannedChickenMeat",
+      "attr": "TBARS",
+      "k_per_T": [
+        1.4303225806451612,
+        1.63,
+        2.637698412698413,
+        7.344890510948905
+      ],
+      "r2_linear": [
+        0.9455992807290954,
+        0.7662433671537775,
+        0.7527752347415142,
+        0.9761594543397218
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        8,
+        5
+      ],
+      "Ea_kJmol": 17.097965515245285,
+      "lnA": 8.182225991369323,
+      "r2_arrhenius": 0.7652163889263193,
+      "mean_linear_r2": 0.8601943342410273,
+      "n_good_T": 4,
+      "sigma_lnk": 0.31156324499046445,
+      "monotone": true
+    },
+    {
+      "name": "PorkPate",
+      "attr": "Ammonia",
+      "k_per_T": [
+        1.170537634408602,
+        1.3266666666666667,
+        2.0438888888888886,
+        4.741362305439975
+      ],
+      "r2_linear": [
+        0.9485005598718736,
+        0.9202044847217379,
+        0.9765795504067928,
+        0.9830890492722972
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        9,
+        10
+      ],
+      "Ea_kJmol": 14.741907410277273,
+      "lnA": 6.911230773002896,
+      "r2_arrhenius": 0.7839449812022503,
+      "mean_linear_r2": 0.9570934110681755,
+      "n_good_T": 4,
+      "sigma_lnk": 0.25459688795225915,
+      "monotone": true
+    },
+    {
+      "name": "PorkPate",
+      "attr": "TBARS",
+      "k_per_T": [
+        0.669247311827957,
+        1.146111111111111,
+        1.598888888888889,
+        5.245708121436277
+      ],
+      "r2_linear": [
+        0.8939127994771955,
+        0.6825611518944845,
+        0.7418048359343189,
+        0.9797957331482432
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        9,
+        10
+      ],
+      "Ea_kJmol": 21.141831334399974,
+      "lnA": 9.404891445532074,
+      "r2_arrhenius": 0.848336021731235,
+      "mean_linear_r2": 0.8245186301135605,
+      "n_good_T": 4,
+      "sigma_lnk": 0.2940762120101975,
+      "monotone": true
+    },
+    {
+      "name": "CannedTunaFish",
+      "attr": "Ammonia",
+      "k_per_T": [
+        0.34774193548387133,
+        1.7905555555555555,
+        2.1472222222222217,
+        3.132115888426569
+      ],
+      "r2_linear": [
+        0.9737898337656633,
+        0.9348713033461128,
+        0.9588988556037414,
+        0.9844099870882815
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        9,
+        10
+      ],
+      "Ea_kJmol": 24.206420892647095,
+      "lnA": 10.59336467220681,
+      "r2_arrhenius": 0.8963602119103712,
+      "mean_linear_r2": 0.9629924949509499,
+      "n_good_T": 4,
+      "sigma_lnk": 0.27077750193486927,
+      "monotone": true
+    },
+    {
+      "name": "CannedTunaFish",
+      "attr": "TBARS",
+      "k_per_T": [
+        1.3331182795698924,
+        1.4488888888888891,
+        1.4777777777777776,
+        3.6616890121744485
+      ],
+      "r2_linear": [
+        0.904966167624657,
+        0.5991993835629312,
+        0.5553253341872452,
+        0.9025883827625475
+      ],
+      "npts_per_T": [
+        4,
+        9,
+        9,
+        10
+      ],
+      "Ea_kJmol": 9.3201893283137,
+      "lnA": 4.527603045847398,
+      "r2_arrhenius": 0.5526353354363842,
+      "mean_linear_r2": 0.7405198170343452,
+      "n_good_T": 4,
+      "sigma_lnk": 0.27586478985681284,
+      "monotone": true
+    }
+  ],
+  "overdetermined_real_error": {
+    "n_overdetermined": 50,
+    "n_series_monotone": 10,
+    "logPsi_vs_logRealCV_slope": 0.022701985477792314,
+    "r2": 0.0012438448164447185,
+    "spearman": 0.14698679471788717,
+    "spearman_p": 0.30838758054817517,
+    "realCV_min": 0.024551147384008848,
+    "realCV_max": 0.5379904630290578,
+    "note": "真实测量 SD（发表±值）经[品质->k(T)->Arrhenius]全链 bootstrap 传播的 Ea 估计误差; n_temps>=3 超定(自由度>0,真实统计估计误差); 跨多条真实序列【合并】子集",
+    "het_logPsi_vs_logRealCV_slope": -0.33017157866105157,
+    "het_r2": 0.18335597639816756,
+    "het_spearman": -0.4042737094837935,
+    "het_spearman_p": 0.003593984342005476,
+    "het_note": "异质 Fisher：各温度用其【真实测量 SD 传播得到的 σ_lnk】(精度权 1/σ²)；刻画真实异方差(−18°C 冷冻点速率近零→相对噪声极大)",
+    "realCV_with_frozenM18_mean": 0.07373131676109794,
+    "realCV_without_frozenM18_mean": 0.04379495957120252,
+    "frozen_point_diagnosis": "含 −18°C 冷冻惰性点的子集 realCV 反而更大 → 宽温窗未必更稳; Ψ_n 同质假设被异方差破坏(冷冻点低速率/高相对噪声)，此为同质 Ψ_n 在本体系不复现的【机理】解释，异质 Ψ_het 修正后恢复负相关"
+  },
+  "homoscedastic_Psi_replicates": false,
+  "heteroscedastic_Psi_het_replicates": true,
+  "cor_design_replication": {
+    "n_monotone": 10,
+    "n_replicate": 3,
+    "detail": {
+      "InstantGoulashSoup|Ammonia": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.031869288160020375,
+        "wide_realCV": 0.028805797857872118,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.008814622431581353,
+        "narrow_realCV": 0.024551147384008848,
+        "wide_better": false
+      },
+      "InstantGoulashSoup|TBARS": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.011053264101205636,
+        "wide_realCV": 0.041794662512192125,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.00305718625403431,
+        "narrow_realCV": 0.028300148903419555,
+        "wide_better": false
+      },
+      "SzegedGoulash|Ammonia": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.02840391130827276,
+        "wide_realCV": 0.04072700137595185,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.007856145154713182,
+        "narrow_realCV": 0.04698424784399149,
+        "wide_better": true
+      },
+      "SzegedGoulash|TBARS": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.13596140409418425,
+        "wide_realCV": 0.044444901773279956,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.03760512115426337,
+        "narrow_realCV": 0.03368267694724408,
+        "wide_better": false
+      },
+      "CannedChickenMeat|Ammonia": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.22055246733178538,
+        "wide_realCV": 0.04906110935968816,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.06100188733810299,
+        "narrow_realCV": 0.07904852629086502,
+        "wide_better": true
+      },
+      "CannedChickenMeat|TBARS": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.037826021937914074,
+        "wide_realCV": 0.03314967079574635,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.010462175992047188,
+        "narrow_realCV": 0.03098110678572778,
+        "wide_better": false
+      },
+      "PorkPate|Ammonia": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.05664700139214995,
+        "wide_realCV": 0.030847719633332497,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.015667809291686256,
+        "narrow_realCV": 0.028487305613917994,
+        "wide_better": false
+      },
+      "PorkPate|TBARS": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.04245836984803864,
+        "wide_realCV": 0.047361049817990795,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.011743421986450198,
+        "narrow_realCV": 0.03017069890051945,
+        "wide_better": false
+      },
+      "CannedTunaFish|Ammonia": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.0500792657059089,
+        "wide_realCV": 0.1347297864446969,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.013851260706921782,
+        "narrow_realCV": 0.08075546506875883,
+        "wide_better": false
+      },
+      "CannedTunaFish|TBARS": {
+        "wide_temps": "-18/5/25/40",
+        "wide_dT": 58.0,
+        "wide_Psi": 0.048249249425317865,
+        "wide_realCV": 0.0549336091079958,
+        "narrow_temps": "5/25/40",
+        "narrow_dT": 35.0,
+        "narrow_Psi": 0.013345102474704123,
+        "narrow_realCV": 0.05498827197357213,
+        "wide_better": true
+      }
+    }
+  },
+  "verdict": "PARTIAL(诚实): Arrhenius 全 10 序列稳健可拟合(Ea=9-29 kJ/mol); 但【同质 Ψ_n】(54c5 口径)在本体系【不复现】(Spearman=0.15 n.s.)——因 −18°C 冷冻惰性点破坏同质噪声假设(异方差); 改用【异质 Ψ_het】(各温度真实噪声)后【恢复负相关】(Spearman=-0.40, p=3.6e-03)。→ 诊断有效但【条件于其同质噪声假设】; 真实异方差数据需异质 Fisher。"
+}

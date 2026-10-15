@@ -1,0 +1,171 @@
+{
+ "任务": "RYA-579",
+ "台账文件": "refine-logs/FORENSICS_obligations.json",
+ "台账文件_sha256": "e81022984d787a8cdf66bda87cb2fb43a332539d0c5c5c431cc5b09c1b456efa",
+ "台账计数": {
+  "total": 50,
+  "RESOLVED": 37,
+  "WAIVED": 7,
+  "OPEN": 6
+ },
+ "A_a9930fd7收据": {
+  "obligation_id": "a9930fd7d82bdc86fe7b8adb",
+  "台账状态": "OPEN / UNRESOLVED_DISAPPEARANCE",
+  "本轮处置": "补带哈希的收据，正式登记『判不成立』；不自行改台账状态",
+  "判据": "稿面在报出该组半合成结果之前即声明使用 oracle 层 Ψ(θ₀)，且说明理由（受检对象是定理的相律）",
+  "定位": {
+   "Elsevier_zh.tex": {
+    "sha256": "2bc3660c8356878fbab175e725e16452bec7160de9d01a3a81635d7c44a1f9a7",
+    "line": 514,
+    "span_sha256": "8d131a7afe15d9469ab4cbe3dc284f0f805f519fe3335726bda06e746a729200",
+    "span_head": "本组半合成实验用的是 oracle 层 $\\Psi(\\theta_0)$，即以生成真值装配 Fisher。这是刻意的：此处受检的对象是定理~\\ref{thm:c5} 的相律，",
+    "刻意声明": true
+   },
+   "Elsevier_en.tex": {
+    "sha256": "8af67898468d95993d8a01e8201d2991a6321dbdbbbdb004ca34ff288b850403",
+    "line": 441,
+    "span_sha256": "f66b51b0ab61b9e62e2c975f6f28001e8bac78b543cbf5ddcd5eacf9cd92750a",
+    "span_head": "This set of semi-synthetic runs uses the oracle layer $\\Psi(\\theta_0)$, assembling the Fisher information at the generating truth. That is deliberate: what is under test here is the phase law of Theorem~\\ref{thm:c5}, and",
+    "刻意声明": true
+   }
+  },
+  "AGREES": true
+ },
+ "B_fingerprint重复组": {
+  "机制": "取证门禁的 fingerprint 计算把 evidence.location.file 的绝对路径算进义务身份",
+  "复现条件": "同一份稿件在不同轮次的取证沙箱目录下重跑取证，同一条 finding 会因路径不同而算出不同 fingerprint，被开成新的 obligation_id；旧条目则以 UNRESOLVED_DISAPPEARANCE 的形态留在台账上",
+  "本轮不修上游": true,
+  "重复组": [
+   {
+    "判据": "同 skill + 同 pattern_id + 同 DOI + 跨沙箱 + 所争值对完全一致",
+    "skill": "文献",
+    "pattern_id": "HP-CITE-HALLUC",
+    "doi": [
+     "10.1090/S0894-0347-08-00600-0"
+    ],
+    "所争值对": [
+     "2008",
+     "2009"
+    ],
+    "members": [
+     {
+      "obligation_id": "39714341cb962e482b85247d",
+      "status": "WAIVED",
+      "severity": "minor",
+      "sandbox": "rya104",
+      "title": "Publication-year convention differs"
+     },
+     {
+      "obligation_id": "1d29bb33deb0aa7a32276f20",
+      "status": "WAIVED",
+      "severity": "minor",
+      "sandbox": "rya536",
+      "title": "donoho2009 — publication year differs from canonical record"
+     },
+     {
+      "obligation_id": "7d5c0b20273ce31b85e09c59",
+      "status": "OPEN",
+      "severity": "minor",
+      "sandbox": "rya574",
+      "title": "donoho2009 — publication year differs from canonical record"
+     },
+     {
+      "obligation_id": "d2a9d7e4b8fecd3d76362b3f",
+      "status": "WAIVED",
+      "severity": "minor",
+      "sandbox": "rya99",
+      "title": "donoho2009 publication-year discrepancy"
+     }
+    ]
+   }
+  ],
+  "候选但被第二步否掉（同文献不同缺陷，非路径重复）": [
+   {
+    "判据": "第一步候选通过、第二步被否：组内各条所争值对不同，属同一文献的不同缺陷",
+    "skill": "文献",
+    "pattern_id": "HP-CITE-HALLUC",
+    "doi": [
+     "10.1063/5.0084988"
+    ],
+    "所争值对": [
+     "214103",
+     "214110"
+    ],
+    "members": [
+     {
+      "obligation_id": "9f9a23dfdd399a565af80489",
+      "status": "RESOLVED",
+      "severity": "major",
+      "sandbox": "rya104",
+      "title": "Incorrect article number for Kurniawan paper"
+     },
+     {
+      "obligation_id": "f4a10c40ad0b7d380cec15a4",
+      "status": "RESOLVED",
+      "severity": "minor",
+      "sandbox": "rya109",
+      "title": "Author suffix omitted from inline bibliography"
+     }
+    ],
+    "各条所争值对": {
+     "9f9a23dfdd399a565af80489": [
+      "214103",
+      "214110"
+     ],
+     "f4a10c40ad0b7d380cec15a4": []
+    }
+   }
+  ],
+  "同沙箱多条（非路径重复）": []
+ },
+ "C_六条OPEN本轮处置": [
+  {
+   "obligation_id": "a9930fd7d82bdc86fe7b8adb",
+   "severity": "major",
+   "skill": "实验",
+   "title": "Primary formal trichotomy evaluation uses oracle Fisher information instead of the described plug-in diagnostic",
+   "本轮处置": "判不成立 + 补收据",
+   "说明": "oracle vs plug-in：稿面事先声明刻意用 oracle 层，见本收据 A 节"
+  },
+  {
+   "obligation_id": "7d5c0b20273ce31b85e09c59",
+   "severity": "minor",
+   "skill": "文献",
+   "title": "donoho2009 — publication year differs from canonical record",
+   "本轮处置": "挂起待 ryan 签",
+   "说明": "donoho2009 年份：三轮判假阳性，稿面不改；waive 需真人 --approver，执行方不得自签"
+  },
+  {
+   "obligation_id": "b7d6ca641c1be58d30acda57",
+   "severity": "major",
+   "skill": "一致性",
+   "title": "Empirical-evidence scope is inconsistent",
+   "本轮处置": "改稿",
+   "说明": "实证范围：讨论节收窄，写明另两个体系各自贡献什么、为何不构成设计法则证据"
+  },
+  {
+   "obligation_id": "f22b4a386e47e1e9c1c07f09",
+   "severity": "critical",
+   "skill": "实验",
+   "title": "Reported CV ratio does not match the stored design-sweep artifact",
+   "本轮处置": "判不成立 + 改根因",
+   "说明": "CV 比：稿面口径为 5 种子均值，reviewer 比的是单个最窄设计对；本轮补产物指向"
+  },
+  {
+   "obligation_id": "a3d46e9f14929a94bbede04f",
+   "severity": "major",
+   "skill": "实验",
+   "title": "Reported Spearman correlation does not match the stored real-data result",
+   "本轮处置": "判不成立 + 改根因",
+   "说明": "Spearman：稿面为 5 种子均值 -0.7759，reviewer 比的是原生单次抽样 -0.8294；本轮补产物指向"
+  },
+  {
+   "obligation_id": "4c047ea6ba6833ec1a73f7dd",
+   "severity": "major",
+   "skill": "推导",
+   "title": "LAN-based critical lower bound uses a nonlocal perturbation",
+   "本轮处置": "改稿",
+   "说明": "LAN 临界档非局部位移：下界改走精确高斯 KL，三档统一，全程不援引 lem:laqf"
+  }
+ ]
+}

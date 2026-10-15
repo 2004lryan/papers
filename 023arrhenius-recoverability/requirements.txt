@@ -1,0 +1,8 @@
+# 发布树 code/ 的 16 个脚本实际 import 的包（宽区间，便于在新环境安装）。
+# 复现论文数字请改用 requirements.lock.txt（精确版本锁，含 04outputs 侧
+# 复现路径额外需要的 torch / openpyxl / joblib）。Tested on Python 3.13.5.
+numpy>=2.0,<3
+pandas>=2.2,<3
+scipy>=1.13,<2
+matplotlib>=3.8,<4
+python-docx>=1.1      # only for the submission documents, not for the analysis

@@ -1,0 +1,748 @@
+{
+  "script": "127budget_matched_sensitivity.py",
+  "seed": 20060515,
+  "source_designs": "123montecarlo_criterion_study-designs.csv",
+  "n_designs": 1000,
+  "question": "把 123 的预算配平容差从 2.0 倍收紧到严格同预算，「按条件数筛查代价高昂」是否仍成立",
+  "protocol": "完全复用 123 已产出的设计库，不重跑仿真；只重做选型循环，唯一变动量为容差 TOL in [1.0, 1.05, 1.1, 1.25, 1.5, 2.0]（2.0 即 123 原设置）。",
+  "by_tolerance": {
+    "1.0": {
+      "n_scenarios": 352,
+      "operator": "heteroscedastic (def:psi 定义量)；同方差代理表另列",
+      "nobs_spread_max": 1.0,
+      "nobs_spread_median": 1.0,
+      "E_and_D_pick_same_design_rate": 0.9176136363636364,
+      "by_criterion": {
+        "E_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.10423326407578391,
+          "p90_regret_vs_oracle": 0.22284503425388325,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.1144872171238008,
+          "p90_regret_vs_oracle": 0.25207465127525963,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.10423326407578391,
+          "p90_regret_vs_oracle": 0.22284503425388325,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.10423326407578391,
+          "p90_regret_vs_oracle": 0.22284503425388325,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.10423326407578391,
+          "p90_regret_vs_oracle": 0.22284503425388325,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond_het": {
+          "median_regret_vs_oracle": 0.4874850411127003,
+          "mean_regret_vs_oracle": 4.027930282375364,
+          "p90_regret_vs_oracle": 7.72413576050557,
+          "ci95_of_median": [
+            0.35890464206255124,
+            0.9047477338105149
+          ]
+        }
+      },
+      "by_criterion_homoscedastic_surrogate": {
+        "E": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.09252353654132568,
+          "p90_regret_vs_oracle": 0.22284503425388325,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.39220069712267625,
+          "p90_regret_vs_oracle": 0.8179216200243866,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.09252353654132568,
+          "p90_regret_vs_oracle": 0.22284503425388325,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.09252353654132568,
+          "p90_regret_vs_oracle": 0.22284503425388325,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.10579562855420699,
+          "p90_regret_vs_oracle": 0.2313394438999721,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond": {
+          "median_regret_vs_oracle": 0.8100201898295054,
+          "mean_regret_vs_oracle": 6.423861727930883,
+          "p90_regret_vs_oracle": 28.205547197158765,
+          "ci95_of_median": [
+            0.4874850411127003,
+            1.196478767420932
+          ]
+        }
+      }
+    },
+    "1.05": {
+      "n_scenarios": 2849,
+      "operator": "heteroscedastic (def:psi 定义量)；同方差代理表另列",
+      "nobs_spread_max": 1.05,
+      "nobs_spread_median": 1.010928961748634,
+      "E_and_D_pick_same_design_rate": 0.8304668304668305,
+      "by_criterion": {
+        "E_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.25931905604938904,
+          "p90_regret_vs_oracle": 0.6466297058353287,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.31715005805991764,
+          "p90_regret_vs_oracle": 0.9304644954615353,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.25931905604938904,
+          "p90_regret_vs_oracle": 0.6466297058353287,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.25931905604938904,
+          "p90_regret_vs_oracle": 0.6466297058353287,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2818996613174772,
+          "p90_regret_vs_oracle": 0.6466297058353287,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond_het": {
+          "median_regret_vs_oracle": 0.5768726525751218,
+          "mean_regret_vs_oracle": 3.269020426633353,
+          "p90_regret_vs_oracle": 7.318863678823561,
+          "ci95_of_median": [
+            0.5370520833364407,
+            0.6510963473965092
+          ]
+        }
+      },
+      "by_criterion_homoscedastic_surrogate": {
+        "E": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.1402128743121441,
+          "p90_regret_vs_oracle": 0.5642837355875667,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.35243810244217466,
+          "p90_regret_vs_oracle": 1.0424439918947992,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.1402128743121441,
+          "p90_regret_vs_oracle": 0.5642837355875667,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.1402128743121441,
+          "p90_regret_vs_oracle": 0.5642837355875667,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.1335681860234208,
+          "p90_regret_vs_oracle": 0.5261618438187656,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond": {
+          "median_regret_vs_oracle": 0.9597719260499695,
+          "mean_regret_vs_oracle": 6.540970874533121,
+          "p90_regret_vs_oracle": 14.337853708726998,
+          "ci95_of_median": [
+            0.8908743884844967,
+            1.0715362402010586
+          ]
+        }
+      }
+    },
+    "1.1": {
+      "n_scenarios": 2986,
+      "operator": "heteroscedastic (def:psi 定义量)；同方差代理表另列",
+      "nobs_spread_max": 1.1,
+      "nobs_spread_median": 1.0114285714285713,
+      "E_and_D_pick_same_design_rate": 0.8288680509042197,
+      "by_criterion": {
+        "E_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.25682325574551296,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.31025226561657393,
+          "p90_regret_vs_oracle": 0.9258358369179023,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.25682325574551296,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.25682325574551296,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2783678452996935,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond_het": {
+          "median_regret_vs_oracle": 0.5970439848584037,
+          "mean_regret_vs_oracle": 3.222957669219496,
+          "p90_regret_vs_oracle": 7.379962290997169,
+          "ci95_of_median": [
+            0.5401480722105954,
+            0.6739436241246219
+          ]
+        }
+      },
+      "by_criterion_homoscedastic_surrogate": {
+        "E": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14183541405931122,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.3469868258477759,
+          "p90_regret_vs_oracle": 1.028268580929533,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14183541405931122,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14183541405931122,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.13549558923192584,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond": {
+          "median_regret_vs_oracle": 1.0421540204304864,
+          "mean_regret_vs_oracle": 7.146679507531941,
+          "p90_regret_vs_oracle": 15.988833590646916,
+          "ci95_of_median": [
+            0.941751436935427,
+            1.1220500257199746
+          ]
+        }
+      }
+    },
+    "1.25": {
+      "n_scenarios": 2998,
+      "operator": "heteroscedastic (def:psi 定义量)；同方差代理表另列",
+      "nobs_spread_max": 1.1111111111111112,
+      "nobs_spread_median": 1.0114285714285713,
+      "E_and_D_pick_same_design_rate": 0.8278852568378919,
+      "by_criterion": {
+        "E_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2583024710661232,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.30994976266807683,
+          "p90_regret_vs_oracle": 0.9258358369179023,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2583024710661232,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2583024710661232,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2797608247715212,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond_het": {
+          "median_regret_vs_oracle": 0.5970439848584037,
+          "mean_regret_vs_oracle": 3.2148283698917233,
+          "p90_regret_vs_oracle": 7.318863678823561,
+          "ci95_of_median": [
+            0.54253880173262,
+            0.6739436241246219
+          ]
+        }
+      },
+      "by_criterion_homoscedastic_surrogate": {
+        "E": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14377488758546997,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.3465372866341773,
+          "p90_regret_vs_oracle": 1.028268580929533,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14377488758546997,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14377488758546997,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.137460438974872,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond": {
+          "median_regret_vs_oracle": 1.045681042938439,
+          "mean_regret_vs_oracle": 7.148228811964191,
+          "p90_regret_vs_oracle": 15.988833590646916,
+          "ci95_of_median": [
+            0.941751436935427,
+            1.1621810864903614
+          ]
+        }
+      }
+    },
+    "1.5": {
+      "n_scenarios": 3000,
+      "operator": "heteroscedastic (def:psi 定义量)；同方差代理表另列",
+      "nobs_spread_max": 1.4666666666666666,
+      "nobs_spread_median": 1.0114285714285713,
+      "E_and_D_pick_same_design_rate": 0.828,
+      "by_criterion": {
+        "E_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2581302694187458,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.3097431294929648,
+          "p90_regret_vs_oracle": 0.9258358369179023,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2581302694187458,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2581302694187458,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.27957431755500683,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond_het": {
+          "median_regret_vs_oracle": 0.5970439848584037,
+          "mean_regret_vs_oracle": 3.2169675207971133,
+          "p90_regret_vs_oracle": 7.318863678823561,
+          "ci95_of_median": [
+            0.5457129976753257,
+            0.6739436241246219
+          ]
+        }
+      },
+      "by_criterion_homoscedastic_surrogate": {
+        "E": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14367903766041298,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.34630626177642126,
+          "p90_regret_vs_oracle": 1.028268580929533,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14367903766041298,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14367903766041298,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.1373687986822221,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond": {
+          "median_regret_vs_oracle": 1.045681042938439,
+          "mean_regret_vs_oracle": 7.147745695908197,
+          "p90_regret_vs_oracle": 15.988833590646916,
+          "ci95_of_median": [
+            0.941751436935427,
+            1.1621810864903614
+          ]
+        }
+      }
+    },
+    "2.0": {
+      "n_scenarios": 3000,
+      "operator": "heteroscedastic (def:psi 定义量)；同方差代理表另列",
+      "nobs_spread_max": 1.4666666666666666,
+      "nobs_spread_median": 1.0114285714285713,
+      "E_and_D_pick_same_design_rate": 0.828,
+      "by_criterion": {
+        "E_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2581302694187458,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.3097431294929648,
+          "p90_regret_vs_oracle": 0.9258358369179023,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2581302694187458,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.2581302694187458,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.27957431755500683,
+          "p90_regret_vs_oracle": 0.6785807863765863,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond_het": {
+          "median_regret_vs_oracle": 0.5970439848584037,
+          "mean_regret_vs_oracle": 3.2169675207971133,
+          "p90_regret_vs_oracle": 7.318863678823561,
+          "ci95_of_median": [
+            0.5457129976753257,
+            0.6739436241246219
+          ]
+        }
+      },
+      "by_criterion_homoscedastic_surrogate": {
+        "E": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14367903766041298,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "D": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.34630626177642126,
+          "p90_regret_vs_oracle": 1.028268580929533,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "A": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14367903766041298,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_deg": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.14367903766041298,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "c_Ea": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.1373687986822221,
+          "p90_regret_vs_oracle": 0.5621624580119786,
+          "ci95_of_median": [
+            0.0,
+            0.0
+          ]
+        },
+        "cond": {
+          "median_regret_vs_oracle": 1.045681042938439,
+          "mean_regret_vs_oracle": 7.147745695908197,
+          "p90_regret_vs_oracle": 15.988833590646916,
+          "ci95_of_median": [
+            0.941751436935427,
+            1.1621810864903614
+          ]
+        }
+      }
+    }
+  },
+  "verdict": {
+    "operator": "heteroscedastic (def:psi 定义量)；下列 *_homoscedastic_surrogate 为同方差对照",
+    "cond_median_regret_strict": 0.4874850411127003,
+    "cond_median_regret_strict_ci95": [
+      0.35890464206255124,
+      0.9047477338105149
+    ],
+    "cond_median_regret_orig_tol2": 0.5970439848584037,
+    "E_median_regret_strict": 0.0,
+    "cond_still_worse_than_E_strictly_matched": true,
+    "n_scenarios_strict": 352,
+    "cond_median_regret_strict_homoscedastic_surrogate": 0.8100201898295054,
+    "cond_median_regret_strict_ci95_homoscedastic_surrogate": [
+      0.4874850411127003,
+      1.196478767420932
+    ],
+    "E_median_regret_strict_homoscedastic_surrogate": 0.0
+  },
+  "honesty": [
+    "本脚本不产生新仿真，只在既有设计库上重做选型；故它检验的是选型口径的稳健性，不是新证据。",
+    "严格同预算档的场景数远少于 2.0 档，其区间更宽，须按场景数解读。",
+    "随机流与 123 不同：123 的 rb 在选型循环之前已被前序阶段消耗，本脚本每档重新播种。故本脚本的 tol=2.0 一档是同一规则下的**独立重抽**，不是 123 那一次场景集的逐位复现；可比较的是各容差档之间（它们共用同一条流），不可用来复算 123 自己的 cond 中位超额。",
+    "实际落在窗口内的 N_obs 极差最大仅 1.467 倍，故 123 名义上的 2.0 倍容差从未被触及。"
+  ]
+}

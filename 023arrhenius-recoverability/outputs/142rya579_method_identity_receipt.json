@@ -1,0 +1,65 @@
+{
+ "任务": "RYA-579",
+ "用途": "支撑稿面方法节新增的『真实体系两阶段管线与正过程的对应关系』段落（取证 F002）",
+ "输入": {
+  "04outputs/54c5_realkinetics-designsweep.csv": "7a598b3e1aa8494f7f059864e93d8b6e1189714125dc39760abd9a48a6bd7294"
+ },
+ "A_设计向量与合同变换": {
+  "T_C": [
+   2.0,
+   4.0,
+   6.0,
+   8.0,
+   10.0
+  ],
+  "T_ref_C": 6.0,
+  "congruence": "I^(E_a,lnA) = D I^(phi,logA) D, D=diag(1/(R T_ref),1)",
+  "frobenius_residual": 0.0,
+  "lmin_code_coords": 9.533934518721671e-11,
+  "lmin_theory_coords": 0.0002567330671426893,
+  "AGREES": true
+ },
+ "B_参数化对排序的影响": {
+  "T_ref=0.0C": {
+   "n_subsets": 26,
+   "spearman": 0.9999999999999999,
+   "discordant_pairs": 0,
+   "total_pairs": 325
+  },
+  "T_ref=6.0C": {
+   "n_subsets": 26,
+   "spearman": 0.9999999999999999,
+   "discordant_pairs": 0,
+   "total_pairs": 325
+  },
+  "T_ref=25.0C": {
+   "n_subsets": 26,
+   "spearman": 0.9993162393162391,
+   "discordant_pairs": 1,
+   "total_pairs": 325
+  },
+  "paper_Psi_n_vs_code_coord_lmin_spearman": 0.9999999999999999,
+  "NOTE": "lambda_min 不是合同不变量；此处是这批设计上的实测排序一致性，不是数学不变性"
+ },
+ "C_权重的delta方法对应": {
+  "示例设置": {
+   "k": 0.002,
+   "y0": 70.0,
+   "sigma_y": 0.5,
+   "t_h": [
+    0.0,
+    12.0,
+    24.0,
+    36.0,
+    48.0
+   ]
+  },
+  "sum_w_beta": 288.8431682706092,
+  "inv_Var_logk_y0_known": 288.8431682706093,
+  "relative_residual": 1.9679682646173226e-16,
+  "AGREES": true,
+  "free_y0_variance_inflation": 2.818223747662659,
+  "NOTE": "该倍数依设计而变，仅为示例，不作为稿面数字"
+ },
+ "结论": "A 合同恒等式残差 0（判定 AGREES）；B 26 个子集上两种参数化排序不一致对数 T_ref=0/6/25C 分别为 0/0/1（共 325 对）；C delta 方法恒等式相对残差 1.97e-16（判定 AGREES）"
+}

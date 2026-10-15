@@ -1,0 +1,818 @@
+{
+  "script": "120datacard_sha256.py",
+  "generated": "2026-10-15 15:24:38 +0800",
+  "n_source": 3,
+  "n_derived": 96,
+  "missing": [],
+  "guarded_dirs": [
+    "04outputs/105_seeds",
+    "05logs/rya103_verify_20260810"
+  ],
+  "unregistered_in_guarded_dirs": [],
+  "rows": [
+    {
+      "kind": "source",
+      "id": "apple_firmness",
+      "path": "03data/processed/pmc_real/PMC10253207_T16.csv",
+      "sha256": "d22131f037a120e71a321d358e141ea0b8b2b8b97c4299706f4b0c8fad66665f",
+      "bytes": 1770,
+      "name": "苹果硬度温度梯度（4 品种 × 5 贮温 × 5 时间点）",
+      "role": "C5 真实动力学 / 体系 1",
+      "origin": "Foods 2023, doi:10.3390/foods12112113 (PMC10253207) 表 A1（开放获取）",
+      "extraction": "pandas.read_html 提取（脚本 55）+ 人工逐条核验；非本组采集",
+      "license": "CC BY 4.0（Foods 为全开放获取）"
+    },
+    {
+      "kind": "source",
+      "id": "food_ammonia_tbars",
+      "path": "03data/processed/pmc_real/PMC9319022_T3.csv",
+      "sha256": "ee6da3d22db941fe2936bba9817e3aa7873e408024ae9ab95d6bf48d536ccfbe",
+      "bytes": 5239,
+      "name": "长货架期食品 氨/TBARS 累积动力学（5 食品 × 4 贮温，10 序列）",
+      "role": "C5 真实动力学 / 体系 2",
+      "origin": "Foods 2022 11(14):2004, doi:10.3390/foods11142004 (PMC9319022) 表 3",
+      "extraction": "pandas.read_html 提取（脚本 55）+ Europe PMC fullTextXML 独立重抓逐值核对（132 行 0 处不一致）",
+      "license": "CC BY 4.0"
+    },
+    {
+      "kind": "source",
+      "id": "hass_avocado",
+      "path": "${ARIS_RAW_ROOT}/004_hass_avocado_rgb_ripening/Hass Avocado Ripening Photographic Dataset/Avocado Ripening Dataset.xlsx",
+      "sha256": "f8abeaba6eedf67869907b3a71ee132cd89b42bb3dcce6b25ddb22e6269b51a7",
+      "bytes": 633351,
+      "name": "Hass 牛油果采后成熟（478 果 × 3 组贮藏，14,722 条记录）",
+      "role": "C5 真实动力学 / 体系 3（真统计估计误差）",
+      "origin": "Mendeley Data, doi:10.17632/3xd9n945v8.1",
+      "extraction": "原始 xlsx 直接读取（未做 L1 变换）；按 4.5 只读引用，未复制进项目",
+      "license": "CC BY 4.0（Mendeley Data 默认）"
+    },
+    {
+      "kind": "derived",
+      "id": "43trichotomy_formal",
+      "path": "04outputs/43trichotomy_formal.json",
+      "sha256": "771986e2487d00f3406bb431b924fd8ccae5918fc4055ea331fc1281bc2ea6bc",
+      "bytes": 1870,
+      "name": "半合成三分律：Ψ 终值、塌缩斜率、Krug 匹配"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics",
+      "path": "04outputs/54c5_realkinetics.json",
+      "sha256": "b758bd9a95da375868ce83335480b322eb33b483aed42142b46e3182a7d4df67",
+      "bytes": 6711,
+      "name": "苹果体系：品种 Ea/R²、设计扫描、超定子集"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-designsweep",
+      "path": "04outputs/54c5_realkinetics-designsweep.csv",
+      "sha256": "7a598b3e1aa8494f7f059864e93d8b6e1189714125dc39760abd9a48a6bd7294",
+      "bytes": 4759,
+      "name": "苹果 26 温度子集逐条（补充表 S2 数据源）"
+    },
+    {
+      "kind": "derived",
+      "id": "91c5_realkinetics_killer",
+      "path": "04outputs/91c5_realkinetics_killer.json",
+      "sha256": "79f6df8ca0e9417915caadfcfe97143201425071d611395bfbb7d741cb0182dc",
+      "bytes": 7404,
+      "name": "Ψ vs 廉价启发式判别力、Ψ_het 跨体系"
+    },
+    {
+      "kind": "derived",
+      "id": "99_realkinetics2",
+      "path": "04outputs/99_realkinetics2.json",
+      "sha256": "b41c66625cde8d18de33444779af85836adda0754ec096d638da1066fe4f1b23",
+      "bytes": 14118,
+      "name": "食品体系：Ea 范围、同质/异质 Ψ 复现"
+    },
+    {
+      "kind": "derived",
+      "id": "102_avocado_c5_pilot",
+      "path": "04outputs/102_avocado_c5_pilot.json",
+      "sha256": "125ba608e12562763668d4b0cf33edafc02cc9a9815103dbcf04fb884b7d495b",
+      "bytes": 2519,
+      "name": "牛油果体系：真统计估计误差、n 轴扫描"
+    },
+    {
+      "kind": "derived",
+      "id": "119pazman_pronzato_bridge",
+      "path": "04outputs/119pazman_pronzato_bridge.json",
+      "sha256": "6d5f827620897f26a0ba90b6efd397b409f17f9a3163a7d8d212e16e648b8a1c",
+      "bytes": 2236,
+      "name": "与 Pázman–Pronzato 2006 算例的坐标对照"
+    },
+    {
+      "kind": "derived",
+      "id": "122criterion_bakeoff",
+      "path": "04outputs/122criterion_bakeoff.json",
+      "sha256": "360a30060f01d3a8ca77e8d2db48b7cd5824a708023601bb9be543d48505d768",
+      "bytes": 7884,
+      "name": "准则对决（含对自身假设的证伪：塌缩=代数、D 对比未建立）"
+    },
+    {
+      "kind": "derived",
+      "id": "123montecarlo_criterion_study",
+      "path": "04outputs/123montecarlo_criterion_study.json",
+      "sha256": "3a1470f119505724f10d4dd06e36d0f79c6af866a70ccc42c3fc6682b037915b",
+      "bytes": 28895,
+      "name": "1000 独立设计 Monte-Carlo：两轴速率、饱和、决策 regret"
+    },
+    {
+      "kind": "derived",
+      "id": "123montecarlo_criterion_study-designs",
+      "path": "04outputs/123montecarlo_criterion_study-designs.csv",
+      "sha256": "03fce89d2c5fae06f0a71f59b2dbbc308c628a71094f98a5710a8938e820f4cf",
+      "bytes": 493976,
+      "name": "逐设计表：准则值 + 真值 RMSE（正文 §sec:mc 数据源）"
+    },
+    {
+      "kind": "derived",
+      "id": "124coverage_study",
+      "path": "04outputs/124coverage_study.json",
+      "sha256": "82f0cb50a1edfde20f1b4fc629b95e4a78f77714bd7d22736388f3f3f3650dcb",
+      "bytes": 7521,
+      "name": "置信区间覆盖率研究：Ψ 作为标定诊断被证伪 + 区间口径警告"
+    },
+    {
+      "kind": "derived",
+      "id": "124coverage_study-designs",
+      "path": "04outputs/124coverage_study-designs.csv",
+      "sha256": "4eb6d48a5b9e45c7491207fd85282f798a7675b510d35aa3d1e0ac5ea0333ac7",
+      "bytes": 264689,
+      "name": "逐设计覆盖率表"
+    },
+    {
+      "kind": "derived",
+      "id": "126trichotomy_plugin_psi",
+      "path": "04outputs/126trichotomy_plugin_psi.json",
+      "sha256": "10eec76103ae3992c889c6677167454c6b2ecbd16ee7d49792f2d862b640540f",
+      "bytes": 6406,
+      "name": "去 oracle 的 plug-in Ψ(θ̂) 三分律复现 + 预拟合收敛守卫"
+    },
+    {
+      "kind": "derived",
+      "id": "126trichotomy_plugin_psi-percell",
+      "path": "04outputs/126trichotomy_plugin_psi-percell.csv",
+      "sha256": "d0cf0e1edafa780ed942f05420e01cf0262166410ffd41cca31f5e739b04395b",
+      "bytes": 35457,
+      "name": "plug-in Ψ 逐 (regime,n,seed) 明细"
+    },
+    {
+      "kind": "derived",
+      "id": "127budget_matched_sensitivity",
+      "path": "04outputs/127budget_matched_sensitivity.json",
+      "sha256": "650ffc11c60f9678e334ecdbde8e2e316776d95449cedc91692d90c45613b7b7",
+      "bytes": 23058,
+      "name": "条件数劣势对预算配平容差的敏感性（收紧到严格同预算）"
+    },
+    {
+      "kind": "derived",
+      "id": "128montecarlo_runtime_receipt",
+      "path": "04outputs/128montecarlo_runtime_receipt.json",
+      "sha256": "72b4f6c61aea98246324a9e495ded582ce8c77f89fb13715c5625a2d8a2d39be",
+      "bytes": 3087,
+      "name": "§sec:mc 墙钟时间凭据 + 123 的字节级可复现性核验"
+    },
+    {
+      "kind": "derived",
+      "id": "129kgrid_oracle_ablation",
+      "path": "04outputs/129kgrid_oracle_ablation.json",
+      "sha256": "15ea31f6b8b5ea52ed0d4f62c111fcdc4a3f5af3ae0bfacb5d42ef2a0c70f67b",
+      "bytes": 4206,
+      "name": "k 搜索网格去 oracle 消融：162 键无一变动 >2%"
+    },
+    {
+      "kind": "derived",
+      "id": "43trichotomy_formal-agg",
+      "path": "04outputs/43trichotomy_formal-agg.csv",
+      "sha256": "c1ec85c4bf0dbabd557631fde56f6dd2d26353eb7590bb9161874743f563da08",
+      "bytes": 3209,
+      "name": "图 fig:tri 面板 a/b 的逐 regime 聚合数据源（42paper_figs_v8.fig2 直读）"
+    },
+    {
+      "kind": "derived",
+      "id": "43trichotomy_formal-percell",
+      "path": "04outputs/43trichotomy_formal-percell.csv",
+      "sha256": "c1fbcc1f02d66896b692a3751fdfc5fe17978a6ae3c0e0ad2aa290a1dae5b354",
+      "bytes": 23494,
+      "name": "图 fig:krug 的逐格经验/Krug 斜率数据源（42paper_figs_v8.fig3 直读）"
+    },
+    {
+      "kind": "derived",
+      "id": "105multiseed_realdata",
+      "path": "04outputs/105multiseed_realdata.json",
+      "sha256": "a72ec2811affc424e3b7325e3456111d93e4f9d29d1884718c01c492a0d1f19e",
+      "bytes": 193286,
+      "name": "真实数据四脚本 × 5 正典种子的跨种子聚合：正文各处「5 种子均值」与品种表 ±std 的来源"
+    },
+    {
+      "kind": "derived",
+      "id": "130aggregate_pilot_robustness",
+      "path": "04outputs/130aggregate_pilot_robustness.json",
+      "sha256": "577273d3eaffb48e8f09e0ec3309f84fda3fc16397b4c7819687bd44eeab6645",
+      "bytes": 2700,
+      "name": "正文 ±30% 档「96% 保持负号 / 87% 保持 ≤−0.5」两个比例的【现行生成步骤与结果】（脚本 130）"
+    },
+    {
+      "kind": "derived",
+      "id": "104ablation_psi_aggregation",
+      "path": "04outputs/104ablation_psi_aggregation.json",
+      "sha256": "3616bdb5ec2fe0617f115d8871d753019629339cf51a0f3cdf38c26e0475dc7c",
+      "bytes": 10086,
+      "name": "Ψ_n 聚合判据与 N 因子消融（订正后 Ψ_n=λmin(I_total) 口径）"
+    },
+    {
+      "kind": "derived",
+      "id": "107design_multivariety",
+      "path": "04outputs/107design_multivariety.json",
+      "sha256": "d8f6d9a44b73e6ab34ff37d35b32cbb0b83759ad6e918ddedd4b15b00ce7122c",
+      "bytes": 10494,
+      "name": "三单调品种 48 子集的（品种×ΔT）分层置换检验"
+    },
+    {
+      "kind": "derived",
+      "id": "131aggregate_c5_partial_tally",
+      "path": "04outputs/131aggregate_c5_partial_tally.json",
+      "sha256": "f9eb3dac3bf3a4c84828c4c2d3135828df25d728ce4d3af576068d1278cf52c7",
+      "bytes": 6096,
+      "name": "正文「逐次抽样 5 次 Ψ_n 严格大于 cond、1 次数值持平」这一【跨 6 次抽样】汇总的现行生成步骤与结果（脚本 131）；此前该汇总只由人手从 6 个 91c5 产物数出，仓库内无聚合器"
+    },
+    {
+      "kind": "derived",
+      "id": "133ablation_innovation_map",
+      "path": "04outputs/133ablation_innovation_map.json",
+      "sha256": "d6ec22da0f06c1cfae62deb61f0ad6f3bdb57214abba087e8e3fe8cfbd5cfa13",
+      "bytes": 21408,
+      "name": "创新点-消融映射与 LAQ 消融：tab:claims「仿射时斜率 −0.508 至 −1.288 / ρ=1/2 处 +0.077」与增项闭式相对误差 <5e−7 的直接来源（脚本 133）"
+    },
+    {
+      "kind": "derived",
+      "id": "133ablation_innovation_map-laq",
+      "path": "04outputs/133ablation_innovation_map-laq.csv",
+      "sha256": "563dc6e750088626b13d72f33585c23a84cfe93001656c7d3c9e27557fcf0f63",
+      "bytes": 27091,
+      "name": "LAQ 消融逐 (种子, n, ρ) 明细表，即上一行各斜率的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "124coverage_study-bins",
+      "path": "04outputs/124coverage_study-bins.csv",
+      "sha256": "d89130eac78188a23318b3b4d77961adbe873dc87dbcbb7b6aeb3b63a6f704b7",
+      "bytes": 2100,
+      "name": "覆盖率按 Ψ 十分位分箱表：正文「最低/最高十分位覆盖」「$z$ 分位 0.78--0.81」「无自由度修正 0.66--0.71」「报出 SE 为真实 SD 的 1.32--1.70 倍」四组数的直接来源"
+    },
+    {
+      "kind": "derived",
+      "id": "122criterion_bakeoff-percriterion",
+      "path": "04outputs/122criterion_bakeoff-percriterion.csv",
+      "sha256": "df8080276e3885e013b207a756d4992281fd7bb216a1c1d9725d83acfc4ef14f",
+      "bytes": 9702,
+      "name": "准则对决逐判据明细：tab:bakeoff 各行边际/偏 Spearman 与成对 Spearman 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "99_realkinetics2-overdet",
+      "path": "04outputs/99_realkinetics2-overdet.csv",
+      "sha256": "b0fcaad1b82f89db839f3fc9cea735b594d4f0e0cb720db0c45e31f510ddea8c",
+      "bytes": 9139,
+      "name": "食品体系超定子集逐条明细：正文该体系同质/异质 Ψ 复现数字的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "107design_multivariety-sweep",
+      "path": "04outputs/107design_multivariety-sweep.csv",
+      "sha256": "a15db8f41b5dca143d008f92671d07e8c3d6ee29f391a36e26cec6ae450cc39e",
+      "bytes": 77087,
+      "name": "三单调品种 48 子集的逐子集扫描表：（品种×ΔT）分层置换检验的输入"
+    },
+    {
+      "kind": "derived",
+      "id": "104ablation_psi_aggregation_regtest",
+      "path": "04outputs/104ablation_psi_aggregation_regtest.json",
+      "sha256": "9bacfdd76f736546bd9c96c0a3eeb7f0954643df57fc949ae8a96ec2ad5540c3",
+      "bytes": 10152,
+      "name": "Ψ_n 聚合消融的回归测试基准件（133 的 REGTEST_EXCLUSION 按文件名点名引用它做取证依据，故它本身必须可核；见 §9.0 裁决『保留、不删、不改名』）"
+    },
+    {
+      "kind": "derived",
+      "id": "137design_variance_scale_invariance",
+      "path": "04outputs/137design_variance_scale_invariance.json",
+      "sha256": "e37352c945fb7ef00dd6e21806c00f21fc5f275e858ecc3a3f17619638876552",
+      "bytes": 3670,
+      "name": "经验/总体设计方差相对误差的尺度不变性核验：§sec:converse 证明第 (2) 步「总体矩读法不额外要价」所依据者（Weyl 上界对本设计族是松的）；正文不引用其数字，但审计 §L.14.3 引用，故须可核"
+    },
+    {
+      "kind": "derived",
+      "id": "138eigendirection_angle_check",
+      "path": "04outputs/138eigendirection_angle_check.json",
+      "sha256": "dadb67e9736d4b008175f17af752089a5f3f54e1c96d800da476b8972430e041",
+      "bytes": 3728,
+      "name": "同方差代理与异方差定义量的最小特征方向夹角预检（义务 1f9bcf45 的预注册预测依据）：正文不引用其数字，但审计 §L.16 引用，故须可核"
+    },
+    {
+      "kind": "derived",
+      "id": "141rya579_seedscope_receipt",
+      "path": "04outputs/141rya579_seedscope_receipt.json",
+      "sha256": "08dae6277e01895d21bacf617d98d038195f6abea9875bbe0c67eac1b34c94cb",
+      "bytes": 4959,
+      "name": "「5 种子聚合 vs 原生抽样」的产物指向分界：稿面 §统计检验与误差报告按文件名点名引用它（设计侧逐字节相同的 8 列/122 键 vs 随种子变的 5 列/24 键），故须可核"
+    },
+    {
+      "kind": "derived",
+      "id": "142rya579_method_identity_receipt",
+      "path": "04outputs/142rya579_method_identity_receipt.json",
+      "sha256": "29008af9afb97f73eb103520ed20e8dcb5ed2efbeea329740476786c779639d8",
+      "bytes": 1893,
+      "name": "两阶段管线与正过程对应的三条恒等式核验（合同残差 0、delta 恒等式残差 1.97e-16）：稿面方法节按文件名点名引用其数字，故须可核"
+    },
+    {
+      "kind": "derived",
+      "id": "143rya579_ledger_receipts",
+      "path": "04outputs/143rya579_ledger_receipts.json",
+      "sha256": "5edcd0407cb97c5fc239253308376688afce9d3e375b6e0419d7f675149de7f1",
+      "bytes": 6307,
+      "name": "取证台账收据：a9930fd7 的「刻意声明」定位与重复组两步判据的实测结果；正文不引用其数字，但审计 §L.20.6/§L.20.7 引用，故须可核"
+    },
+    {
+      "kind": "derived",
+      "id": "144rya579_critical_kl_check",
+      "path": "04outputs/144rya579_critical_kl_check.json",
+      "sha256": "9f8297ec6fd1b7adf1d4698dd4af0b7d64725dd39837b0b2f8d87e086e9fcb84",
+      "bytes": 8263,
+      "name": "LAN 临界档精确 KL 恒等式（eq:klexact）的数值核验：二次近似最大相对误差 6.04e-5；正文不引用其数字，但审计 §L.20.1 引用，故须可核"
+    },
+    {
+      "kind": "derived",
+      "id": "145citation_field_diff",
+      "path": "04outputs/145citation_field_diff.json",
+      "sha256": "6b43ea0da4f067119487e8d2bc9d6d12ad10f06d1fc64471fdab674379aafb36",
+      "bytes": 28083,
+      "name": "参考文献逐字段机械比对（稿面 \\bibitem vs Crossref，DOI 直查兜底）：57 条 → AGREE 53 / CHECK 1（donoho2009，见审计 §L.21.8）/ 无注册记录 3（预印本与专著）；正文不引用其数字，但审计 §L.21.8/§L.22.3 引用，故须可核"
+    },
+    {
+      "kind": "derived",
+      "id": "147oracle_plugin_error_pairing",
+      "path": "04outputs/147oracle_plugin_error_pairing.json",
+      "sha256": "98983af916df32ca664ad964627a39eb9c16b1e03744180819e638fb67532315",
+      "bytes": 1786,
+      "name": "oracle 层(43) 对 plug-in 层(126) 两列退化方向误差的【配对】差（RYA-583 新增）：140/140 全不同、最大绝对差 3.6418e-4、最大相对差 8.3567e-4、两列 Spearman 1.000；即稿面 §sec:relate-id 那三个数此前无产物字段承载的那一处（外审核对判 real_gap）。由 126 脚本产出但【独立成件】，理由见该文件 why_separate：126 的 json 是取证台账义务 c13bd67a3388 的 resolve 收据所指证据，收据每次门禁重验哈希，改动它会让收据当场自失效"
+    },
+    {
+      "kind": "derived",
+      "id": "155relabel_release_fields",
+      "path": "04outputs/155relabel_release_fields.json",
+      "sha256": "5ca11c2b42c8c8fdb5df3c6fceec897e810c03adeef3052db5af7dc248f5cb2d",
+      "bytes": 8134,
+      "name": "已登记产物里几处评审写法的字段改写台账（2026-10-15）：103 的 10 份逐种子产物（105_seeds 与 RYA-103 复跑档案各 5 份）、143 收据与 145 比对产物，逐文件记改写前登记的 SHA-256、改写前后的 SHA-256 与各规则命中数；只改目标字段，其余字节不动，不重跑。正文不引用其数字，但审计 §L.34 引用，故须可核"
+    },
+    {
+      "kind": "derived",
+      "id": "requirements.lock",
+      "path": "08github/requirements.lock.txt",
+      "sha256": "4db56e55d692775a23d58169a1ac5149748485aa684a3f22f29282ae26020990",
+      "bytes": 2783,
+      "name": "逐包精确到版本的依赖锁（含解释器 3.13.5 与平台），即 §sec:repro 明写的 requirements.lock.txt。取证义务 24e3754f 指出「稿面声明了依赖锁但清单里没有它」——锁文件本身在盘（发布树根目录），缺的是它未进 SHA-256 登记，故自本轮起登记，使读者可核到与本文数字同一份锁"
+    },
+    {
+      "kind": "derived",
+      "id": "91c5_realkinetics_killer_seed19810915",
+      "path": "04outputs/91c5_realkinetics_killer_seed19810915.json",
+      "sha256": "67e75bb0436a0c9ad97e946e0bb9bb6d2ffc023337622b6befe247a9f38c9c06",
+      "bytes": 7386,
+      "name": "苹果/食品体系逐种子原始产物：正文「5 种子均值 −0.70 与 −0.37」的直接来源"
+    },
+    {
+      "kind": "derived",
+      "id": "91c5_realkinetics_killer_seed20041210",
+      "path": "04outputs/91c5_realkinetics_killer_seed20041210.json",
+      "sha256": "ce0069561ddc1ff634e08967c707ef7524e90d05579649edc2ddca353325db00",
+      "bytes": 7373,
+      "name": "苹果/食品体系逐种子原始产物：正文「5 种子均值 −0.70 与 −0.37」的直接来源"
+    },
+    {
+      "kind": "derived",
+      "id": "91c5_realkinetics_killer_seed20060515",
+      "path": "04outputs/91c5_realkinetics_killer_seed20060515.json",
+      "sha256": "ad9199d5e701e30f71bd63d51b0f4057743bea4a8e55631b69ba9b0cfa97df41",
+      "bytes": 7394,
+      "name": "苹果/食品体系逐种子原始产物：正文「5 种子均值 −0.70 与 −0.37」的直接来源"
+    },
+    {
+      "kind": "derived",
+      "id": "91c5_realkinetics_killer_seed2023",
+      "path": "04outputs/91c5_realkinetics_killer_seed2023.json",
+      "sha256": "c8b8889517d9ce51446c49ae2932fdbaa51ee9288d76fb9f483ef39dab6a3668",
+      "bytes": 7396,
+      "name": "苹果/食品体系逐种子原始产物：正文「5 种子均值 −0.70 与 −0.37」的直接来源"
+    },
+    {
+      "kind": "derived",
+      "id": "91c5_realkinetics_killer_seed2024",
+      "path": "04outputs/91c5_realkinetics_killer_seed2024.json",
+      "sha256": "60b71038a643f43b8063a02bb0976d9c2114d2d35ec981ec10165664dd52f8be",
+      "bytes": 7528,
+      "name": "苹果/食品体系逐种子原始产物：正文「5 种子均值 −0.70 与 −0.37」的直接来源"
+    },
+    {
+      "kind": "derived",
+      "id": "102_avocado_c5_pilot-seed19810915",
+      "path": "04outputs/105_seeds/102_avocado_c5_pilot-seed19810915.json",
+      "sha256": "c2b4229b4ecfe8e851733b20c8bf8f69d138a749662caee6b8f3240c171f2c0a",
+      "bytes": 2524,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "102_avocado_c5_pilot-seed20041210",
+      "path": "04outputs/105_seeds/102_avocado_c5_pilot-seed20041210.json",
+      "sha256": "71613de2e32238cd31d41f1745b27b070888fa894bccd35f551123f976413591",
+      "bytes": 2522,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "102_avocado_c5_pilot-seed20060515",
+      "path": "04outputs/105_seeds/102_avocado_c5_pilot-seed20060515.json",
+      "sha256": "e681817f86efdad0108029cc5bc1b8afc1ad4ee1dec987fa9cb6a03887267076",
+      "bytes": 2523,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "102_avocado_c5_pilot-seed2023",
+      "path": "04outputs/105_seeds/102_avocado_c5_pilot-seed2023.json",
+      "sha256": "8a9be192cee30757497ce869d8b548b47a834cd7796663d35eb291bf982a8f6b",
+      "bytes": 2521,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "102_avocado_c5_pilot-seed2024",
+      "path": "04outputs/105_seeds/102_avocado_c5_pilot-seed2024.json",
+      "sha256": "d0eeb03c9a39f169d2fc5066ecb054c62d29008d4d7fca5ead71dc799052623a",
+      "bytes": 2519,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed19810915",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-seed19810915.json",
+      "sha256": "20e3c98f866f2b9aef5420bb47a9e8d7c52b5e676a31b5b90b3b5f71a96d0737",
+      "bytes": 2390,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed20041210",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-seed20041210.json",
+      "sha256": "b5a76a3175ae0a14358069d3daaeceb7b930a714476e8d2d8703227f37266b24",
+      "bytes": 2401,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed20060515",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-seed20060515.json",
+      "sha256": "efd6cd7c4b4387bd5f609704f5bbc7b78778d179e7747a81039197dcd299a279",
+      "bytes": 2416,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed2023",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-seed2023.json",
+      "sha256": "1f43be8c144488bdbd7ddaa358d30e759641091723f13e299398172e12e7f4c2",
+      "bytes": 2418,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed2024",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-seed2024.json",
+      "sha256": "3edcfa95303f6c4451542c190772b4a98b36d77f1e1b9e1136d314aed22aa8c5",
+      "bytes": 2420,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-seed19810915",
+      "path": "04outputs/105_seeds/54c5_realkinetics-seed19810915.json",
+      "sha256": "bf4b310b6600eb1a41b641218dc4872980aaaed63c83dc8ccbec13ecdca96e8c",
+      "bytes": 6712,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-seed20041210",
+      "path": "04outputs/105_seeds/54c5_realkinetics-seed20041210.json",
+      "sha256": "b7fcfb4cefd3d110f48437589c670a6eceea13684ee9cdc0bad2609325399db4",
+      "bytes": 6711,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-seed20060515",
+      "path": "04outputs/105_seeds/54c5_realkinetics-seed20060515.json",
+      "sha256": "f60808cc1ff857822561931553c665c47242ea9e3bec9ebfb5f4a51c21c0a76a",
+      "bytes": 6712,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-seed2023",
+      "path": "04outputs/105_seeds/54c5_realkinetics-seed2023.json",
+      "sha256": "9121def945338256bfba11a1ea7d307b5773c2ff312cbccc4c981ea8df39edc9",
+      "bytes": 6713,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-seed2024",
+      "path": "04outputs/105_seeds/54c5_realkinetics-seed2024.json",
+      "sha256": "356ead6ce4bb2d302459a9f02dad28b819f407302e535d6213aa55b875ffbb5c",
+      "bytes": 6710,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "99_realkinetics2-seed19810915",
+      "path": "04outputs/105_seeds/99_realkinetics2-seed19810915.json",
+      "sha256": "b4cdfd1d6d60f7c3e5d646c6b86b5c88ae80cf6c4b39fb3b63ce3ecd21c5f7ab",
+      "bytes": 14120,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "99_realkinetics2-seed20041210",
+      "path": "04outputs/105_seeds/99_realkinetics2-seed20041210.json",
+      "sha256": "2dee35dcc9dbba62cea6a9820b870885f5b9c6d0eb4c8ec1b8371fb5564a1ada",
+      "bytes": 14100,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "99_realkinetics2-seed20060515",
+      "path": "04outputs/105_seeds/99_realkinetics2-seed20060515.json",
+      "sha256": "a4dca9cb64639010b13122215490bbdbe56ea61290f61a46dbfaa95f5aebc5e8",
+      "bytes": 14118,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "99_realkinetics2-seed2023",
+      "path": "04outputs/105_seeds/99_realkinetics2-seed2023.json",
+      "sha256": "606439547a108a267c26b718543610590bf9501e48ed849835f33ce596e1c597",
+      "bytes": 14121,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "99_realkinetics2-seed2024",
+      "path": "04outputs/105_seeds/99_realkinetics2-seed2024.json",
+      "sha256": "61ab3d1a051cb2ec0becc563a5bbba70eb2cf6938e0c8b91fc45b0a42b578c20",
+      "bytes": 14120,
+      "name": "105 复跑的逐种子原始产物（54c5 / 99 / 102 / 103），跨种子均值与 ±std 的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed19810915",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-grid-seed19810915.csv",
+      "sha256": "641d7071fe436c113e3e179953741da5f3b0b85ff885962a0d8193a6c823c563",
+      "bytes": 38542,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed20041210",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-grid-seed20041210.csv",
+      "sha256": "13efdfc9c442fc369b2ef9323d16a61f2adb15f157b214e98ac0dee086da7bad",
+      "bytes": 38495,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed20060515",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-grid-seed20060515.csv",
+      "sha256": "f63d85cce0d55acb63b2c96fb33c4b3cf11145196064cc4a59df8f022f92a492",
+      "bytes": 38282,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed2023",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-grid-seed2023.csv",
+      "sha256": "122504317ddd7777e74d53097aafdca2377a3f515faad20b923eb9645c95386a",
+      "bytes": 37481,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed2024",
+      "path": "04outputs/105_seeds/103sensitivity_pilot-grid-seed2024.csv",
+      "sha256": "19ee7fda1c61aafdcdb5eba27a6acaa928e12991013b704b0c7c5e2c4a4d43ff",
+      "bytes": 38217,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-designsweep-seed19810915",
+      "path": "04outputs/105_seeds/54c5_realkinetics-designsweep-seed19810915.csv",
+      "sha256": "a6b753acbe2a74fbc4cfabae50150058743e4c1aed92f38a6b2c4528a1714340",
+      "bytes": 4759,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-designsweep-seed20041210",
+      "path": "04outputs/105_seeds/54c5_realkinetics-designsweep-seed20041210.csv",
+      "sha256": "01f31ed2988fd7ebfc1aa737f0fc06acc422427753721c36b2cf79a74593d11f",
+      "bytes": 4757,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-designsweep-seed20060515",
+      "path": "04outputs/105_seeds/54c5_realkinetics-designsweep-seed20060515.csv",
+      "sha256": "2434ae3ddefd5fdc7f9a736477a2a0ea30443c53953726fbaf43b3cb3f009c4a",
+      "bytes": 4765,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-designsweep-seed2023",
+      "path": "04outputs/105_seeds/54c5_realkinetics-designsweep-seed2023.csv",
+      "sha256": "8116c520a9de7356419b85b971de47cfa1afa1d270217266a7ce535a64525d53",
+      "bytes": 4767,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "54c5_realkinetics-designsweep-seed2024",
+      "path": "04outputs/105_seeds/54c5_realkinetics-designsweep-seed2024.csv",
+      "sha256": "50fd327fdcc594a7bf55883b6b58d9b0940267538287c6b04c17fbcc8493bc92",
+      "bytes": 4763,
+      "name": "105 复跑的逐种子明细表（苹果设计扫描 / 初值敏感性网格）"
+    },
+    {
+      "kind": "derived",
+      "id": "104ablation_psi_aggregation_seed19810915",
+      "path": "04outputs/104ablation_psi_aggregation_seed19810915.json",
+      "sha256": "f00beb34254b724a0b05bba1a6122bdce2b0f3cc0a3844468a9d92d86690478d",
+      "bytes": 10069,
+      "name": "104 聚合消融的逐种子原始产物（5 个预注册种子）：正文「增量恒为负但跨度近三倍（−0.0765 至 −0.2353）」这一跨种子区间的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "104ablation_psi_aggregation_seed20041210",
+      "path": "04outputs/104ablation_psi_aggregation_seed20041210.json",
+      "sha256": "8d88bfe985c964926667474b5b0dd174ec75d442883b3ccaeed567e40ad54928",
+      "bytes": 10102,
+      "name": "104 聚合消融的逐种子原始产物（5 个预注册种子）：正文「增量恒为负但跨度近三倍（−0.0765 至 −0.2353）」这一跨种子区间的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "104ablation_psi_aggregation_seed20060515",
+      "path": "04outputs/104ablation_psi_aggregation_seed20060515.json",
+      "sha256": "c6a30ed2a9f256bfef51dfb89e66ed9236465fa74580d4dc9fda0755fbdfcd29",
+      "bytes": 10102,
+      "name": "104 聚合消融的逐种子原始产物（5 个预注册种子）：正文「增量恒为负但跨度近三倍（−0.0765 至 −0.2353）」这一跨种子区间的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "104ablation_psi_aggregation_seed2023",
+      "path": "04outputs/104ablation_psi_aggregation_seed2023.json",
+      "sha256": "2320409ad8f3be8545861e48b89343f2867ef5d8e1bbd329b6de84da7a91a6ed",
+      "bytes": 10100,
+      "name": "104 聚合消融的逐种子原始产物（5 个预注册种子）：正文「增量恒为负但跨度近三倍（−0.0765 至 −0.2353）」这一跨种子区间的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "104ablation_psi_aggregation_seed2024",
+      "path": "04outputs/104ablation_psi_aggregation_seed2024.json",
+      "sha256": "b508d4ad39e14cef02866451323c2d06a63e8c9d0a92f60248703d8816911e87",
+      "bytes": 10112,
+      "name": "104 聚合消融的逐种子原始产物（5 个预注册种子）：正文「增量恒为负但跨度近三倍（−0.0765 至 −0.2353）」这一跨种子区间的被聚合件"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed19810915",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-grid-seed19810915.csv",
+      "sha256": "7c03ad8a3fbb602829245fee731342301fd84ef073d77bd9fa540e00da4b451b",
+      "bytes": 36753,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed20041210",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-grid-seed20041210.csv",
+      "sha256": "b2938efeb1c21621e6fd7f3a9b7a7c98b643a854925230455dbcf0a9a59e50f5",
+      "bytes": 38421,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed20060515",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-grid-seed20060515.csv",
+      "sha256": "6a575bdb81035b4a42d9fce16f587afb22cf997c62af57a2885c2da76ff43347",
+      "bytes": 38366,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed2023",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-grid-seed2023.csv",
+      "sha256": "aada557fe110705e9030e8b958e170cd9dc4da97c77c8a9f39053d08d7556291",
+      "bytes": 37824,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-grid-seed2024",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-grid-seed2024.csv",
+      "sha256": "81f3fcb124ab51cbacec71144e173a0224145050b299cc3b5b57328e0917d02a",
+      "bytes": 36450,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed19810915",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed19810915.json",
+      "sha256": "5f4889e01cc8837a8562ef9a6b8532bd40a24223c98e997547f8bc11d278aaf7",
+      "bytes": 2379,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed20041210",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed20041210.json",
+      "sha256": "43b9d99edfb7c142638f3a3e3765449d381f3f1b15e12a163c06b8dab65eacdf",
+      "bytes": 2401,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed20060515",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed20060515.json",
+      "sha256": "ca7b4b40c401eaab081db23b1591feac4e3fc5f8f0b5d7fce12be4c1a6521b77",
+      "bytes": 2356,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed2023",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed2023.json",
+      "sha256": "427fc85e0ab8a05a344a9eaf709f20bcefe2051690db613b9a4d2338bb5cef59",
+      "bytes": 2385,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "103sensitivity_pilot-seed2024",
+      "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed2024.json",
+      "sha256": "1e3db52ed824e5ee6164259cf92ef89e9117de015b5250595ecfe0191c07d6f0",
+      "bytes": 2400,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "REDACTION_LEDGER",
+      "path": "05logs/rya103_verify_20260810/REDACTION_LEDGER.md",
+      "sha256": "53e6ec3d1646a34f3cf60e996e1fb6cf08d736b96ba041324919b66ab5e377a4",
+      "bytes": 4879,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "aggregate_result",
+      "path": "05logs/rya103_verify_20260810/aggregate_result.json",
+      "sha256": "0b1f72da1cf0160801914f0ecf5aacb48453f016cf47a2331c6c85ce26e86e9d",
+      "bytes": 2207,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "audit_output",
+      "path": "05logs/rya103_verify_20260810/audit_output.json",
+      "sha256": "181ed4347146c81a46de67339ad11a24cf5a7a977b7e32a8fa6a3cab5ec59ebe",
+      "bytes": 7966,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "audit_prompt",
+      "path": "05logs/rya103_verify_20260810/audit_prompt.txt",
+      "sha256": "489949169cdf76c82936175de6e021d8b6a6a186aa993283b472cad5dc1676f0",
+      "bytes": 2981,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    },
+    {
+      "kind": "derived",
+      "id": "rya103_verify_runner",
+      "path": "05logs/rya103_verify_20260810/rya103_verify_runner.sh",
+      "sha256": "17c0b68300489b63d277ecc199df5fbc3273d71319bf9152ba5d61e6df80b48c",
+      "bytes": 1088,
+      "name": "RYA-103 独立复跑档案（逐种子件 + 网格 + 聚合结果 + runner + 审计 trace）：**历史留痕**。⚠️ 2026-08-10 RYA-105 订正 Ψ 装配与自助内层估计量后，该档案对应的 96%/92% 已被脚本 130 重算的 96%/87% 取代；本目录保留以追溯，**不再是正文数字的现行依据**"
+    }
+  ]
+}

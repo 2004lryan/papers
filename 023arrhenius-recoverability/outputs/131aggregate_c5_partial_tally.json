@@ -1,0 +1,178 @@
+{
+  "study": "91c5 族 6 次抽样的偏 Spearman 逐次胜负聚合（控制 ΔT 后 |偏 Ψ_n| vs |偏 cond|）",
+  "inputs": [
+    "04outputs/91c5_realkinetics_killer.json",
+    "04outputs/91c5_realkinetics_killer_seed20060515.json",
+    "04outputs/91c5_realkinetics_killer_seed20041210.json",
+    "04outputs/91c5_realkinetics_killer_seed19810915.json",
+    "04outputs/91c5_realkinetics_killer_seed2023.json",
+    "04outputs/91c5_realkinetics_killer_seed2024.json"
+  ],
+  "tie_tolerance": 1e-12,
+  "tie_tolerance_note": "双精度下两个 O(1) 量之差小于该值即无法区分大小，判「数值持平」而非判胜负",
+  "paper_convention_key": "_standard_definition（稿面 §sec:res-c5 明写的教科书标准偏 Spearman）",
+  "tally_paper_convention": {
+    "n_draws": 6,
+    "Psi_n_strictly_larger": 5,
+    "numeric_tie": 1,
+    "cond_larger": 0,
+    "per_draw": {
+      "native": "Psi_n",
+      "seed20060515": "Psi_n",
+      "seed20041210": "Psi_n",
+      "seed19810915": "Psi_n",
+      "seed2023": "Psi_n",
+      "seed2024": "tie"
+    }
+  },
+  "tally_script_original_convention": {
+    "n_draws": 6,
+    "Psi_n_strictly_larger": 3,
+    "numeric_tie": 0,
+    "cond_larger": 3,
+    "per_draw": {
+      "native": "Psi_n",
+      "seed20060515": "cond",
+      "seed20041210": "Psi_n",
+      "seed19810915": "Psi_n",
+      "seed2023": "cond",
+      "seed2024": "cond"
+    }
+  },
+  "five_seed_stats_paper_convention": {
+    "Psi_n": {
+      "n_seeds": 5,
+      "mean": -0.3375505833701477,
+      "min": -0.5838376423049665,
+      "max": -0.16476061227194755,
+      "per_seed": {
+        "seed20060515": -0.1840132418875122,
+        "seed20041210": -0.5272555451034494,
+        "seed19810915": -0.5838376423049665,
+        "seed2023": -0.16476061227194755,
+        "seed2024": -0.2278858752828627
+      }
+    },
+    "cond": {
+      "n_seeds": 5,
+      "mean": -0.22040763124851548,
+      "min": -0.2891906078706843,
+      "max": -0.1306722097329239,
+      "per_seed": {
+        "seed20060515": -0.17038263137732607,
+        "seed20041210": -0.28390683197878047,
+        "seed19810915": -0.2891906078706843,
+        "seed2023": -0.1306722097329239,
+        "seed2024": -0.22788587528286267
+      }
+    }
+  },
+  "per_draw": [
+    {
+      "draw": "native",
+      "artifact": "04outputs/91c5_realkinetics_killer.json",
+      "paper_convention": {
+        "Psi_n": -0.4029350207746906,
+        "cond": -0.3509434051908597,
+        "abs_gap_Psi_n_minus_cond": 0.05199161558383092,
+        "larger": "Psi_n"
+      },
+      "script_original_convention": {
+        "Psi_n": -0.4647058823529412,
+        "cond": -0.4088235294117647,
+        "abs_gap_Psi_n_minus_cond": 0.055882352941176494,
+        "larger": "Psi_n"
+      }
+    },
+    {
+      "draw": "seed20060515",
+      "artifact": "04outputs/91c5_realkinetics_killer_seed20060515.json",
+      "paper_convention": {
+        "Psi_n": -0.1840132418875122,
+        "cond": -0.17038263137732607,
+        "abs_gap_Psi_n_minus_cond": 0.01363061051018613,
+        "larger": "Psi_n"
+      },
+      "script_original_convention": {
+        "Psi_n": -0.24705882352941175,
+        "cond": -0.27941176470588236,
+        "abs_gap_Psi_n_minus_cond": -0.03235294117647061,
+        "larger": "cond"
+      }
+    },
+    {
+      "draw": "seed20041210",
+      "artifact": "04outputs/91c5_realkinetics_killer_seed20041210.json",
+      "paper_convention": {
+        "Psi_n": -0.5272555451034494,
+        "cond": -0.28390683197878047,
+        "abs_gap_Psi_n_minus_cond": 0.24334871312466894,
+        "larger": "Psi_n"
+      },
+      "script_original_convention": {
+        "Psi_n": -0.43529411764705883,
+        "cond": -0.27058823529411763,
+        "abs_gap_Psi_n_minus_cond": 0.1647058823529412,
+        "larger": "Psi_n"
+      }
+    },
+    {
+      "draw": "seed19810915",
+      "artifact": "04outputs/91c5_realkinetics_killer_seed19810915.json",
+      "paper_convention": {
+        "Psi_n": -0.5838376423049665,
+        "cond": -0.2891906078706843,
+        "abs_gap_Psi_n_minus_cond": 0.2946470344342822,
+        "larger": "Psi_n"
+      },
+      "script_original_convention": {
+        "Psi_n": -0.6529411764705881,
+        "cond": -0.3235294117647059,
+        "abs_gap_Psi_n_minus_cond": 0.32941176470588224,
+        "larger": "Psi_n"
+      }
+    },
+    {
+      "draw": "seed2023",
+      "artifact": "04outputs/91c5_realkinetics_killer_seed2023.json",
+      "paper_convention": {
+        "Psi_n": -0.16476061227194755,
+        "cond": -0.1306722097329239,
+        "abs_gap_Psi_n_minus_cond": 0.03408840253902365,
+        "larger": "Psi_n"
+      },
+      "script_original_convention": {
+        "Psi_n": -0.2058823529411765,
+        "cond": -0.2441176470588235,
+        "abs_gap_Psi_n_minus_cond": -0.038235294117647006,
+        "larger": "cond"
+      }
+    },
+    {
+      "draw": "seed2024",
+      "artifact": "04outputs/91c5_realkinetics_killer_seed2024.json",
+      "paper_convention": {
+        "Psi_n": -0.2278858752828627,
+        "cond": -0.22788587528286267,
+        "abs_gap_Psi_n_minus_cond": 2.7755575615628914e-17,
+        "larger": "tie"
+      },
+      "script_original_convention": {
+        "Psi_n": -0.19999999999999998,
+        "cond": -0.2764705882352941,
+        "abs_gap_Psi_n_minus_cond": -0.0764705882352941,
+        "larger": "cond"
+      }
+    }
+  ],
+  "numeric_ties_detail": [
+    {
+      "draw": "seed2024",
+      "Psi_n": -0.2278858752828627,
+      "cond": -0.22788587528286267,
+      "abs_gap": 2.7755575615628914e-17,
+      "note": "两值之差在双精度噪声量级，稿面不得据此判胜负"
+    }
+  ],
+  "honest_boundaries": "(1) 6 次抽样共用同一批 16 个相互嵌套的非独立子集，本表为【描述性计数】、非 6 个独立重复的检验；(2) 持平容差 1e-12 属口径选择，实测最小非零差与它相差数个量级，逐次实测差已原样写出供自查；(3) `tally_script_original_convention` 那一路是 91c5 的原口径、【非】稿面依据，并报只为回答「换口径会不会翻结论」；两口径结论不一致时以稿面口径为准并如实披露差异。"
+}
