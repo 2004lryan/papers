@@ -21,8 +21,9 @@
 from __future__ import annotations
 
 import json
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
+from typing import Any
 
 from export_utils import RECOMMENDED_SEEDS
 
@@ -40,14 +41,14 @@ def half_up_pct(x: float) -> int:
 
 def main() -> None:
     seeds = list(RECOMMENDED_SEEDS)
-    per_seed: dict[int, dict] = {}
+    per_seed: dict[int, dict[str, Any]] = {}
     for s in seeds:
         f = SEED_DIR / f"103sensitivity_pilot-seed{s}.json"
         if not f.exists():
             raise FileNotFoundError(f"IRON RULE 违反：{f} 不在盘（先跑 105multiseed_realdata.py）")
         per_seed[s] = json.loads(f.read_text(encoding="utf-8"))["L2_gweighted_psi"]["perturbation"]
 
-    agg = {}
+    agg: dict[str, dict[str, Any]] = {}
     for lv in LEVELS:
         ss = [float(per_seed[s][lv]["frac_same_sign_as_baseline"]) for s in seeds]
         st = [float(per_seed[s][lv]["frac_strong"]) for s in seeds]

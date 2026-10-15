@@ -19,14 +19,19 @@
     05logs/127budget_matched_sensitivity_<ts>.log
 """
 from __future__ import annotations
-import json, logging, time
+
+import json
+import logging
+import time
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "04outputs"; LOGS = ROOT / "05logs"
+OUT = ROOT / "04outputs"
+LOGS = ROOT / "05logs"
 DESIGNS = OUT / "123montecarlo_criterion_study-designs.csv"
 
 SEED = 20060515          # 与 123 的选型循环同种子
@@ -48,31 +53,41 @@ def _is_cond(k: str) -> bool:
 TOLS = [1.0, 1.05, 1.1, 1.25, 1.5, 2.0]   # 2.0 = 123 的原设置；1.0 = 严格同预算
 
 
-def get_logger(stem):
-    LOGS.mkdir(parents=True, exist_ok=True); ts = time.strftime("%y-%m-%d_%H%M%S")
-    lg = logging.getLogger(stem); lg.setLevel(logging.INFO); lg.handlers.clear()
-    fh = logging.FileHandler(LOGS / f"{stem}_{ts}.log"); sh = logging.StreamHandler()
-    f = logging.Formatter("%(asctime)s %(levelname)s %(message)s"); fh.setFormatter(f); sh.setFormatter(f)
-    lg.addHandler(fh); lg.addHandler(sh); return lg
+def get_logger(stem: str) -> logging.Logger:
+    LOGS.mkdir(parents=True, exist_ok=True)
+    ts = time.strftime("%y-%m-%d_%H%M%S")
+    lg = logging.getLogger(stem)
+    lg.setLevel(logging.INFO)
+    lg.handlers.clear()
+    fh = logging.FileHandler(LOGS / f"{stem}_{ts}.log")
+    sh = logging.StreamHandler()
+    f = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
+    fh.setFormatter(f)
+    sh.setFormatter(f)
+    lg.addHandler(fh)
+    lg.addHandler(sh)
+    return lg
 
 
-def boot_ci(vals, rng, n=2000):
+def boot_ci(vals: Any, rng: np.random.Generator, n: int = 2000) -> list[float]:
     vals = np.asarray(vals)
     bs = [float(np.median(rng.choice(vals, len(vals), replace=True))) for _ in range(n)]
     return [float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))]
 
 
-def run_selection(df, tol, rb):
+def run_selection(df: pd.DataFrame, tol: float, rb: np.random.Generator) -> dict[str, Any]:
     """与 123montecarlo_criterion_study.py 的选型循环同构，唯一差别是预算容差 tol。
 
     关键：必须先按 N_obs 排序再取滑窗（123:319 `df.sort_values("N_obs")`），
     否则窗口内预算天然发散，容差过滤会误杀绝大多数场景。
     """
     df = df.sort_values("N_obs").reset_index(drop=True)
-    Nobs = df["N_obs"].to_numpy(); relerr = df["relerr_Ea"].to_numpy()
+    Nobs = df["N_obs"].to_numpy()
+    relerr = df["relerr_Ea"].to_numpy()
     crit_vals = {k: df[k].to_numpy() for k in CRIT_ALL}
-    picks = {k: [] for k in CRIT_ALL}
-    agree_ED = 0; nobs_spread = []
+    picks: dict[str, list[float]] = {k: [] for k in CRIT_ALL}
+    agree_ED = 0
+    nobs_spread: list[float] = []
     for _ in range(N_SCEN):
         lo = rb.integers(0, len(df) - K_CAND)
         idx = np.arange(lo, lo + K_CAND)
@@ -81,7 +96,7 @@ def run_selection(df, tol, rb):
             continue
         nobs_spread.append(float(spread))
         best_true = relerr[idx].min()
-        chosen = {}
+        chosen: dict[str, Any] = {}
         for k in CRIT_ALL:
             v = crit_vals[k][idx]
             j = idx[np.argmin(v)] if _is_cond(k) else idx[np.argmax(v)]
@@ -91,7 +106,7 @@ def run_selection(df, tol, rb):
     n_scen = len(picks["E_het"])
     if n_scen == 0:
         return {"n_scenarios": 0, "note": "该容差下无可用候选集"}
-    out = {"n_scenarios": int(n_scen),
+    out: dict[str, Any] = {"n_scenarios": int(n_scen),
            "operator": "heteroscedastic (def:psi 定义量)；同方差代理表另列",
            "nobs_spread_max": float(max(nobs_spread)), "nobs_spread_median": float(np.median(nobs_spread)),
            "E_and_D_pick_same_design_rate": float(agree_ED / n_scen),
@@ -106,14 +121,15 @@ def run_selection(df, tol, rb):
 
 
 def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True); log = get_logger("127budget_matched_sensitivity")
+    OUT.mkdir(parents=True, exist_ok=True)
+    log = get_logger("127budget_matched_sensitivity")
     df = pd.read_csv(DESIGNS)
     _missing = [c for c in ["N_obs", "relerr_Ea"] + CRIT_ALL if c not in df.columns]
     if _missing:
         raise SystemExit(f"designs CSV 缺列 {_missing}——请先重跑 123montecarlo_criterion_study.py")
     log.info("designs=%d  全部判据列在盘", len(df))
 
-    res = {"script": "127budget_matched_sensitivity.py", "seed": SEED,
+    res: dict[str, Any] = {"script": "127budget_matched_sensitivity.py", "seed": SEED,
            "source_designs": str(DESIGNS.name), "n_designs": int(len(df)),
            "question": ("把 123 的预算配平容差从 2.0 倍收紧到严格同预算，"
                         "「按条件数筛查代价高昂」是否仍成立"),

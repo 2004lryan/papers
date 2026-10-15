@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 
@@ -57,7 +58,7 @@ def cmp_abs(a: float, b: float) -> str:
 
 
 def main() -> None:
-    per_draw: list[dict] = []
+    per_draw: list[dict[str, Any]] = []
     for name, path in draws():
         blk = json.loads(path.read_text(encoding="utf-8"))["partial_spearman_control_deltaT"]
         std, var = blk["_standard_definition"], blk
@@ -79,7 +80,7 @@ def main() -> None:
         }
         per_draw.append(row)
 
-    def tally(key: str) -> dict:
+    def tally(key: str) -> dict[str, Any]:
         got = [r[key]["larger"] for r in per_draw]
         return {"n_draws": len(got),
                 "Psi_n_strictly_larger": got.count("Psi_n"),
@@ -89,14 +90,14 @@ def main() -> None:
 
     seeds_only = [r for r in per_draw if r["draw"] != "native"]
 
-    def stats(key: str, which: str) -> dict:
+    def stats(key: str, which: str) -> dict[str, Any]:
         v = np.array([r[key][which] for r in seeds_only], dtype=float)
         return {"n_seeds": int(v.size), "mean": float(v.mean()),
                 "min": float(v.min()), "max": float(v.max()),
                 "per_seed": {r["draw"]: r[key][which] for r in seeds_only}}
 
     ties = [r for r in per_draw if r["paper_convention"]["larger"] == "tie"]
-    res = {
+    res: dict[str, Any] = {
         "study": "91c5 族 6 次抽样的偏 Spearman 逐次胜负聚合（控制 ΔT 后 |偏 Ψ_n| vs |偏 cond|）",
         "inputs": [r["artifact"] for r in per_draw],
         "tie_tolerance": TIE_TOL,

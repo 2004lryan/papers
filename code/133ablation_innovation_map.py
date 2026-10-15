@@ -28,7 +28,7 @@
     - 种子展布报 5 个预注册种子的区间，不只报主文件。
 """
 from __future__ import annotations
-import json, logging, time
+import json, logging, time, typing
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -83,7 +83,7 @@ def get_logger(stem: str) -> logging.Logger:
 
 # ============================ (A) 组装已有产物 ============================
 
-def load_104(log) -> dict:
+def load_104(log: logging.Logger) -> dict[str, typing.Any]:
     """读 7 个 104 文件，列出键与行数后再取值（本项目铁律：先开文件列键，不假设结构）。"""
     files = {"main": OUT / "104ablation_psi_aggregation.json"}
     for s in PRE_SEEDS:
@@ -103,17 +103,17 @@ def load_104(log) -> dict:
     return raw
 
 
-def assemble_psi_ablation(raw: dict, log) -> dict:
+def assemble_psi_ablation(raw: dict[str, typing.Any], log: logging.Logger) -> dict[str, typing.Any]:
     """创新点 (1)：N 因子消融 + 谱泛函选择消融，双口径 × (主文件 + 5 种子)。"""
     calibers = ["16超定(主)", "26全部(附)"]
     crits = ["Psi_n(E最优xN,本文)", "D最优xN2", "A最优xN inv", "deltaT(启发式)",
              "E最优 lambda_min(去N)", "D最优 det(I)", "A最优 tr(Iinv)", "条件数 cond", "n_temps(启发式)"]
 
-    def row(tag, cal, crit, key):
+    def row(tag: str, cal: str, crit: str, key: str) -> typing.Any:
         m = {r["判据"]: r for r in raw[tag]["ablation"] if r["口径"] == cal}
         return m[crit][key]
 
-    table = {}
+    table: dict[str, dict[str, typing.Any]] = {}
     for cal in calibers:
         table[cal] = {}
         for crit in crits:
@@ -189,7 +189,7 @@ def assemble_psi_ablation(raw: dict, log) -> dict:
                         "描述性报告，子集嵌套非独立，不报名义 p。"}
 
 
-def assemble_rho_trichotomy(log) -> dict:
+def assemble_rho_trichotomy(log: logging.Logger) -> dict[str, typing.Any]:
     """创新点 (1) 的三档 ρ 消融：直接取 43trichotomy_formal 的既有产物，不补跑。"""
     j = json.load(open(OUT / "43trichotomy_formal.json", encoding="utf-8"))
     agg = pd.read_csv(OUT / "43trichotomy_formal-agg.csv")
@@ -222,7 +222,7 @@ def assemble_rho_trichotomy(log) -> dict:
                     "ρ=1/2 一档、ρ>1/2 一档，故三档齐备，无须补跑。"}
 
 
-def assemble_compensation(log) -> dict:
+def assemble_compensation(log: logging.Logger) -> dict[str, typing.Any]:
     """创新点 (3)：补偿线 = Fisher 最小特征方向。取 122 的既有数值核验。"""
     d = json.load(open(OUT / "122criterion_bakeoff.json", encoding="utf-8"))
     lf = d["lemma_fisher_numerical_check"]
@@ -248,7 +248,7 @@ def assemble_compensation(log) -> dict:
 
 # ============================ (B) 创新点 (2)：三阶抵消消融 ============================
 
-def design(n: int, rho: float, seed: int):
+def design(n: int, rho: float, seed: int) -> tuple[np.typing.NDArray[np.float64], np.typing.NDArray[np.float64], float]:
     """与 43trichotomy_formal.py 逐位一致的设计生成。"""
     dT = float(np.clip(DT0 * (n / N0) ** (-rho), 0.05, 60))
     rng = np.random.default_rng(seed * 100003 + n)
@@ -257,7 +257,7 @@ def design(n: int, rho: float, seed: int):
     return T_C, t, dT
 
 
-def laq_ratio(T_C, t, c: float):
+def laq_ratio(T_C: np.typing.NDArray[np.float64], t: np.typing.NDArray[np.float64], c: float) -> dict[str, float]:
     """沿退化方向的三阶/二阶比。
 
     被消融的模型族（外科式，只动仿射性这一条）:
@@ -321,7 +321,7 @@ def laq_ratio(T_C, t, c: float):
                 cond_I1=float((sv[0] / sv[-1]) ** 2))
 
 
-def loglog_slope(x, y):
+def loglog_slope(x: typing.Any, y: typing.Any) -> tuple[float, float]:
     x = np.asarray(x, float); y = np.asarray(y, float)
     ok = (x > 0) & (y > 0) & np.isfinite(x) & np.isfinite(y)
     if ok.sum() < 3:
@@ -335,7 +335,7 @@ def loglog_slope(x, y):
     return float(coef[0]), r2
 
 
-def run_laq_ablation(log) -> dict:
+def run_laq_ablation(log: logging.Logger) -> dict[str, typing.Any]:
     log.info("=== 创新点 (2) 三阶抵消消融：ρ × c 网格 ===")
     rows = []
     for rho in RHO_LIST:
@@ -394,7 +394,7 @@ def run_laq_ablation(log) -> dict:
         s, r2 = loglog_slope(g0.n.values, g0.ratio_affine_only.values)
         aff_slopes[f"rho={rho}"] = {"loglog_slope": round(s, 4), "R2": round(r2, 4)}
 
-    slopes = {}
+    slopes: dict[str, dict[str, typing.Any]] = {}
     for rho in RHO_LIST:
         slopes[f"rho={rho}"] = {}
         for c in C_LIST:
@@ -445,7 +445,7 @@ def run_laq_ablation(log) -> dict:
             "slopes": slopes, "verdict": verdict}
 
 
-def main():
+def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     log = get_logger("133ablation_innovation_map")
     log.info("=== 133ablation_innovation_map 启动 | 四创新点 -> 消融项 ===")

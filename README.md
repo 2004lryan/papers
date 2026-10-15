@@ -54,7 +54,9 @@ junctions.
 Some scripts had comments, docstrings or descriptive text strings edited after the published
 numbers were produced. For three of them, `103`, `143` and `145`, the shipped result files were
 not regenerated after that edit; the text fields concerned were rewritten in place instead, and
-`outputs/155relabel_release_fields.json` lists each one.
+`outputs/155relabel_release_fields.json` lists each one. `127`, `130`, `131` and `133` also had
+type annotations and line reformatting added after their results were produced; neither changes
+what the scripts compute.
 
 ## Reproduction
 
