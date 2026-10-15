@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated manuscript."
+title: "Within-city nitrogen dioxide exposure gradients in China narrowed ahead of electric vehicle fleet growth"
+type: software
+authors:
+  - family-names: "Li"
+    given-names: "Panlin"
+    affiliation: "College of Mathematics and Physics, Xinjiang Agricultural University"
+  - family-names: "Huang"
+    given-names: "Hua"
+    affiliation: "College of Mathematics and Physics; Numerical Simulation and Data Analysis Research Center, Xinjiang Agricultural University"
+  - family-names: "Song"
+    given-names: "Yanping"
+    affiliation: "College of Mathematics and Physics; Numerical Simulation and Data Analysis Research Center, Xinjiang Agricultural University"
+    orcid: "https://orcid.org/0009-0009-0104-5853"
+    email: "syp@xjau.edu.cn"
+repository-code: "https://github.com/2004lryan/009within-city-no2-gradients"
+license: MIT

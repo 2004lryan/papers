@@ -1,0 +1,24 @@
+# Lint settings for the scripts in code/ (ruff check code).
+line-length = 120
+target-version = "py310"
+extend-exclude = ["data", "outputs", "logs"]
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF", "N", "C4", "PT"]
+# RUF001-RUF003 report Chinese full-width punctuation in column names and log messages as ambiguous characters
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[lint.per-file-ignores]
+# Hand-written cluster-robust variances and wild cluster bootstraps keep matrix notation (X, XtX_i, V, G, N, K, B)
+# so that each line can be read against the sandwich formula
+"code/48_run_station_panel.py" = ["N803", "N806"]
+"code/51_station_timing_and_power.py" = ["N803", "N806"]
+"code/52_station_figures.py" = ["N803", "N806"]
+"code/65_revision_robustness.py" = ["N803", "N806"]
+# The hourly files are parsed cell by cell over hundreds of millions of iterations; try-except-pass is faster there
+# than contextlib.suppress
+"code/42_fetch_station_air_quality.py" = ["SIM105"]
+
+[format]
+quote-style = "double"
+indent-style = "space"

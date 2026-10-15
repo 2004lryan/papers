@@ -1,0 +1,16 @@
+# Third-party packages the scripts in code/ need, pinned to the versions installed in the analysis environment at
+# release (Python 3.13.5, 2026-09-27); the run logs do not record package versions. openpyxl is used through pandas,
+# and statsmodels is a dependency of linearmodels. Scripts 29, 42-45 and 66 also call the system curl.
+numpy==2.2.5
+pandas==2.3.2
+scipy==1.15.3
+linearmodels==7.0          # panel regressions with fixed effects
+statsmodels==0.14.6
+matplotlib==3.10.5
+openpyxl==3.1.5            # result workbooks
+pyarrow==24.0.0            # hourly parquet files
+rasterio==1.5.1            # GHSL built-up surface (45, 66)
+pyproj==3.7.2
+pypinyin==0.55.0           # city-name matching (29)
+playwright==1.58.0         # National Bureau of Statistics portal (49), driving a locally installed Chrome, Chromium or
+                           # Edge: macOS application paths are searched, elsewhere set PLAYWRIGHT_BROWSER_EXECUTABLE

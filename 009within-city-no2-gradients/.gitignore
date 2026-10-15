@@ -1,0 +1,75 @@
+# ─── Data (never committed) ─────────────────────────────────────────
+# Rasters and binary formats, such as the GHSL tiles downloaded by scripts 45 and 66.
+*.mat
+*.bil
+*.bsq
+*.hdr
+*.bin
+*.tif
+*.tiff
+*.img
+*.lan
+*.raw
+*.dat
+# Cleaned tables, hourly files and downloads under data/ — the repository ships data cards only (docs/, data/DATA.md).
+data/**/*.csv
+data/**/*.xlsx
+data/**/*.parquet
+data/**/*.gz
+data/**/*.zip
+data/**/*.jpg
+data/raw/
+# generated workbooks, figures and logs
+outputs/
+
+# ─── Model weights / large binaries ─────────────────────────────────
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.safetensors
+checkpoints/
+
+# ─── Credentials / secrets (NEVER commit) ───────────────────────────
+.env
+*.env
+*api*key*
+*apikey*
+*token*
+*secret*
+*credential*
+id_rsa*
+*.pem
+api.json
+
+# ─── Experiment tracking / logs ─────────────────────────────────────
+wandb/
+logs/
+*.log
+
+# ─── Python / tooling caches ────────────────────────────────────────
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ─── OS / editor cruft ──────────────────────────────────────────────
+._*
+.DS_Store
+.vscode/
+.idea/
+
+# ─── LaTeX build intermediates ──────────────────────────────────────
+*.aux
+*.out
+*.toc
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
