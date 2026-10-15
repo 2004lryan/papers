@@ -5,6 +5,10 @@ Code and reproducibility materials for the manuscript
 > **A recoverability trichotomy for Arrhenius inversion: critical design scaling and its consequences for experimental design**
 > (in preparation for submission to *Chemometrics and Intelligent Laboratory Systems*)
 
+These materials live in the `023arrhenius-recoverability/` folder of the
+[papers](https://github.com/2004lryan/papers/tree/main/023arrhenius-recoverability) repository,
+which keeps one top-level folder per paper. All paths below are relative to that folder.
+
 ## What the paper claims
 
 When activation energies are inverted from a narrow temperature window, the Arrhenius
@@ -61,6 +65,9 @@ what the scripts compute.
 ## Reproduction
 
 ```bash
+git clone https://github.com/2004lryan/papers.git
+cd papers/023arrhenius-recoverability
+
 pip install -r requirements.txt
 python tools/bootstrap_layout.py               # verify/repair the layout aliases — run this first
 
