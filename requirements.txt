@@ -1,0 +1,45 @@
+# requirements.txt - exact versions of the environment that produced the reported numbers.
+# Written from the installed environment by the collection script of the working project; do not edit by hand.
+#
+# Python 3.13.5
+# Platform macOS-27.2-arm64-arm-64bit-Mach-O / arm64
+#
+# The versions below are those of the local machine. The 5-fold x 5-repeat results of PLSR, SVR, FPLR and
+# FPCR in Table 2 and the reference results in 25nested_cv.csv were produced on it; they are the basis of
+# the bit-for-bit reproduction check.
+# The 5-fold x 5-repeat results of the random forest and the 1D-CNN, and the three-level fully nested
+# recheck of both in Appendix A3, were run on a remote server (random forest on CPU, 1D-CNN on GPU). The
+# platform differs from that of the reference, so the fold-by-fold comparison is listed for these two
+# methods without a verdict.
+# Remote conda environment: Python 3.10.21, numpy 2.2.6, scipy 1.15.3, pandas 2.3.3, scikit-learn 1.7.2,
+# joblib 1.6.0, torch 2.11.0+cu128 (CUDA 12.8, cuDNN 9.19); GPU: RTX 4090.
+# Script 45 writes the environment of each result set (library versions; on GPU also the CUDA and cuDNN
+# versions and the device model) to the manifest of that set (*_manifest.json; fields in ncv_manifest.py).
+# Script 47 checks the environment recorded in each manifest. For PLSR, SVR, FPLR and FPCR it must equal
+# the environment in which script 47 itself is run; for the random forest and the 1D-CNN it must equal the
+# remote environment above, which script 47 holds as constants. The cache fingerprint in the manifest must
+# equal the value expected for this round (for the methods run locally it is recomputed from the local
+# data, grids and environment as script 45 defines it; for the random forest and the 1D-CNN it is the
+# value written by the server shards). Script 47 recomputes all metrics of every fold from
+# the reference values and the per-sample predictions with the formulas of script 45 and compares them
+# with the summary rows. It also reads the grid cache written by script 45 to recompute the configuration
+# selected in every fold and to compare the per-sample predictions (the caches of the random forest and
+# the 1D-CNN were retrieved from the server).
+
+numpy==2.2.5
+pandas==2.3.2
+scipy==1.15.3
+scikit-learn==1.6.1
+joblib==1.5.2
+torch==2.8.0
+matplotlib==3.10.5
+openpyxl==3.1.5
+statsmodels==0.14.6
+baycomp==1.0.3
+wandb==0.26.1
+python-docx==1.2.0
+
+# --- development only; not needed to reproduce the results ---
+# pytest==9.0.3
+# ruff==0.15.12
+# mypy==2.1.0
