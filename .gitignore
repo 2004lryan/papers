@@ -1,0 +1,72 @@
+# ─── Raw / restricted data (NEVER commit) ───────────────────────────
+*.mat
+*.bil
+*.bsq
+*.hdr
+*.bin
+*.tif
+*.tiff
+*.img
+*.lan
+*.raw
+*.dat
+# Apple NIR spectra (XJAU restricted-access; data cards only in this repo)
+data/processed/*.csv
+data/processed/*.parquet
+data/*.xlsx
+data/*.csv
+# generated intermediate tables
+outputs/*.csv
+
+# ─── Model weights / large binaries ─────────────────────────────────
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.safetensors
+checkpoints/
+checkpoints/
+
+# ─── Credentials / secrets (NEVER commit) ───────────────────────────
+.env
+*.env
+*api*key*
+*apikey*
+*token*
+*secret*
+*credential*
+id_rsa*
+*.pem
+api.json
+
+# ─── Experiment tracking / logs ─────────────────────────────────────
+wandb/
+logs/
+*.log
+
+# ─── Python / tooling caches ────────────────────────────────────────
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ─── OS / editor cruft ──────────────────────────────────────────────
+._*
+.DS_Store
+.vscode/
+.idea/
+
+# ─── LaTeX build intermediates ──────────────────────────────────────
+*.aux
+*.out
+*.toc
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
