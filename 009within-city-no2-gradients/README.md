@@ -6,7 +6,7 @@ Analysis code for the manuscript:
 > Panlin Li, Hua Huang, Yanping Song\*
 > Xinjiang Agricultural University · *manuscript in preparation*
 
-Repository: https://github.com/2004lryan/009within-city-no2-gradients
+Repository: https://github.com/2004lryan/papers/tree/main/009within-city-no2-gradients
 
 ---
 
