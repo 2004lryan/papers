@@ -1,0 +1,59 @@
+{
+  "script": "119pazman_pronzato_bridge.py",
+  "purpose": "PP2006 渐近奇异设计算例与本文 Psi 参数化的坐标对照",
+  "source_paper": {
+    "authors": "Pázman A., Pronzato L.",
+    "title": "On the irregular behavior of LS estimators for asymptotically singular designs",
+    "venue": "Statistics & Probability Letters 76(11):1089-1096",
+    "year": 2006,
+    "doi": "10.1016/j.spl.2005.12.010",
+    "open_fulltext": "https://hal.science/hal-00416062"
+  },
+  "rows": [
+    {
+      "n": 200,
+      "lambda_min_M": 0.010900301806655409,
+      "Psi_n": 2.1800603613310816,
+      "sd_degenerate_direction": 0.6766115867338149,
+      "ratio_sd_times_sqrt_Psi": 0.9990188663344853,
+      "sd_over_n_minus_quarter": 2.544467625889277
+    },
+    {
+      "n": 2000,
+      "lambda_min_M": 0.005479436489223551,
+      "Psi_n": 10.958872978447102,
+      "sd_degenerate_direction": 0.30183823175013125,
+      "ratio_sd_times_sqrt_Psi": 0.999210972766266,
+      "sd_over_n_minus_quarter": 2.0185139115412674
+    },
+    {
+      "n": 20000,
+      "lambda_min_M": 0.002146464457597248,
+      "Psi_n": 42.929289151944964,
+      "sd_degenerate_direction": 0.15256740464617827,
+      "ratio_sd_times_sqrt_Psi": 0.999628448032461,
+      "sd_over_n_minus_quarter": 1.8143424312273442
+    },
+    {
+      "n": 200000,
+      "lambda_min_M": 0.0007593347854633064,
+      "Psi_n": 151.8669570926613,
+      "sd_degenerate_direction": 0.08113470500244264,
+      "ratio_sd_times_sqrt_Psi": 0.9998579568454656,
+      "sd_over_n_minus_quarter": 1.7157901107462048
+    },
+    {
+      "n": 2000000,
+      "lambda_min_M": 0.00025560612067307924,
+      "Psi_n": 511.21224134615846,
+      "sd_degenerate_direction": 0.044226022361016464,
+      "ratio_sd_times_sqrt_Psi": 0.9999505038218112,
+      "sd_over_n_minus_quarter": 1.6631651648574652
+    }
+  ],
+  "ratio_min": 0.9990188663344853,
+  "ratio_max": 0.9999505038218112,
+  "claim_in_manuscript": "退化方向标准差 × Psi_n^{1/2} 自 0.999 单调趋于 1.000（n 自 2e2 至 2e6）",
+  "claim_holds": true,
+  "honesty_note": "线性高斯模型中沿最小特征方向 sd = Psi^{-1/2} 为恒等式；本核验说明两套结果处于同一坐标，不构成对本文定理的独立经验证据。"
+}

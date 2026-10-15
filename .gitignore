@@ -1,0 +1,46 @@
+# ============================================================
+# HARD EXCLUSIONS — never publish
+# ============================================================
+# Self-collected, unpublished spectral data belonging to other projects
+# of this group. None of it is used by this paper and none of it may
+# enter this repo. The patterns below do the excluding; the datasets are
+# deliberately not named here, since naming them would publish their
+# existence without excluding anything.
+<EXTERNAL_DATA_ROOT>/
+05data/
+00[0-9]_*/
+*苹果*
+*光谱*
+*糖度*
+
+# Raw / bulk data of any kind
+*.npz
+*.npy
+*.parquet
+*.h5
+*.hdf5
+*.mat
+*.xlsx
+*.xls
+*.sav
+
+# Local absolute paths must never reappear
+# (checked by tools/check_no_leak.sh before every push)
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+._*
+.vscode/
+.idea/
+
+# Build
+*.log
+*.aux
+*.out

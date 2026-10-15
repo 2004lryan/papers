@@ -1,0 +1,212 @@
+{
+ "script": "02code/155relabel_release_fields.py",
+ "说明": "已登记产物里几处评审写法的字段改写，不重跑；理由、做法与核对见脚本 docstring。其余字节一律不动，改后解析结果与「改前对象只改目标字段」逐项相等。",
+ "规则": {
+  "V1": "103 逐种子产物 verdict 结论句里对评审方的称呼 → 外审提出的（与 103 现行写法一致）",
+  "M1": "143 收据「机制」字段里取证门禁的函数名 → 取证门禁的 fingerprint 计算（与 143 现行写法一致）",
+  "M2": "143 收据「复现条件」字段里取证沙箱的目录路径 → 不同轮次的取证沙箱目录（与 143 现行写法一致）",
+  "M3": "143 收据 skill 字段里取证各专项的模块名 → 中性专项名（文献、实验、推导、一致性），按模块名首段映射（与 143 现行 TRACK 一致）",
+  "M4": "143 收据处置表「说明」字段里对执行方的称呼 → 执行方（与 143 现行写法一致）",
+  "S1": "145 产物 resolution_source 字段里取证沙箱的目录路径 → 占位串（与 145 现行写法一致）"
+ },
+ "文件": [
+  {
+   "path": "04outputs/105_seeds/103sensitivity_pilot-seed20060515.json",
+   "改写前登记的_sha256": "3a7a377bcea17e6c240cd91dda59b81b4383b26640530ef3237a2d5041fc3487",
+   "本次运行前_sha256": "3a7a377bcea17e6c240cd91dda59b81b4383b26640530ef3237a2d5041fc3487",
+   "本次运行后_sha256": "efd6cd7c4b4387bd5f609704f5bbc7b78778d179e7747a81039197dcd299a279",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "04outputs/105_seeds/103sensitivity_pilot-seed20041210.json",
+   "改写前登记的_sha256": "85c7ced7c171afd4245fcd00faa05f22ce1d4498802be55996abed942292f2d0",
+   "本次运行前_sha256": "85c7ced7c171afd4245fcd00faa05f22ce1d4498802be55996abed942292f2d0",
+   "本次运行后_sha256": "b5a76a3175ae0a14358069d3daaeceb7b930a714476e8d2d8703227f37266b24",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "04outputs/105_seeds/103sensitivity_pilot-seed19810915.json",
+   "改写前登记的_sha256": "bf18d07b0d3d5de6dc0d501c6d3a645aea29ee9f196a160d3c51d48a82ac86e0",
+   "本次运行前_sha256": "bf18d07b0d3d5de6dc0d501c6d3a645aea29ee9f196a160d3c51d48a82ac86e0",
+   "本次运行后_sha256": "20e3c98f866f2b9aef5420bb47a9e8d7c52b5e676a31b5b90b3b5f71a96d0737",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "04outputs/105_seeds/103sensitivity_pilot-seed2023.json",
+   "改写前登记的_sha256": "740d0d37064b50b6b353733265ecee6ebdaf6c11b4f0080ef9103a20d25c6154",
+   "本次运行前_sha256": "740d0d37064b50b6b353733265ecee6ebdaf6c11b4f0080ef9103a20d25c6154",
+   "本次运行后_sha256": "1f43be8c144488bdbd7ddaa358d30e759641091723f13e299398172e12e7f4c2",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "04outputs/105_seeds/103sensitivity_pilot-seed2024.json",
+   "改写前登记的_sha256": "8a2c1b4fbfed779edf04ee11f5d6ba2534a242b7a4bd036b226f321cbad94d50",
+   "本次运行前_sha256": "8a2c1b4fbfed779edf04ee11f5d6ba2534a242b7a4bd036b226f321cbad94d50",
+   "本次运行后_sha256": "3edcfa95303f6c4451542c190772b4a98b36d77f1e1b9e1136d314aed22aa8c5",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed20060515.json",
+   "改写前登记的_sha256": "a79dc6a99758ca790d374c6d5926116ec6e2401c744699e461f24b25bf852858",
+   "本次运行前_sha256": "a79dc6a99758ca790d374c6d5926116ec6e2401c744699e461f24b25bf852858",
+   "本次运行后_sha256": "ca7b4b40c401eaab081db23b1591feac4e3fc5f8f0b5d7fce12be4c1a6521b77",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed20041210.json",
+   "改写前登记的_sha256": "2a82bace341236159b5303deec6d9982018df7e418f902f2a70f0d5839c1cced",
+   "本次运行前_sha256": "2a82bace341236159b5303deec6d9982018df7e418f902f2a70f0d5839c1cced",
+   "本次运行后_sha256": "43b9d99edfb7c142638f3a3e3765449d381f3f1b15e12a163c06b8dab65eacdf",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed19810915.json",
+   "改写前登记的_sha256": "e54012339f8a4302cc2d5740268c9ca127e407706b70ecbea5722e228be047dd",
+   "本次运行前_sha256": "e54012339f8a4302cc2d5740268c9ca127e407706b70ecbea5722e228be047dd",
+   "本次运行后_sha256": "5f4889e01cc8837a8562ef9a6b8532bd40a24223c98e997547f8bc11d278aaf7",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed2023.json",
+   "改写前登记的_sha256": "d0c0146edc93e32b956b6d46af258ae5bfbd36825d6bf8866be2f3a5dee263f7",
+   "本次运行前_sha256": "d0c0146edc93e32b956b6d46af258ae5bfbd36825d6bf8866be2f3a5dee263f7",
+   "本次运行后_sha256": "427fc85e0ab8a05a344a9eaf709f20bcefe2051690db613b9a4d2338bb5cef59",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "05logs/rya103_verify_20260810/103sensitivity_pilot-seed2024.json",
+   "改写前登记的_sha256": "4fc055949a5a18bf618c8571922af16bd03d040d9cd3f6e331f0daec03763403",
+   "本次运行前_sha256": "4fc055949a5a18bf618c8571922af16bd03d040d9cd3f6e331f0daec03763403",
+   "本次运行后_sha256": "1e3db52ed824e5ee6164259cf92ef89e9117de015b5250595ecfe0191c07d6f0",
+   "首次改写的预期命中": {
+    "V1": 1
+   },
+   "本次命中": {
+    "V1": 1
+   },
+   "本次改写的字段": [
+    "verdict"
+   ]
+  },
+  {
+   "path": "04outputs/143rya579_ledger_receipts.json",
+   "改写前登记的_sha256": "428f4e08cb2b11cd88138daa75638109e6bd396482a16a990eb5a6fca7aa1a34",
+   "本次运行前_sha256": "428f4e08cb2b11cd88138daa75638109e6bd396482a16a990eb5a6fca7aa1a34",
+   "本次运行后_sha256": "5edcd0407cb97c5fc239253308376688afce9d3e375b6e0419d7f675149de7f1",
+   "首次改写的预期命中": {
+    "M1": 1,
+    "M2": 1,
+    "M3": 8,
+    "M4": 1
+   },
+   "本次命中": {
+    "M1": 1,
+    "M2": 1,
+    "M3": 8,
+    "M4": 1
+   },
+   "本次改写的字段": [
+    "B_fingerprint重复组.候选但被第二步否掉（同文献不同缺陷，非路径重复）[0].skill",
+    "B_fingerprint重复组.复现条件",
+    "B_fingerprint重复组.机制",
+    "B_fingerprint重复组.重复组[0].skill",
+    "C_六条OPEN本轮处置[0].skill",
+    "C_六条OPEN本轮处置[1].skill",
+    "C_六条OPEN本轮处置[1].说明",
+    "C_六条OPEN本轮处置[2].skill",
+    "C_六条OPEN本轮处置[3].skill",
+    "C_六条OPEN本轮处置[4].skill",
+    "C_六条OPEN本轮处置[5].skill"
+   ]
+  },
+  {
+   "path": "04outputs/145citation_field_diff.json",
+   "改写前登记的_sha256": "54212e48a132a71c48e92171488f403a25bb4697741ad9c032109c673848d882",
+   "本次运行前_sha256": "54212e48a132a71c48e92171488f403a25bb4697741ad9c032109c673848d882",
+   "本次运行后_sha256": "6b43ea0da4f067119487e8d2bc9d6d12ad10f06d1fc64471fdab674379aafb36",
+   "首次改写的预期命中": {
+    "S1": 1
+   },
+   "本次命中": {
+    "S1": 1
+   },
+   "本次改写的字段": [
+    "resolution_source"
+   ]
+  }
+ ],
+ "本次运行总命中": 22,
+ "幂等": "已改写过的文件再跑一次命中为 0、SHA-256 不变；首次改写记录看各文件的登记哈希与预期命中。"
+}

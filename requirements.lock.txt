@@ -1,0 +1,42 @@
+# ── 精确版本锁（RYA-526，2026-08-19）─────────────────────────────────────────
+# 本文件是论文全部数字的可复现环境**版本锁**，取代 requirements.txt 的区间声明。
+#
+# 生成方式：在实际产出论文数字的解释器上实测已安装版本
+#   /opt/miniconda3/bin/python -c "import importlib.metadata as im; im.version(<pkg>)"
+#
+# 诚实边界（勿越读）：
+#   · 这是**版本锁，不是哈希锁**。未做 wheel 级 --require-hashes 固定，
+#     故它保证「同版本」而不保证「同字节的分发包」。稿面措辞已按此收窄。
+#   · 平台与解释器：Python 3.13.5，macOS-27.0-arm64（Mach-O，Apple silicon）。
+#     跨平台安装同版本一般可复现本文数字（全为 CPU 上的 numpy/scipy 计算），
+#     但 BLAS 实现差异可能改变末位浮点，本文未在其他平台实测，故不作声明。
+#
+# 安装：python -m pip install -r requirements.lock.txt
+
+# ── 全部脚本共同的核心计算栈 ────────────────────────────────────────────────
+numpy==2.2.6
+pandas==2.3.2
+scipy==1.16.1
+matplotlib==3.10.5
+
+# ── 仅 04outputs 侧的部分复现路径需要（发布树 code/ 的 16 个脚本不需要）──────
+# torch：02code/export_utils.py:34 为**模块级无条件导入**，而
+#   104ablation_psi_aggregation / 105multiseed_realdata / 103sensitivity_pilot /
+#   107design_multivariety / 108figs_ablation_negctrl / 129checkpoint_persist /
+#   130aggregate_pilot_robustness 均 import export_utils，故这些脚本
+#   **在 import 期即需要 torch**，尽管 C5 全流程不做任何 GPU 训练。
+torch==2.8.0
+# openpyxl：export_utils.py:392 的 pd.ExcelWriter(engine="openpyxl") 工作簿写出路径，
+#   由 105multiseed_realdata.py:203-214 的五种子汇总触发。
+openpyxl==3.1.5
+# joblib：export_utils.save_sklearn_checkpoint 的**惰性**导入（函数体内），
+#   07checkpoints/*/best.joblib 的落盘通道，由 129checkpoint_persist 触发。
+joblib==1.5.1
+
+# ── 仅投稿文档生成需要，与任何分析数字无关 ──────────────────────────────────
+python-docx==1.2.0
+
+# ── 经实测**不需要**的包（登记以免后来者误装）───────────────────────────────
+# baycomp / codecarbon / statsmodels / wandb：export_utils 内均为函数体内惰性导入
+#   或仅出现在 docstring，C5 的任何脚本都不触发，故不入锁。
+# scikit-learn：C5 论文相关脚本无一 import。

@@ -1,0 +1,176 @@
+{
+  "claims": [
+    {
+      "claim_id": 1,
+      "location": "zh:L639|en:L559",
+      "paper_text": "1000 mutually independent Arrhenius designs",
+      "paper_value": "1000 designs",
+      "evidence_file": "123montecarlo_criterion_study-designs.csv; 123montecarlo_criterion_study.json",
+      "evidence_value": "CSV row count = 1000; n_designs_requested = 1000; n_designs_valid = 1000",
+      "status": "exact_match",
+      "details": "The design count is identical in the Chinese and English versions and exactly supported by both evidence files."
+    },
+    {
+      "claim_id": 2,
+      "location": "zh:L639|en:L559",
+      "paper_text": "Ea in [13,70] kJ/mol",
+      "paper_value": "[13,70] kJ/mol",
+      "evidence_file": "123montecarlo_criterion_study.json",
+      "evidence_value": "anchors.Ea_kJmol.range = [13.0,70.0]",
+      "status": "exact_match",
+      "details": "Both language versions report the evidence-file anchor exactly."
+    },
+    {
+      "claim_id": 3,
+      "location": "zh:L639|en:L559",
+      "paper_text": "T in [-18,40] degrees C",
+      "paper_value": "[-18,40] degrees C",
+      "evidence_file": "123montecarlo_criterion_study.json",
+      "evidence_value": "anchors.T_C.range = [-18.0,40.0]",
+      "status": "exact_match",
+      "details": "Both language versions report the evidence-file anchor exactly."
+    },
+    {
+      "claim_id": 4,
+      "location": "zh:L639|en:L559",
+      "paper_text": "sigma_y log-uniform on [0.005,0.08]",
+      "paper_value": "[0.005,0.08]",
+      "evidence_file": "123montecarlo_criterion_study-designs.csv",
+      "evidence_value": "observed sigma_y min = 0.005004475956119797; max = 0.079986048753915",
+      "status": "rounding_ok",
+      "details": "The observed extrema round to 0.005 and 0.080. The CSV supports the numerical range, although it does not independently establish the stated log-uniform distribution."
+    },
+    {
+      "claim_id": 5,
+      "location": "zh:L639|en:L559",
+      "paper_text": "sigma_logk runs from 0.0018 to 0.404",
+      "paper_value": "min 0.0018; max 0.404",
+      "evidence_file": "123montecarlo_criterion_study-designs.csv",
+      "evidence_value": "min = 0.001775835423258329; max = 0.40400988946813193",
+      "status": "rounding_ok",
+      "details": "Standard rounding gives 0.0018 and 0.404 in both language versions."
+    },
+    {
+      "claim_id": 6,
+      "location": "zh:L639|en:L559",
+      "paper_text": "median sigma_logk 0.0115",
+      "paper_value": "0.0115",
+      "evidence_file": "123montecarlo_criterion_study-designs.csv",
+      "evidence_value": "median = 0.011511306298060063",
+      "status": "rounding_ok",
+      "details": "The independently recomputed median rounds to 0.0115."
+    },
+    {
+      "claim_id": 7,
+      "location": "zh:L639|en:L559",
+      "paper_text": "measured sigma_logk band 0.06--0.60",
+      "paper_value": "[0.06,0.60]",
+      "evidence_file": "123montecarlo_criterion_study.json",
+      "evidence_value": "anchors.sigma_lnk.range = [0.06,0.6]",
+      "status": "exact_match",
+      "details": "The stated measured band is exactly the JSON anchor and is identical across languages."
+    },
+    {
+      "claim_id": 8,
+      "location": "zh:L639|en:L559",
+      "paper_text": "24 designs fall inside the 0.06--0.60 band",
+      "paper_value": "24 designs",
+      "evidence_file": "123montecarlo_criterion_study-designs.csv",
+      "evidence_value": "count satisfying 0.06 <= sigma_lnk <= 0.60 = 24",
+      "status": "exact_match",
+      "details": "The count was recomputed directly from all 1000 CSV rows."
+    },
+    {
+      "claim_id": 9,
+      "location": "zh:L639|en:L559",
+      "paper_text": "each design is inverted 400 times",
+      "paper_value": "400 repetitions per design",
+      "evidence_file": "123montecarlo_criterion_study.json",
+      "evidence_value": "n_reps_per_design = 400; ground_truth states RMSE over 400 noise repetitions",
+      "status": "exact_match",
+      "details": "The repetition count and RMSE convention are explicitly recorded in the JSON."
+    },
+    {
+      "claim_id": 10,
+      "location": "zh:L639|en:L559",
+      "paper_text": "first 200 repetitions for sigma_logk and last 200 for RMSE",
+      "paper_value": "200/200 disjoint split",
+      "evidence_file": "123montecarlo_criterion_study-designs.csv; 123montecarlo_criterion_study.json",
+      "evidence_value": "n_reps_per_design = 400, but no fields identify a first-200/last-200 allocation or disjoint split",
+      "status": "missing_evidence",
+      "details": "The total of 400 is supported, but the listed raw result files do not encode the claimed 200/200 split, so it cannot be verified without trusting the paper narrative."
+    },
+    {
+      "claim_id": 11,
+      "location": "zh:L639|en:L559",
+      "paper_text": "|Spearman| gap of E over D remains +0.054",
+      "paper_value": "+0.054",
+      "evidence_file": "123montecarlo_criterion_study.json",
+      "evidence_value": "E_vs_D_gap_bootstrap.point = 0.054358354889420854",
+      "status": "rounding_ok",
+      "details": "The evidence value rounds to +0.054."
+    },
+    {
+      "claim_id": 12,
+      "location": "zh:L639|en:L559",
+      "paper_text": "95% CI [+0.043,+0.067]",
+      "paper_value": "95% CI [+0.043,+0.067]",
+      "evidence_file": "123montecarlo_criterion_study.json",
+      "evidence_value": "E_vs_D_gap_bootstrap.ci95 = [0.04311410763271424,0.06671025711458214]",
+      "status": "rounding_ok",
+      "details": "The JSON identifies the interval as ci95, and its endpoints round to +0.043 and +0.067."
+    },
+    {
+      "claim_id": 13,
+      "location": "zh:L454|en:L394",
+      "paper_text": "perturbed by +/-10--30%, worst tier +/-30%",
+      "paper_value": "+/-10%, +/-20%, and +/-30%; worst tier +/-30%",
+      "evidence_file": "five 103sensitivity_pilot-seed*.json files",
+      "evidence_value": "Each file contains perturbation keys pm10pct, pm20pct, and pm30pct",
+      "status": "exact_match",
+      "details": "The tested tiers and the identification of the maximum perturbation tier are supported by every seed file."
+    },
+    {
+      "claim_id": 14,
+      "location": "zh:L454|en:L394",
+      "paper_text": "96% stays negative",
+      "paper_value": "96%",
+      "evidence_file": "five 103sensitivity_pilot-seed*.json files",
+      "evidence_value": "unweighted five-seed mean of pm30pct.frac_same_sign_as_baseline = 0.9558268562559934 = 95.58268562559934%",
+      "status": "rounding_ok",
+      "details": "Half-up integer rounding gives 96%."
+    },
+    {
+      "claim_id": 15,
+      "location": "zh:L454|en:L394",
+      "paper_text": "92% stays <= -0.5",
+      "paper_value": "92%",
+      "evidence_file": "five 103sensitivity_pilot-seed*.json files",
+      "evidence_value": "unweighted five-seed mean of pm30pct.frac_strong = 0.9232566554304893 = 92.32566554304893%",
+      "status": "rounding_ok",
+      "details": "Half-up integer rounding gives 92%."
+    },
+    {
+      "claim_id": 16,
+      "location": "zh:L454|en:L394",
+      "paper_text": "16 over-determined subsets",
+      "paper_value": "16 subsets",
+      "evidence_file": "five 103sensitivity_pilot-seed*.json files",
+      "evidence_value": "n_overdetermined_subsets = 16 in every seed file",
+      "status": "exact_match",
+      "details": "All five independent rerun outputs report the same subset count."
+    },
+    {
+      "claim_id": 17,
+      "location": "zh:L454|en:L394",
+      "paper_text": "five-seed means",
+      "paper_value": "5 seeds; mean of seed-specific fractions",
+      "evidence_file": "five 103sensitivity_pilot-seed*.json files",
+      "evidence_value": "5 listed seed files; reported percentages are reproduced by the unweighted arithmetic means of their five pm30pct fractions",
+      "status": "exact_match",
+      "details": "The five-seed-mean convention reproduces both paper percentages; it is not necessary to pool the unequal pm30pct.n counts."
+    }
+  ],
+  "zh_en_consistent": true,
+  "overall_verdict": "WARN"
+}

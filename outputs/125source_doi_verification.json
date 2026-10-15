@@ -1,0 +1,62 @@
+{
+  "script": "125verify_source_dois.py",
+  "generated": "2026-07-26 06:40:16 -0400",
+  "policy": "CILS Option C —— 存入相关仓库 + 在文中引用并链接；本文未采集新数据，三体系均由原作者存入公开仓库，本文履行『引用并链接』。",
+  "n_sources": 3,
+  "n_pass": 3,
+  "all_pass": true,
+  "caveat": "本核验只证明 DOI 已注册、元数据与稿件用途相符；不证明数据内容正确——内容正确性由脚本 55 的逐值复核与脚本 120 的 SHA-256 登记承担。",
+  "sources": [
+    {
+      "id": "hass_avocado",
+      "doi": "10.17632/3xd9n945v8.1",
+      "registry": "datacite",
+      "role": "真实体系 3 / 原始 xlsx 直接读取",
+      "ok": true,
+      "title": "'Hass' Avocado Ripening Photographic Dataset",
+      "container": "Mendeley Data",
+      "year": 2024,
+      "type": "Dataset",
+      "license": [
+        "cc-by-4.0"
+      ],
+      "title_matches_expected": true,
+      "type_matches_expected": true,
+      "verdict": "PASS"
+    },
+    {
+      "id": "apple_firmness",
+      "doi": "10.3390/foods12112113",
+      "registry": "crossref",
+      "role": "真实体系 1 / 表 A1 提取",
+      "ok": true,
+      "title": "An Empirical Model for Predicting the Fresh Food Quality Changes during Storage",
+      "container": "Foods",
+      "year": 2023,
+      "type": "journal-article",
+      "license": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "title_matches_expected": true,
+      "type_matches_expected": true,
+      "verdict": "PASS"
+    },
+    {
+      "id": "food_ammonia_tbars",
+      "doi": "10.3390/foods11142004",
+      "registry": "crossref",
+      "role": "真实体系 2 / 表 3 提取",
+      "ok": true,
+      "title": "Changes in the Quality Attributes of Selected Long-Life Food at Four Different Temperatures over Prolonged Storage",
+      "container": "Foods",
+      "year": 2022,
+      "type": "journal-article",
+      "license": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "title_matches_expected": true,
+      "type_matches_expected": true,
+      "verdict": "PASS"
+    }
+  ]
+}

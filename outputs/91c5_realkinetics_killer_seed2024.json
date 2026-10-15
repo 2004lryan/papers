@@ -1,0 +1,93 @@
+{
+  "study": "C5 killer control: Ψ_n(Fisher) vs 廉价启发式(ΔT/n_temps/线性cond) 预测真实反演误差 realCV_Ea",
+  "data": "54c5_realkinetics-designsweep.csv 真实苹果硬度动力学(Foods 2023), 16 超定>=3温真实子集",
+  "n_subsets": 16,
+  "ground_truth": "realCV_Ea = E_a 的参数自助标准误：以发表表 ±SD 经[硬度->k(T)->Arrhenius]全链传播；非对已知真值的 RMSE",
+  "marginal_spearman": {
+    "Psi_n": {
+      "spearman_vs_realCV": -0.7558823529411764,
+      "p": 0.0007058905869098935,
+      "abs": 0.7558823529411764
+    },
+    "deltaT": {
+      "spearman_vs_realCV": -0.7547003707251306,
+      "p": 0.0007276609707275694,
+      "abs": 0.7547003707251306
+    },
+    "n_temps": {
+      "spearman_vs_realCV": -0.48089155169536785,
+      "p": 0.05933865865384667,
+      "abs": 0.48089155169536785
+    },
+    "cond_linear": {
+      "spearman_vs_realCV": 0.6441176470588235,
+      "p": 0.007081524086582877,
+      "abs": 0.6441176470588235
+    }
+  },
+  "Psi_n_strictly_beats_all_heuristics_marginal": true,
+  "within_fixed_deltaT": {
+    "deltaT_4": {
+      "n": 3,
+      "spearman_Psin_realCV": 0.5,
+      "p_nominal_dependent_subsets_do_not_cite": 0.6666666666666667,
+      "cond_within_group_range_x": 1.0495320508013235
+    },
+    "deltaT_6": {
+      "n": 6,
+      "spearman_Psin_realCV": 0.2571428571428572,
+      "p_nominal_dependent_subsets_do_not_cite": 0.6227871720116618,
+      "cond_within_group_range_x": 1.2784640703203973
+    },
+    "deltaT_8": {
+      "n": 7,
+      "spearman_Psin_realCV": -0.7142857142857144,
+      "p_nominal_dependent_subsets_do_not_cite": 0.0713435614675376,
+      "cond_within_group_range_x": 1.4513406128272184
+    }
+  },
+  "partial_spearman_control_deltaT": {
+    "_convention": {
+      "paper_convention_key": "_standard_definition",
+      "paper_convention_note": "稿面 §sec:res-c5 明写「以下偏 Spearman 一律取教科书标准口径」，指的就是 `_standard_definition` 子键：三者各自秩变换，Ψ_n 与 realCV 的秩各对 ΔT 秩线性回归取残差，再求两组残差的【Pearson】相关。与 104/106/107 的 5 种子分析同口径。",
+      "top_level_keys_are": "本脚本原口径（秩残差【再做一次 Spearman】），非教科书定义",
+      "why_top_level_retained": "保留以维持早期版本已发表数字的可追溯性，并使「换口径会不会翻结论」这一问题在产物层面可被直接检验；它【不是】稿面任何数字的来源，也【不应】被当作本文主张的依据读取。",
+      "which_is_larger_top_level_convention": "cond",
+      "which_is_larger_paper_convention": "tie",
+      "two_conventions_agree_on_this_draw": false,
+      "cross_draw_tally_artifact": "04outputs/131aggregate_c5_partial_tally.json",
+      "cross_draw_note": "单文件只承载【本次抽样】。两口径跨 6 次抽样（5 预注册种子 + 1 原生）的逐次胜负与汇总，由脚本 131 从本族 6 个产物现算，见上一行的产物；本文件不作跨抽样断言。"
+    },
+    "Psi_n_given_deltaT": -0.19999999999999998,
+    "cond_given_deltaT": -0.2764705882352941,
+    "_standard_definition": {
+      "note": "教科书标准偏 Spearman（秩残差的 Pearson）；与 104/106/107 的 5 种子分析同口径；【本子键即稿面口径】",
+      "Psi_n_given_deltaT": -0.2278858752828627,
+      "cond_given_deltaT": -0.22788587528286267,
+      "abs_gap_Psi_n_minus_cond": 2.7755575615628914e-17,
+      "larger_abs_partial": "tie",
+      "tie_tolerance": 1e-12
+    },
+    "note": "控制温度范围后两者的残余预测力（标准口径）：Ψ_n=-0.228、cond=-0.228；二者孰强孰弱以本次实测为准，不作预设断言——本次为二者数值持平（|差|=2.8e-17，双精度噪声量级，不构成大小关系）"
+  },
+  "Psi_differentiates_from_cond_on_C5": false,
+  "conclusion": "【① 判据判什么】`Psi_differentiates_from_cond_on_C5` 是【旧】主张「控制 ΔT 后 Ψ_n 与 cond 分离」的预注册门槛：边际严格胜全部启发式 且 |偏 Ψ_n|>0.5 且 |偏 cond|<0.3（本脚本原口径）。本次实测边际严格胜=True、|偏 Ψ_n|=0.200、|偏 cond|=0.276，判 false。阈值未因结论改变而调整；订正自助内层估计量后它判 false 是【正确行为】，本文据此【已放弃】「二者分离」这一旧主张。【② 稿面主张什么】稿面（§sec:res-c5）现行主张是更弱的「Ψ_n 强于 cond」，其依据取教科书标准口径（`_standard_definition`，即稿面口径）：偏 Ψ_n=-0.2279、偏 cond=-0.2279，|偏 Ψ_n|−|偏 cond|=+2.776e-17，本次抽样为二者数值持平（|差|=2.8e-17，双精度噪声量级，不构成大小关系）。【③ 二者什么关系】「不分离」与「更强」并存且不矛盾：门槛问的是 cond 的残余预测力是否崩塌到 |偏|<0.3（本次否，cond 同为负且量级相当），稿面问的是同一口径下 |偏相关| 谁更大。故本文件既不支持「Ψ_n 与 cond 分离」，也不否证「Ψ_n 强于 cond」——后者是跨 6 次抽样的汇总主张，逐次胜负与汇总由脚本 131 现算，见 04outputs/131aggregate_c5_partial_tally.json；本文件只承载本次抽样。",
+  "honest_boundaries": "(1) 单一真实数据集(苹果 Foods 2023)、16 个\\emph{非独立}超定子集(温度重叠)、realCV 为测量 SD 传播\\emph{非}独立重复，故为\\emph{排序}证据非强统计独立检验；(2) 固定 ΔT 组内名义 p（子集重叠，正文不引用）：ΔT=4 组(n=3) p=0.667、ΔT=6 组(n=6) p=0.623、ΔT=8 组(n=7) p=0.071；(3) 食品体系(99_realkinetics2)同质 Ψ_n 不直接复现(Spearman +0.14, p=0.320)、需异方差 Ψ_het(-0.40, p=0.004)——即 Ψ_n 优势\\emph{条件于近等方差}，强异方差须用 Ψ_het；(4) 仅 C5(动力学)成立；C6(光谱线性恢复)κ_K 仍 ≈cond；(5) `Psi_differentiates_from_cond_on_C5` 的阈值(|偏 Ψ_n|>0.5 且 |偏 cond|<0.3)属【旧】主张「Ψ_n 与 cond 分离」的预注册门槛，非稿面现行主张「Ψ_n 强于 cond」的门槛；C-2 订正(自助内层估计量改为与点估计同一的非线性最小二乘)后它判 false，本文因此放弃旧主张，【未】为迎合结论调整该阈值；(6) 本层顶层键与 `_standard_definition` 分属两个偏相关口径，稿面只用后者，两者的主次与本次是否同向见 `partial_spearman_control_deltaT._convention`。",
+  "unified_Psi_het_cross_system": {
+    "apple_kinetics_computed": {
+      "n": 16,
+      "heteroscedasticity_sigma_max_over_min": 5.068642753335915,
+      "apple_Psi_het_spearman_vs_realCV": -0.3294117647058824,
+      "apple_Psi_het_p": 0.2128014262162131,
+      "consistency_Psihet_vs_Psin_spearman": 0.788235294117647,
+      "note": "苹果异方差度~5.1x，Ψ_het 与 realCV 的 Spearman=-0.329（弱负相关）"
+    },
+    "food_kinetics_99": {
+      "Psi_het_spearman": -0.3968787515006002,
+      "p": 0.004322724300309621,
+      "source": "04outputs/99_realkinetics2.json（现读，不再硬编码）",
+      "homoscedastic_Psi_n_fails": "+0.14 (p=0.320)"
+    },
+    "conclusion": "统一异方差 Fisher Ψ_het 跨 2 独立真实体系皆负相关：苹果 Ψ_het=-0.33(p=2.1e-01, 异方差度 5.1x)、食品 Ψ_het=-0.40(p=0.004)；Ψ_n 是 Ψ_het 的等方差特例。'第二体系失败'实为用错诊断(同质 Ψ_n)，改用原则性 Ψ_het 则两体系一致。诚实：仅 2 体系、机理仍属绝对-vs-相对(robustness 非 novelty)。"
+  }
+}

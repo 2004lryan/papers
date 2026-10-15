@@ -1,0 +1,1116 @@
+{
+  "script": "02code/145citation_field_diff.py",
+  "tex": "06doc/01manuscript/Elsevier_en.tex",
+  "resolution_source": "<取证沙箱>/<round>/resolution.json",
+  "n_bibitems": 57,
+  "agree": 53,
+  "check": 1,
+  "no_registry_record": 3,
+  "convention": "两侧统一 detex+NFD 折叠比对；DOI 先还原 TeX 的 \\_；判据取注册机构元数据，不取 doi.org 的 HTTP 状态码",
+  "rows": [
+    {
+      "key": "wijerathne2025",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2025",
+          "registry": "2025",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1111/1541-4337.70194",
+          "registry": "10.1111/1541-4337.70194",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "wijerathne",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "doumeche2025",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2025",
+          "registry": "2025",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.3150/24-BEJ1799",
+          "registry": "10.3150/24-bej1799",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "doumeche",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "kharazmi2021",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2021",
+          "registry": "2021",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1038/s43588-021-00158-0",
+          "registry": "10.1038/s43588-021-00158-0",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "kharazmi",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "yan2025",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2025",
+          "registry": "2025",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1038/s43588-025-00776-y",
+          "registry": "10.1038/s43588-025-00776-y",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "yan",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "kern2025",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2025",
+          "registry": "2025",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1038/s43588-025-00814-9",
+          "registry": "10.1038/s43588-025-00814-9",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "kern",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "krug1976",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1976",
+          "registry": "1976",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1021/j100562a006",
+          "registry": "10.1021/j100562a006",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "krug",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "barrie2012",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2012",
+          "registry": "2012",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1039/C1CP22666E",
+          "registry": "10.1039/c1cp22666e",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "barrie",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "donoho2009",
+      "verdict": "CHECK",
+      "fields_differing": [
+        "year"
+      ],
+      "fields": {
+        "year": {
+          "paper": "2009",
+          "registry": "2008",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1090/S0894-0347-08-00600-0",
+          "registry": "10.1090/s0894-0347-08-00600-0",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "donoho",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "tsybakov2009",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2009",
+          "registry": "2009",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1007/b13794",
+          "registry": "10.1007/b13794",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "tsybakov",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "raue2009",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2009",
+          "registry": "2009",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1093/bioinformatics/btp358",
+          "registry": "10.1093/bioinformatics/btp358",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "raue",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "villaverde2016",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2016",
+          "registry": "2016",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1371/journal.pcbi.1005153",
+          "registry": "10.1371/journal.pcbi.1005153",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "villaverde",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "transtrum2011",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2011",
+          "registry": "2011",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1103/PhysRevE.83.036701",
+          "registry": "10.1103/physreve.83.036701",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "transtrum",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "huang2025",
+      "verdict": "NO_REGISTRY_RECORD",
+      "paper_doi": null,
+      "seed_title": "Spectral thresholds for identifiability and stability: finite-sample phase transitions in high-dimensional learning",
+      "note": "稿面无 DOI 且首条命中题名不一致（预印本 / 有 ISBN 的专著属正常，非缺陷）"
+    },
+    {
+      "key": "rodriguez2005",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2005",
+          "registry": "2005",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1016/j.chemolab.2004.06.007",
+          "registry": "10.1016/j.chemolab.2004.06.007",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "rodriguez-aragon",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "schwaab2007",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2007",
+          "registry": "2007",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1016/j.ces.2007.02.020",
+          "registry": "10.1016/j.ces.2007.02.020",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "schwaab",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "eicker1963",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1963",
+          "registry": "1963",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1214/aoms/1177704156",
+          "registry": "10.1214/aoms/1177704156",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "eicker",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "drygas1976",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1976",
+          "registry": "1976",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1007/BF00535679",
+          "registry": "10.1007/bf00535679",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "drygas",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "wu1980",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1980",
+          "registry": "1980",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1214/aos/1176345071",
+          "registry": "10.1214/aos/1176345071",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "wu",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "pazman2006",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2006",
+          "registry": "2006",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1016/j.spl.2005.12.010",
+          "registry": "10.1016/j.spl.2005.12.010",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "pazman",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "pazman2009",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2009",
+          "registry": "2009",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1007/978-0-387-79936-0_8",
+          "registry": "10.1007/978-0-387-79936-0_8",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "pazman",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "andrews2012",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2012",
+          "registry": "2012",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.3982/ECTA9456",
+          "registry": "10.3982/ecta9456",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "",
+          "found_in_paper_bibitem": false
+        }
+      }
+    },
+    {
+      "key": "rotnitzky2000",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2000",
+          "registry": "2000",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.2307/3318576",
+          "registry": "10.2307/3318576",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "rotnitzky",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "krug1976nature",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1976",
+          "registry": "1976",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1038/261566a0",
+          "registry": "10.1038/261566a0",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "krug",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "ehrenfeld1955",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1955",
+          "registry": "1955",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1214/aoms/1177728541",
+          "registry": "10.1214/aoms/1177728541",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "ehrenfeld",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "duarte2026",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2026",
+          "registry": "2026",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1080/10618600.2026.2681777",
+          "registry": "10.1080/10618600.2026.2681777",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "duarte",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "wu1981",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1981",
+          "registry": "1981",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1214/aos/1176345455",
+          "registry": "10.1214/aos/1176345455",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "wu",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "li2022shelf",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2022",
+          "registry": "2022",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1016/j.jfoodeng.2022.111099",
+          "registry": "10.1016/j.jfoodeng.2022.111099",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "li",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "bhangare2022",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2022",
+          "registry": "2022",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1186/s40543-022-00317-6",
+          "registry": "10.1186/s40543-022-00317-6",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "bhangare",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "huelsmeyer2023",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2023",
+          "registry": "2023",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1038/s41598-023-35870-6",
+          "registry": "10.1038/s41598-023-35870-6",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "huelsmeyer",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "liu2001",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2001",
+          "registry": "2001",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1021/cr990416z",
+          "registry": "10.1021/cr990416z",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "liu",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "lyon2023",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2023",
+          "registry": "2023",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1021/acs.jpca.2c07715",
+          "registry": "10.1021/acs.jpca.2c07715",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "lyon",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "yao2026",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2026",
+          "registry": "2026",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1016/j.jaap.2025.107570",
+          "registry": "10.1016/j.jaap.2025.107570",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "yao",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "varhegyi2024",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2024",
+          "registry": "2024",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1007/s10973-024-13261-x",
+          "registry": "10.1007/s10973-024-13261-x",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "varhegyi",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "wieland2021",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2021",
+          "registry": "2021",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1016/j.coisb.2021.03.005",
+          "registry": "10.1016/j.coisb.2021.03.005",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "wieland",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "gutenkunst2007",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2007",
+          "registry": "2007",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.1371/journal.pcbi.0030189",
+          "registry": "10.1371/journal.pcbi.0030189",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "gutenkunst",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "transtrum2015",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2015",
+          "registry": "2015",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1063/1.4923066",
+          "registry": "10.1063/1.4923066",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "transtrum",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "lam2022",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2022",
+          "registry": "2022",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1016/j.matcom.2022.03.020",
+          "registry": "10.1016/j.matcom.2022.03.020",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "lam",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "reybarreiro2023",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2023",
+          "registry": "2023",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1093/bioinformatics/btad065",
+          "registry": "10.1093/bioinformatics/btad065",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "rey barreiro",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "quinn2022",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2023",
+          "registry": "2023",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1088/1361-6633/aca6f8",
+          "registry": "10.1088/1361-6633/aca6f8",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "quinn",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "kurniawan2022",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2022",
+          "registry": "2022",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1063/5.0084988",
+          "registry": "10.1063/5.0084988",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "kurniawan",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "vollert2023",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2023",
+          "registry": "2023",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1016/j.envsoft.2022.105578",
+          "registry": "10.1016/j.envsoft.2022.105578",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "vollert",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "lecam1986",
+      "verdict": "NO_REGISTRY_RECORD",
+      "paper_doi": null,
+      "seed_title": "Asymptotic Methods in Statistical Decision Theory",
+      "note": "稿面无 DOI 且首条命中题名不一致（预印本 / 有 ISBN 的专著属正常，非缺陷）"
+    },
+    {
+      "key": "mammen1999",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1999",
+          "registry": "1999",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1214/aos/1017939240",
+          "registry": "10.1214/aos/1017939240",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "mammen",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "alexanderian2014",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2014",
+          "registry": "2014",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1137/130933381",
+          "registry": "10.1137/130933381",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "alexanderian",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "scopecrafts2024",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2024",
+          "registry": "2024",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1088/1361-6420/ad910a",
+          "registry": "10.1088/1361-6420/ad910a",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "scope crafts",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "nickl2023",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2023",
+          "registry": "2023",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": null,
+          "registry": "10.4171/zlam/30",
+          "matched_by": "title"
+        },
+        "first_author_family": {
+          "registry": "nickl",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "alberti2021",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2021",
+          "registry": "2021",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1016/j.acha.2019.08.002",
+          "registry": "10.1016/j.acha.2019.08.002",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "alberti",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "vandervaart1998",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1998",
+          "registry": "1998",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1017/CBO9780511802256",
+          "registry": "10.1017/cbo9780511802256",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "vaart",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "boucheron2013",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2013",
+          "registry": "2013",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1093/acprof:oso/9780199535255.001.0001",
+          "registry": "10.1093/acprof:oso/9780199535255.001.0001",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "boucheron",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "daviskahan1970",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "1970",
+          "registry": "1970",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1137/0707001",
+          "registry": "10.1137/0707001",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "davis",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "yu2015",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2015",
+          "registry": "2015",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1093/biomet/asv008",
+          "registry": "10.1093/biomet/asv008",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "yu",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "apple2023",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2023",
+          "registry": "2023",
+          "registry_field": "issued"
+        },
+        "doi": {
+          "paper": "10.3390/foods12112113",
+          "registry": "10.3390/foods12112113",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "sanad alsbu",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "foods2022",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2022",
+          "registry": "2022",
+          "registry_field": "published-online"
+        },
+        "doi": {
+          "paper": "10.3390/foods11142004",
+          "registry": "10.3390/foods11142004",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "sopik",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "stewart1990",
+      "verdict": "NO_REGISTRY_RECORD",
+      "paper_doi": null,
+      "seed_title": "Academic Press, Boston, 1990",
+      "note": "稿面无 DOI 且首条命中题名不一致（预印本 / 有 ISBN 的专著属正常，非缺陷）"
+    },
+    {
+      "key": "lei2018",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2018",
+          "registry": "2018",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1080/01621459.2017.1307116",
+          "registry": "10.1080/01621459.2017.1307116",
+          "matched_by": "doi-direct"
+        },
+        "first_author_family": {
+          "registry": "lei",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "angelopoulos2023",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2023",
+          "registry": "2023",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1561/2200000101",
+          "registry": "10.1561/2200000101",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "angelopoulos",
+          "found_in_paper_bibitem": true
+        }
+      }
+    },
+    {
+      "key": "barber2023",
+      "verdict": "AGREE",
+      "fields": {
+        "year": {
+          "paper": "2023",
+          "registry": "2023",
+          "registry_field": "published-print"
+        },
+        "doi": {
+          "paper": "10.1214/23-AOS2276",
+          "registry": "10.1214/23-aos2276",
+          "matched_by": "doi"
+        },
+        "first_author_family": {
+          "registry": "barber",
+          "found_in_paper_bibitem": true
+        }
+      }
+    }
+  ]
+}

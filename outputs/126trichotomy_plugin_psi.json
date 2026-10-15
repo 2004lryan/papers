@@ -1,0 +1,168 @@
+{
+  "script": "126trichotomy_plugin_psi.py",
+  "seeds": [
+    20060515,
+    20041210,
+    19810915,
+    2023,
+    2024
+  ],
+  "n_pilot": 40,
+  "pilot_starts": 3,
+  "n_cells": 140,
+  "question": "半合成三分律的分离，在去 oracle 的 plug-in 诊断量 Psi(theta_hat) 下是否同样成立",
+  "protocol": "设计 Phi、噪声、n 网格、regime 与种子集合与 43trichotomy_formal.py 逐位一致；初值由独立的 40 点预试验样本经 3 起点最小二乘拟合得到，与主样本使用不相交的 rng 流，故无数据复用。",
+  "pilot_convergence": {
+    "guard": "pilot residual RMSE <= 3.0 * sigma (sigma=0.02)",
+    "n_cells": 140,
+    "n_converged": 140,
+    "n_failed": 0,
+    "fail_rate": 0.0,
+    "unguarded_first_attempt_fail_rate": 0.05714285714285714,
+    "unguarded_first_attempt_n_failed": 8,
+    "unguarded_note": "首次 3 起点廉价预拟合的失败率，即稿中\"不加守卫时\"所引口径；守卫后的失败率见 fail_rate。",
+    "failed_cells": [],
+    "note": "未通过守卫的格，其 Psi(theta_hat) 塌向 0（退化分支：k_hat 极大使响应在所有点已饱和，g=kt*exp(-kt)->0）。方向上这是**保守**失败：诊断把该设计判为不可恢复而非误判为可恢复。"
+  },
+  "consistency_converged": {
+    "n": 140,
+    "spearman_psi_oracle_vs_plugin": 0.9987250854117454,
+    "ratio_median": 0.996418937328235,
+    "ratio_p05": 0.9503436352447049,
+    "ratio_p95": 1.039009745351382,
+    "pilot_phi_relerr_median": 0.041191676207976154,
+    "pilot_logA_relerr_median": 0.044819833063118056,
+    "ratio_median_by_n": {
+      "200": 0.9917208908629931,
+      "500": 1.0044825920543272,
+      "1000": 0.9997932480238623,
+      "2000": 0.9950036721374222,
+      "5000": 1.0005334941010329,
+      "10000": 1.004698541545322,
+      "20000": 0.9721087868612637
+    }
+  },
+  "consistency_all_cells": {
+    "n": 140,
+    "spearman_psi_oracle_vs_plugin": 0.9987250854117454,
+    "ratio_median": 0.996418937328235,
+    "ratio_p05": 0.9503436352447049,
+    "ratio_p95": 1.039009745351382,
+    "pilot_phi_relerr_median": 0.041191676207976154,
+    "pilot_logA_relerr_median": 0.044819833063118056
+  },
+  "separation_logPsi_vs_logn_converged": {
+    "fixed_recover": {
+      "rho": 0.0,
+      "theory_slope": 1.0,
+      "slope_oracle": 0.9998947428747118,
+      "r2_oracle": 0.9998073438446355,
+      "slope_plugin": 1.003664863438379,
+      "r2_plugin": 0.9996467528406131,
+      "abs_gap_plugin_vs_theory": 0.003664863438378907
+    },
+    "sub_recover": {
+      "rho": 0.25,
+      "theory_slope": 0.5,
+      "slope_oracle": 0.38179400708227074,
+      "r2_oracle": 0.9983581459148444,
+      "slope_plugin": 0.3796079317806035,
+      "r2_plugin": 0.9963189445152908,
+      "abs_gap_plugin_vs_theory": 0.12039206821939652
+    },
+    "critical": {
+      "rho": 0.5,
+      "theory_slope": 0.0,
+      "slope_oracle": -0.1788235835709469,
+      "r2_oracle": 0.9606598106951082,
+      "slope_plugin": -0.18571477661319166,
+      "r2_plugin": 0.9628466301287589,
+      "abs_gap_plugin_vs_theory": 0.18571477661319166
+    },
+    "subcritical": {
+      "rho": 1.0,
+      "theory_slope": -1.0,
+      "slope_oracle": -1.1899404961043447,
+      "r2_oracle": 0.9940885733668067,
+      "slope_plugin": -1.189827619741487,
+      "r2_plugin": 0.993595036383748,
+      "abs_gap_plugin_vs_theory": 0.18982761974148699
+    }
+  },
+  "separation_logPsi_vs_logn_all_cells": {
+    "fixed_recover": {
+      "rho": 0.0,
+      "theory_slope": 1.0,
+      "slope_oracle": 0.9998947428747118,
+      "r2_oracle": 0.9998073438446355,
+      "slope_plugin": 1.003664863438379,
+      "r2_plugin": 0.9996467528406131,
+      "abs_gap_plugin_vs_theory": 0.003664863438378907
+    },
+    "sub_recover": {
+      "rho": 0.25,
+      "theory_slope": 0.5,
+      "slope_oracle": 0.38179400708227074,
+      "r2_oracle": 0.9983581459148444,
+      "slope_plugin": 0.3796079317806035,
+      "r2_plugin": 0.9963189445152908,
+      "abs_gap_plugin_vs_theory": 0.12039206821939652
+    },
+    "critical": {
+      "rho": 0.5,
+      "theory_slope": 0.0,
+      "slope_oracle": -0.1788235835709469,
+      "r2_oracle": 0.9606598106951082,
+      "slope_plugin": -0.18571477661319166,
+      "r2_plugin": 0.9628466301287589,
+      "abs_gap_plugin_vs_theory": 0.18571477661319166
+    },
+    "subcritical": {
+      "rho": 1.0,
+      "theory_slope": -1.0,
+      "slope_oracle": -1.1899404961043447,
+      "r2_oracle": 0.9940885733668067,
+      "slope_plugin": -1.189827619741487,
+      "r2_plugin": 0.993595036383748,
+      "abs_gap_plugin_vs_theory": 0.18982761974148699
+    }
+  },
+  "separation_verdict_converged": {
+    "max_abs_gap_plugin_vs_theory": 0.18982761974148699,
+    "all_regimes_within_0p10": false,
+    "ordering_preserved": true,
+    "min_r2_plugin": 0.9628466301287589,
+    "max_abs_gap_plugin_vs_oracle": 0.006891193042244753,
+    "max_abs_gap_oracle_vs_theory": 0.1899404961043447
+  },
+  "separation_verdict_all_cells": {
+    "max_abs_gap_plugin_vs_theory": 0.18982761974148699,
+    "all_regimes_within_0p10": false,
+    "ordering_preserved": true,
+    "min_r2_plugin": 0.9628466301287589,
+    "max_abs_gap_plugin_vs_oracle": 0.006891193042244753,
+    "max_abs_gap_oracle_vs_theory": 0.1899404961043447
+  },
+  "rate_recoverable_side_converged": {
+    "theory": -0.5,
+    "n": 70,
+    "slope_vs_psi_oracle": -0.47671538598695196,
+    "r2_oracle": 0.25624408396161413,
+    "slope_vs_psi_plugin": -0.47404350604086604,
+    "r2_plugin": 0.25456542825336237
+  },
+  "rate_recoverable_side_all_cells": {
+    "theory": -0.5,
+    "n": 70,
+    "slope_vs_psi_oracle": -0.47671538598695196,
+    "r2_oracle": 0.25624408396161413,
+    "slope_vs_psi_plugin": -0.47404350604086604,
+    "r2_plugin": 0.25456542825336237
+  },
+  "honesty": [
+    "本脚本只替换 Psi 的 theta 来源（真值 -> 独立预试验估计），设计与噪声模型不变。",
+    "err_deg 仍以 oracle 退化方向 vdeg(theta_0) 投影，使误差列与 43 可直接对照；若改用 plug-in 方向会同时变动被解释量与解释量，无法归因。",
+    "这是半合成研究：真值已知、误差为对真值的偏差；它检验的是 plug-in 层是否保留分离，不是对真实数据三分律的验证。",
+    "收敛守卫只用预试验残差与 sigma（alg:psi 本就要求的输入），不用真值；未加守卫的 all_cells 口径一并报出，不以守卫掩盖失败率。"
+  ]
+}

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated manuscript."
+title: "Recoverability trichotomy for Arrhenius inversion: code and reproducibility materials"
+authors:
+  - family-names: "Li"
+    given-names: "Panlin"
+    affiliation: "Xinjiang Agricultural University"
+  - family-names: "Li"
+    given-names: "Yuchang"
+    affiliation: "Xinjiang Agricultural University"
+  - family-names: "Huang"
+    given-names: "Hua"
+    affiliation: "Xinjiang Agricultural University"
+repository-code: "https://github.com/2004lryan/023arrhenius-recoverability"
+license: MIT
+date-released: "2026-10-15"

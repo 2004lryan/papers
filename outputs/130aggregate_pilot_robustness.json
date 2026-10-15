@@ -1,0 +1,108 @@
+{
+  "script": "130aggregate_pilot_robustness.py",
+  "purpose": "稿件 §sec:relate-id「最差档 ±30% 下 X% 保持负号、Y% 保持 ≤−0.5」两个比例的生成步骤",
+  "inputs": [
+    "04outputs/105_seeds/103sensitivity_pilot-seed20060515.json",
+    "04outputs/105_seeds/103sensitivity_pilot-seed20041210.json",
+    "04outputs/105_seeds/103sensitivity_pilot-seed19810915.json",
+    "04outputs/105_seeds/103sensitivity_pilot-seed2023.json",
+    "04outputs/105_seeds/103sensitivity_pilot-seed2024.json"
+  ],
+  "seeds": [
+    20060515,
+    20041210,
+    19810915,
+    2023,
+    2024
+  ],
+  "n_primary": 5,
+  "口径": "逐种子等权算术均值（不按 n 加权），百分比 ROUND_HALF_UP；frac_same_sign_as_baseline=扰动后 Spearman 与 baseline 同号的比例，frac_strong=扰动后 Spearman ≤ −0.5 的比例",
+  "aggregate": {
+    "pm10pct": {
+      "n_per_seed": [
+        204,
+        204,
+        204,
+        204,
+        204
+      ],
+      "per_seed_same_sign": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "per_seed_strong": [
+        0.9852941176470589,
+        1.0,
+        1.0,
+        0.9901960784313726,
+        0.9901960784313726
+      ],
+      "same_sign_mean": 1.0,
+      "strong_mean": 0.9931372549019608,
+      "same_sign_pct_half_up": 100,
+      "strong_pct_half_up": 99
+    },
+    "pm20pct": {
+      "n_per_seed": [
+        203,
+        202,
+        201,
+        203,
+        203
+      ],
+      "per_seed_same_sign": [
+        0.9901477832512315,
+        0.9900990099009901,
+        0.9950248756218906,
+        0.9704433497536946,
+        0.9704433497536946
+      ],
+      "per_seed_strong": [
+        0.8916256157635468,
+        0.9356435643564357,
+        0.9701492537313433,
+        0.8522167487684729,
+        0.8472906403940886
+      ],
+      "same_sign_mean": 0.9832316736563003,
+      "strong_mean": 0.8993851646027775,
+      "same_sign_pct_half_up": 98,
+      "strong_pct_half_up": 90
+    },
+    "pm30pct": {
+      "n_per_seed": [
+        190,
+        191,
+        192,
+        193,
+        186
+      ],
+      "per_seed_same_sign": [
+        0.9578947368421052,
+        0.9581151832460733,
+        0.953125,
+        0.9740932642487047,
+        0.9516129032258065
+      ],
+      "per_seed_strong": [
+        0.8736842105263158,
+        0.8795811518324608,
+        0.9270833333333334,
+        0.8186528497409327,
+        0.8333333333333334
+      ],
+      "same_sign_mean": 0.9589682175125379,
+      "strong_mean": 0.8664669757532752,
+      "same_sign_pct_half_up": 96,
+      "strong_pct_half_up": 87
+    }
+  },
+  "paper_numbers": {
+    "worst_level": "pm30pct",
+    "same_sign_pct": 96,
+    "strong_pct": 87
+  }
+}

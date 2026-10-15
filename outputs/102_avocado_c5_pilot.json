@@ -1,0 +1,85 @@
+{
+  "study": "102_avocado_c5_pilot",
+  "data": "004_hass_avocado_rgb_ripening (Mendeley 3xd9n945v8)，只读引用，未复制进项目",
+  "honest_scope": "004 仅 2 个标称已知温度（T10=10C, T20=20C）；Tam 为'常温'无标称值且环境温度漂移，按 IRON RULE 排除出拟合，不臆造温度。故本脚本**不检验三分律的 ΔT 相变**，只检验可恢复侧速率律 error ∝ Psi_n^{-1/2}（ΔT 固定 => Psi_n ∝ n）。",
+  "n_fruits_reaching_level5": {
+    "T10": 155,
+    "T20": 127,
+    "Tam": 128
+  },
+  "median_days_to_ripe": {
+    "T10": 22.0,
+    "T20": 10.0,
+    "Tam": 9.0
+  },
+  "sd_days_to_ripe_between_individuals": {
+    "T10": 2.6854040769605505,
+    "T20": 0.5600989074723598,
+    "Tam": 0.74303690257125
+  },
+  "full_sample": {
+    "mean_rate_per_day": {
+      "T10": 0.0471131111856343,
+      "T20": 0.10204207428616878
+    },
+    "Ea_kJ_per_mol": 53.34,
+    "lnA": 19.6,
+    "Q10": 2.166,
+    "Q10_in_biological_range_2_to_3": true
+  },
+  "real_statistical_error": {
+    "method": "对独立个体重抽样（非对 k(T) 注入残差）=> 真抽样分布，非噪声传播敏感性",
+    "n_boot": 2000,
+    "Ea_mean_kJ": 53.32,
+    "Ea_sd_kJ": 1.037,
+    "Ea_CI95_kJ": [
+      51.143,
+      55.251
+    ],
+    "Ea_CV": 0.0195
+  },
+  "n_sweep": {
+    "grid": [
+      {
+        "n_per_temp": 5,
+        "Psi_n_proportional_to": 5,
+        "Ea_sd_kJ": 5.674481783308636
+      },
+      {
+        "n_per_temp": 10,
+        "Psi_n_proportional_to": 10,
+        "Ea_sd_kJ": 3.933388643708813
+      },
+      {
+        "n_per_temp": 20,
+        "Psi_n_proportional_to": 20,
+        "Ea_sd_kJ": 2.815849003233191
+      },
+      {
+        "n_per_temp": 40,
+        "Psi_n_proportional_to": 40,
+        "Ea_sd_kJ": 2.168021168831052
+      },
+      {
+        "n_per_temp": 80,
+        "Psi_n_proportional_to": 80,
+        "Ea_sd_kJ": 1.4543434876680539
+      },
+      {
+        "n_per_temp": 120,
+        "Psi_n_proportional_to": 120,
+        "Ea_sd_kJ": 1.118537102649232
+      }
+    ],
+    "log_Psi_vs_log_error_slope": -0.4963,
+    "r2": 0.9957,
+    "theory_predicts": -0.5,
+    "note": "ΔT 固定 => Psi_n ∝ n；可恢复侧理论速率 error ≍ Psi_n^{-1/2} => 斜率 -0.5"
+  },
+  "Tam_consistency_check": {
+    "status": "弱检验，不作主张（Tam 无标称温度，此为反推）",
+    "implied_T_celsius": 20.95,
+    "physically_plausible_lab_ambient": true,
+    "caveat": "反推值若≈T20，则 Tam 与 T20 近重合，无法提供第 3 个有效温度"
+  }
+}

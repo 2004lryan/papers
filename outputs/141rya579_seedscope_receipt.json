@@ -1,0 +1,116 @@
+{
+ "任务": "RYA-579",
+ "用途": "支撑稿面 §统计检验与误差报告 的『多种子聚合值的产物指向』约定",
+ "口径": "原生单次抽样产物 vs 5 个逐种子产物逐键/逐列对齐；相同=设计侧，不同=自助派生",
+ "seeds": [
+  "19810915",
+  "20041210",
+  "20060515",
+  "2023",
+  "2024"
+ ],
+ "json": {
+  "files": [
+   "04outputs/54c5_realkinetics.json",
+   "04outputs/105_seeds/54c5_realkinetics-seed19810915.json",
+   "04outputs/105_seeds/54c5_realkinetics-seed20041210.json",
+   "04outputs/105_seeds/54c5_realkinetics-seed20060515.json",
+   "04outputs/105_seeds/54c5_realkinetics-seed2023.json",
+   "04outputs/105_seeds/54c5_realkinetics-seed2024.json"
+  ],
+  "sha256": {
+   "04outputs/54c5_realkinetics.json": "b758bd9a95da375868ce83335480b322eb33b483aed42142b46e3182a7d4df67",
+   "04outputs/105_seeds/54c5_realkinetics-seed19810915.json": "bf4b310b6600eb1a41b641218dc4872980aaaed63c83dc8ccbec13ecdca96e8c",
+   "04outputs/105_seeds/54c5_realkinetics-seed20041210.json": "b7fcfb4cefd3d110f48437589c670a6eceea13684ee9cdc0bad2609325399db4",
+   "04outputs/105_seeds/54c5_realkinetics-seed20060515.json": "f60808cc1ff857822561931553c665c47242ea9e3bec9ebfb5f4a51c21c0a76a",
+   "04outputs/105_seeds/54c5_realkinetics-seed2023.json": "9121def945338256bfba11a1ea7d307b5773c2ff312cbccc4c981ea8df39edc9",
+   "04outputs/105_seeds/54c5_realkinetics-seed2024.json": "356ead6ce4bb2d302459a9f02dad28b819f407302e535d6213aa55b875ffbb5c"
+  },
+  "n_common_leaves": 146,
+  "n_seed_invariant": 122,
+  "n_seed_varying": 24,
+  "seed_varying_keys": [
+   ".design_sweep.cor_design_pair.narrow.CV",
+   ".design_sweep.cor_design_pair.wide.CV",
+   ".design_sweep.cor_design_pair.wide_better_factor",
+   ".design_sweep.logPsi_vs_logCV_slope",
+   ".design_sweep.r2",
+   ".multi_variety_replication.detail.Granny Smith.narrow_CV",
+   ".multi_variety_replication.detail.Granny Smith.wide_CV",
+   ".multi_variety_replication.detail.Granny Smith.wide_better",
+   ".multi_variety_replication.detail.Red Delicious.narrow_CV",
+   ".multi_variety_replication.detail.Red Delicious.wide_CV",
+   ".multi_variety_replication.detail.Red Delicious.wide_better",
+   ".multi_variety_replication.detail.Royal Gala.narrow_CV",
+   ".multi_variety_replication.detail.Royal Gala.wide_CV",
+   ".multi_variety_replication.detail.Royal Gala.wide_better",
+   ".overdetermined_real_error.logPsi_vs_logRealCV_slope",
+   ".overdetermined_real_error.loglin_inner.logPsi_vs_logRealCV_slope",
+   ".overdetermined_real_error.loglin_inner.r2",
+   ".overdetermined_real_error.loglin_inner.spearman",
+   ".overdetermined_real_error.loglin_inner.spearman_p",
+   ".overdetermined_real_error.r2",
+   ".overdetermined_real_error.realCV_max",
+   ".overdetermined_real_error.realCV_min",
+   ".overdetermined_real_error.spearman",
+   ".overdetermined_real_error.spearman_p"
+  ],
+  "seed_varying_subtrees": [
+   "design_sweep",
+   "multi_variety_replication",
+   "overdetermined_real_error"
+  ]
+ },
+ "csv": {
+  "files": [
+   "04outputs/54c5_realkinetics-designsweep.csv",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed19810915.csv",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed20041210.csv",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed20060515.csv",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed2023.csv",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed2024.csv"
+  ],
+  "sha256": {
+   "04outputs/54c5_realkinetics-designsweep.csv": "7a598b3e1aa8494f7f059864e93d8b6e1189714125dc39760abd9a48a6bd7294",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed19810915.csv": "a6b753acbe2a74fbc4cfabae50150058743e4c1aed92f38a6b2c4528a1714340",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed20041210.csv": "01f31ed2988fd7ebfc1aa737f0fc06acc422427753721c36b2cf79a74593d11f",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed20060515.csv": "2434ae3ddefd5fdc7f9a736477a2a0ea30443c53953726fbaf43b3cb3f009c4a",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed2023.csv": "8116c520a9de7356419b85b971de47cfa1afa1d270217266a7ce535a64525d53",
+   "04outputs/105_seeds/54c5_realkinetics-designsweep-seed2024.csv": "50fd327fdcc594a7bf55883b6b58d9b0940267538287c6b04c17fbcc8493bc92"
+  },
+  "n_rows": 26,
+  "columns": [
+   "variety",
+   "n_temps",
+   "temps",
+   "deltaT",
+   "Psi_n",
+   "lambda_min",
+   "cond",
+   "inv_CV_Ea",
+   "Ea_boot",
+   "realCV_Ea",
+   "realSE_Ea",
+   "boot_drop_rate",
+   "realCV_Ea_loglin"
+  ],
+  "seed_invariant_columns": [
+   "variety",
+   "n_temps",
+   "temps",
+   "deltaT",
+   "Psi_n",
+   "lambda_min",
+   "cond",
+   "boot_drop_rate"
+  ],
+  "seed_varying_columns": [
+   "inv_CV_Ea",
+   "Ea_boot",
+   "realCV_Ea",
+   "realSE_Ea",
+   "realCV_Ea_loglin"
+  ]
+ },
+ "结论": "设计侧逐字节相同：CSV 8 列、JSON 122/146 个数值键；随种子变动：CSV 5 列、JSON 24 个键，全部落在 design_sweep、multi_variety_replication、overdetermined_real_error 子树下。"
+}

@@ -1,0 +1,85 @@
+{
+  "A_numbers": {
+    "n_zh_distinct": 180,
+    "n_en_distinct": 180,
+    "en_only": [],
+    "zh_only": [],
+    "pass": true
+  },
+  "B_citations_en": {
+    "n_cited": 44,
+    "n_bibitem": 44,
+    "undefined": [],
+    "uncited": [],
+    "pass": true
+  },
+  "B_citations_zh": {
+    "n_cited": 44,
+    "n_bibitem": 44,
+    "undefined": [],
+    "uncited": [],
+    "pass": true
+  },
+  "C_process_claims": {
+    "rows": [
+      {
+        "claim": "各源文件与派生文件的 SHA-256 摘要随代码登记",
+        "where": "tab:datacard 表注 + Data & Code Availability",
+        "check": "manifest 存在且行数 = 登记文件数 + 表头",
+        "evidence": "04outputs/0NDATACARD_C5_manifest.tsv",
+        "on_disk": true
+      },
+      {
+        "claim": "数据卡（项目约定 §4.6 九项必填）已建立",
+        "where": "tab:datacard 自称『数据卡』",
+        "check": "文件存在且含源数据/派生/SHA-256 三节",
+        "evidence": "refine-logs/0NDATACARD_C5.md",
+        "on_disk": true
+      },
+      {
+        "claim": "食品体系经 Europe PMC 全文逐值复核",
+        "where": "tab:datacard 表注 + §data",
+        "check": "提取件在盘（复核记录见脚本 55 与 00SUBMISSION_AUDIT.md §一 C24）",
+        "evidence": "03data/processed/pmc_real/PMC9319022_T3.csv",
+        "on_disk": true
+      },
+      {
+        "claim": "牛油果体系直接读取原始 xlsx、未作数值变换",
+        "where": "tab:datacard 表注",
+        "check": "原始文件在盘且只读引用（未复制进项目）",
+        "evidence": "${ARIS_RAW_ROOT}/004_hass_avocado_rgb_ripening/Hass Avocado Ripening Photographic Dataset/Avocado Ripening Dataset.xlsx",
+        "on_disk": true
+      },
+      {
+        "claim": "每个正文数字均可回溯至具体脚本与结果文件",
+        "where": "Data & Code Availability",
+        "check": "映射表存在（原 claim_evidence_map.md，2026-07-27 原样并入 00SUBMISSION_AUDIT.md §一）",
+        "evidence": "06doc/02sub/00SUBMISSION_AUDIT.md",
+        "on_disk": true
+      },
+      {
+        "claim": "三个源数据集均由原作者存入公开仓库，本文以可解析 DOI 引用并链接",
+        "where": "Data & Code Availability（CILS Option C 的履行方式）",
+        "check": "脚本 125 按注册机构分流实查：Mendeley 走 DataCite、两篇 MDPI 走 Crossref，标题与类型均须与稿件用途相符（3/3 PASS，且皆 CC BY 4.0）",
+        "evidence": "04outputs/125source_doi_verification.json",
+        "on_disk": true
+      },
+      {
+        "claim": "派生产物 + SHA-256 清单 + 全部代码已存入公开仓库并在文中链接",
+        "where": "Data & Code Availability",
+        "check": "发布仓库内的清单在盘；仓库本身为 github.com/2004lryan/023arrhenius-recoverability。注：本文未采集新数据，派生产物为计算输出与仿真产物，故不另铸数据集 DOI",
+        "evidence": "08github/data/SHA256-MANIFEST.tsv",
+        "on_disk": true
+      },
+      {
+        "claim": "依赖已逐包固定到精确版本（版本锁，非哈希锁），含解释器版本",
+        "where": "Reproducibility, compute and availability",
+        "check": "锁文件在盘且逐包为 `==` 精确版本；覆盖 04outputs 侧复现路径 import 期所需的 torch/openpyxl/joblib（export_utils 模块级导入与工作簿写出通道），并显式登记为版本锁而非哈希锁",
+        "evidence": "08github/requirements.lock.txt",
+        "on_disk": true
+      }
+    ],
+    "unsupported": [],
+    "pass": true
+  }
+}

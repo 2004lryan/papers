@@ -1,0 +1,869 @@
+{
+  "script": "123montecarlo_criterion_study.py",
+  "seed": 20260725,
+  "n_designs_requested": 1000,
+  "n_designs_valid": 1000,
+  "n_reps_per_design": 400,
+  "anchors": {
+    "Ea_kJmol": {
+      "range": [
+        13.0,
+        70.0
+      ],
+      "source": "苹果 54c5_realkinetics.json: Red Delicious 51.0 / Granny Smith 61.4 / Royal Gala 68.5（剔除 Pink Lady 的病态 858）；食品 99_realkinetics2.json per_series: 13.8 / 29.4 等；牛油果 102_avocado_c5_pilot.json: 53.3"
+    },
+    "sigma_lnk": {
+      "range": [
+        0.06,
+        0.6
+      ],
+      "source": "苹果 σ_lnk=0.0621（54c5 full）；食品 per_series σ_lnk 0.34–0.58（99_realkinetics2）"
+    },
+    "T_C": {
+      "range": [
+        -18.0,
+        40.0
+      ],
+      "source": "苹果 2–10℃；牛油果 10/20℃；食品 −18/5/25/40℃（三体系并集）"
+    }
+  },
+  "design_independence": "每个设计为独立抽样（温度窗/水平数/布点/重复数/θ/σ 各自随机），非嵌套子集",
+  "bootstrap_streams": {
+    "criterion_table": "default_rng(SEED+1)：E−D 差自助、3000 个选型场景、各判据 regret 中位 CI",
+    "rate_law": "default_rng(SEED+11)：two_axis / controlled_axis / 同方差代理块的斜率自助",
+    "saturation": "default_rng(SEED+12)：低-Ψ 端实测/外推比值的自助",
+    "projection_operator_audit": "default_rng(SEED+2)",
+    "operator_mismatch_audit": "default_rng(SEED+3)",
+    "note": "【RYA-581】此前全部共用 SEED+1 一条流，判据表增删一列即整体推移后续流位置，使速率律与饱和的 CI 在无相关改动时也变。分流后互不影响。点估计（斜率、中位数、Spearman）本来就与流无关，任何轮次都可逐位复算。"
+  },
+  "ground_truth": "已知 θ；误差为【后 200 次】重复（评价集，与估 σ_logk 所用的前 200 次不相交）的 RMSE（真统计估计误差，非 bootstrap 噪声传播）；每设计共 400 次重复",
+  "spearman_marginal": {
+    "E_het": -0.90989820989821,
+    "D_het": -0.8721763521763523,
+    "A_het": -0.909897945897946,
+    "c_deg_het": -0.90989820989821,
+    "c_Ea_het": -0.9097033777033778,
+    "cond_het": 0.6019355059355059,
+    "dT": -0.5653281493281493,
+    "N_obs": -0.13588545351114512
+  },
+  "spearman_partial_controlling_dT": {
+    "E_het": -0.8691734043121072,
+    "D_het": -0.8550662443560917,
+    "A_het": -0.869168411033691,
+    "c_deg_het": -0.8691734043121072,
+    "c_Ea_het": -0.8689276489421183,
+    "cond_het": 0.27393957847941397
+  },
+  "spearman_marginal_homoscedastic_surrogate": {
+    "E": -0.934924966924967,
+    "D": -0.8835173235173235,
+    "A": -0.934923094923095,
+    "c_deg": -0.934924966924967,
+    "c_Ea": -0.934922746922747,
+    "cond": 0.5704951264951266
+  },
+  "spearman_partial_controlling_dT_homoscedastic_surrogate": {
+    "E": -0.9044409764362157,
+    "D": -0.8929900449398754,
+    "A": -0.9044359234359014,
+    "c_deg": -0.9044409764362157,
+    "c_Ea": -0.9043915235035845,
+    "cond": 0.09358447617884956
+  },
+  "E_vs_D_gap_bootstrap": {
+    "point": 0.037883703484814686,
+    "ci95": [
+      0.026782503726639574,
+      0.05044011380640782
+    ],
+    "P_D_at_least_as_good": 0.0
+  },
+  "decision_relevant_regret": {
+    "protocol": "每个场景从预算相近（N_obs 极差≤2×）的 8 个候选设计中，各准则各选其最优，记录所选设计真实相对误差相对该场景【神谕最优】的超额（regret）。共 3000 个场景。【RYA-581】头条表 by_criterion 只含异方差定义量算子导出的六个判据，同方差代理表另列于 by_criterion_homoscedastic_surrogate，两表同场景同协议。",
+    "n_scenarios": 3000,
+    "operator": "heteroscedastic (def:psi 定义量 Î₁[w]，w_i=g_i²/σ_i²)",
+    "E_and_D_pick_same_design_rate": 0.804,
+    "worst_vs_best_in_candidate_set_median": 36.03856684054656,
+    "by_criterion": {
+      "E_het": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.2515846600825843,
+        "p90_regret_vs_oracle": 0.6466297058352928,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "D_het": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.29232967091717255,
+        "p90_regret_vs_oracle": 0.9579275300140786,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "A_het": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.2515846600825843,
+        "p90_regret_vs_oracle": 0.6466297058352928,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "c_deg_het": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.2515846600825843,
+        "p90_regret_vs_oracle": 0.6466297058352928,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "c_Ea_het": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.26690183732277073,
+        "p90_regret_vs_oracle": 0.6466297058352928,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "cond_het": {
+        "median_regret_vs_oracle": 0.6361011376647121,
+        "mean_regret_vs_oracle": 3.020325432797692,
+        "p90_regret_vs_oracle": 6.756870066300122,
+        "ci95_of_median": [
+          0.5527526227812161,
+          0.7014117915368165
+        ]
+      }
+    },
+    "by_criterion_homoscedastic_surrogate": {
+      "E": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.1392314458729049,
+        "p90_regret_vs_oracle": 0.5727688458898936,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "D": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.3169018680832117,
+        "p90_regret_vs_oracle": 0.9834990944392858,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "A": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.1392314458729049,
+        "p90_regret_vs_oracle": 0.5727688458898936,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "c_deg": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.1392314458729049,
+        "p90_regret_vs_oracle": 0.5727688458898936,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "c_Ea": {
+        "median_regret_vs_oracle": 0.0,
+        "mean_regret_vs_oracle": 0.13848711166649727,
+        "p90_regret_vs_oracle": 0.5632230967997836,
+        "ci95_of_median": [
+          0.0,
+          0.0
+        ]
+      },
+      "cond": {
+        "median_regret_vs_oracle": 1.0715362402010316,
+        "mean_regret_vs_oracle": 7.044188321007899,
+        "p90_regret_vs_oracle": 15.988833590646337,
+        "ci95_of_median": [
+          0.941751436935427,
+          1.1682582932364416
+        ]
+      }
+    },
+    "E_and_D_pick_same_design_rate_homoscedastic_surrogate": 0.7663333333333333
+  },
+  "psi_convention": "头条口径 = 异方差定义量 E_het = λmin(Î₁[w])，w_i=g_i²/σ_i²（正文 def:psi）；【RYA-581】同台对决的六个判据（E/D/A/c_deg/c_Ea/cond）一律由【同一个】异方差算子导出（列名后缀 _het）；同方差特例代理表（无后缀列）结构完全对称、自成一表，两表不混排。此前 A/c_deg/c_Ea/cond 取自同方差算子而 E/D 取自异方差算子，属算子不匹配，PRE/POST 对照见 operator_mismatch_audit。【RYA-569】误差投影方向与 Ψ 必须同算子：头条用 rmse_deg_het（异方差算子的最小特征方向），代理块用 rmse_deg（同方差算子方向）。",
+  "two_axis_rate_validation": {
+    "all": {
+      "slope": -0.48641878808947947,
+      "slope_ci95": [
+        -0.4926652433708562,
+        -0.4796198414127136
+      ],
+      "r2": 0.9080536895556373,
+      "n": 1000,
+      "psi_col": "E_het",
+      "error_col": "rmse_deg_het"
+    },
+    "narrow_window_half": {
+      "slope": -0.49962298242986697,
+      "slope_ci95": [
+        -0.5031850770050387,
+        -0.4955940566708824
+      ],
+      "r2": 0.9929001329977245,
+      "n": 500,
+      "psi_col": "E_het",
+      "error_col": "rmse_deg_het"
+    },
+    "wide_window_half": {
+      "slope": -0.5239177387636431,
+      "slope_ci95": [
+        -0.5444283980169127,
+        -0.5061321877520694
+      ],
+      "r2": 0.7995175150461901,
+      "n": 500,
+      "psi_col": "E_het",
+      "error_col": "rmse_deg_het"
+    },
+    "small_n_half": {
+      "slope": -0.48755593551698195,
+      "slope_ci95": [
+        -0.4961622836693708,
+        -0.4779386399745705
+      ],
+      "r2": 0.903055705622501,
+      "n": 508,
+      "psi_col": "E_het",
+      "error_col": "rmse_deg_het"
+    },
+    "large_n_half": {
+      "slope": -0.4849936177219929,
+      "slope_ci95": [
+        -0.49260446472477265,
+        -0.47523257541819997
+      ],
+      "r2": 0.9118927634359322,
+      "n": 492,
+      "psi_col": "E_het",
+      "error_col": "rmse_deg_het"
+    },
+    "theory": -0.5,
+    "note": "误差沿退化方向对 Ψ 的 log-log 斜率；理论预测 −1/2。【口径更正】按 ΔT 或按 N 中位数切半后，两个自变量在每个子组【仍同时变动】，故这是跨粗分层的稳健性，不等于两轴分别受控验证；后者见 controlled_axis。",
+    "controlled_axis": {
+      "vary_n_fix_dT": {
+        "bands": [
+          {
+            "slope": -0.49726672148919226,
+            "slope_ci95": [
+              -0.5052778577986915,
+              -0.49026613699172394
+            ],
+            "r2": 0.9881337373447795,
+            "n": 200,
+            "psi_col": "E_het",
+            "error_col": "rmse_deg_het",
+            "band": [
+              2.012724667052983,
+              3.7329243915778765
+            ],
+            "fixed_axis_range_ratio": 1.851697612746261
+          },
+          {
+            "slope": -0.5002813160087283,
+            "slope_ci95": [
+              -0.5085299781280377,
+              -0.4928535154700168
+            ],
+            "r2": 0.9884838001939585,
+            "n": 200,
+            "psi_col": "E_het",
+            "error_col": "rmse_deg_het",
+            "band": [
+              7.682456847508118,
+              14.784550951187876
+            ],
+            "fixed_axis_range_ratio": 1.920095775230861
+          },
+          {
+            "slope": -0.5088959755056774,
+            "slope_ci95": [
+              -0.5189925732457669,
+              -0.49949408916000015
+            ],
+            "r2": 0.9808426897605793,
+            "n": 200,
+            "psi_col": "E_het",
+            "error_col": "rmse_deg_het",
+            "band": [
+              14.784550951187876,
+              27.54940232621975
+            ],
+            "fixed_axis_range_ratio": 1.8577134932472115
+          },
+          {
+            "slope": -0.6121015406669384,
+            "slope_ci95": [
+              -0.6547219301815679,
+              -0.5634667477660394
+            ],
+            "r2": 0.7321467180369992,
+            "n": 200,
+            "psi_col": "E_het",
+            "error_col": "rmse_deg_het",
+            "band": [
+              27.54940232621975,
+              54.9812484770564
+            ],
+            "fixed_axis_range_ratio": 1.992385980888067
+          }
+        ],
+        "n_bands_used": 4,
+        "slope_median": -0.5045886457572029
+      },
+      "vary_dT_fix_n": {
+        "bands": [
+          {
+            "slope": -0.4895985388314542,
+            "slope_ci95": [
+              -0.5013214925732136,
+              -0.47881650146383214
+            ],
+            "r2": 0.926728680599778,
+            "n": 210,
+            "psi_col": "E_het",
+            "error_col": "rmse_deg_het",
+            "band": [
+              187.60000000000002,
+              245.0
+            ],
+            "fixed_axis_range_ratio": 1.303191489361702
+          },
+          {
+            "slope": -0.4950531127438911,
+            "slope_ci95": [
+              -0.5027303685061952,
+              -0.4863154073563302
+            ],
+            "r2": 0.947502340754804,
+            "n": 209,
+            "psi_col": "E_het",
+            "error_col": "rmse_deg_het",
+            "band": [
+              245.0,
+              300.0
+            ],
+            "fixed_axis_range_ratio": 1.2244897959183674
+          },
+          {
+            "slope": -0.49150295005186595,
+            "slope_ci95": [
+              -0.5043526196088314,
+              -0.475700582657494
+            ],
+            "r2": 0.9022092544728805,
+            "n": 206,
+            "psi_col": "E_het",
+            "error_col": "rmse_deg_het",
+            "band": [
+              300.0,
+              390.0
+            ],
+            "fixed_axis_range_ratio": 1.3
+          },
+          {
+            "slope": -0.4822794538398986,
+            "slope_ci95": [
+              -0.49569626005958956,
+              -0.46561068665972866
+            ],
+            "r2": 0.8953772731073985,
+            "n": 201,
+            "psi_col": "E_het",
+            "error_col": "rmse_deg_het",
+            "band": [
+              390.0,
+              693.0
+            ],
+            "fixed_axis_range_ratio": 1.7769230769230768
+          }
+        ],
+        "n_bands_used": 4,
+        "slope_median": -0.4905507444416601
+      },
+      "note": "在另一轴的窄带内（带内极差比 ≤2×）拟合 log-log 斜率，使 Ψ 的变化主要来自目标轴。这才是两轴分别受控的检验。"
+    }
+  },
+  "two_axis_rate_validation_homoscedastic_surrogate": {
+    "all": {
+      "slope": -0.4961177925632786,
+      "slope_ci95": [
+        -0.5021677536578025,
+        -0.4906782579244175
+      ],
+      "r2": 0.968186097844051,
+      "n": 1000,
+      "psi_col": "E",
+      "error_col": "rmse_deg"
+    },
+    "narrow_window_half": {
+      "slope": -0.5009994860173834,
+      "slope_ci95": [
+        -0.5058567503111956,
+        -0.4958953690066737
+      ],
+      "r2": 0.9840798151421425,
+      "n": 500,
+      "psi_col": "E",
+      "error_col": "rmse_deg"
+    },
+    "wide_window_half": {
+      "slope": -0.533039885917156,
+      "slope_ci95": [
+        -0.5475869537846145,
+        -0.5183871318981111
+      ],
+      "r2": 0.9479891955920604,
+      "n": 500,
+      "psi_col": "E",
+      "error_col": "rmse_deg"
+    },
+    "small_n_half": {
+      "slope": -0.49654305805144033,
+      "slope_ci95": [
+        -0.5044098305732402,
+        -0.48886362083617685
+      ],
+      "r2": 0.9690175590056974,
+      "n": 508,
+      "psi_col": "E",
+      "error_col": "rmse_deg"
+    },
+    "large_n_half": {
+      "slope": -0.4955854833586785,
+      "slope_ci95": [
+        -0.5031336159351847,
+        -0.4879379884327635
+      ],
+      "r2": 0.966872735532777,
+      "n": 492,
+      "psi_col": "E",
+      "error_col": "rmse_deg"
+    },
+    "controlled_axis": {
+      "vary_n_fix_dT": {
+        "bands": [
+          {
+            "slope": -0.4934951923812807,
+            "slope_ci95": [
+              -0.5043387807336965,
+              -0.48185552696518485
+            ],
+            "r2": 0.9725426765995921,
+            "n": 200,
+            "psi_col": "E",
+            "error_col": "rmse_deg",
+            "band": [
+              2.012724667052983,
+              3.7329243915778765
+            ],
+            "fixed_axis_range_ratio": 1.851697612746261
+          },
+          {
+            "slope": -0.49890249088434235,
+            "slope_ci95": [
+              -0.5090761373355445,
+              -0.4875386431283743
+            ],
+            "r2": 0.9776589480201092,
+            "n": 200,
+            "psi_col": "E",
+            "error_col": "rmse_deg",
+            "band": [
+              7.682456847508118,
+              14.784550951187876
+            ],
+            "fixed_axis_range_ratio": 1.920095775230861
+          },
+          {
+            "slope": -0.5171667255021809,
+            "slope_ci95": [
+              -0.5299215896648624,
+              -0.50533460093411
+            ],
+            "r2": 0.9712024332403308,
+            "n": 200,
+            "psi_col": "E",
+            "error_col": "rmse_deg",
+            "band": [
+              14.784550951187876,
+              27.54940232621975
+            ],
+            "fixed_axis_range_ratio": 1.8577134932472115
+          },
+          {
+            "slope": -0.5733035329853929,
+            "slope_ci95": [
+              -0.5931652993320987,
+              -0.5524700159519785
+            ],
+            "r2": 0.9507637777581819,
+            "n": 200,
+            "psi_col": "E",
+            "error_col": "rmse_deg",
+            "band": [
+              27.54940232621975,
+              54.9812484770564
+            ],
+            "fixed_axis_range_ratio": 1.992385980888067
+          }
+        ],
+        "n_bands_used": 4,
+        "slope_median": -0.5080346081932616
+      },
+      "vary_dT_fix_n": {
+        "bands": [
+          {
+            "slope": -0.49097946643712315,
+            "slope_ci95": [
+              -0.503274341544846,
+              -0.4794310051355063
+            ],
+            "r2": 0.9724798089425054,
+            "n": 210,
+            "psi_col": "E",
+            "error_col": "rmse_deg",
+            "band": [
+              187.60000000000002,
+              245.0
+            ],
+            "fixed_axis_range_ratio": 1.303191489361702
+          },
+          {
+            "slope": -0.4943190276764262,
+            "slope_ci95": [
+              -0.5055592696305214,
+              -0.4827952925532026
+            ],
+            "r2": 0.9714383405112774,
+            "n": 209,
+            "psi_col": "E",
+            "error_col": "rmse_deg",
+            "band": [
+              245.0,
+              300.0
+            ],
+            "fixed_axis_range_ratio": 1.2244897959183674
+          },
+          {
+            "slope": -0.5011803919094523,
+            "slope_ci95": [
+              -0.5143897522116809,
+              -0.48835857083203893
+            ],
+            "r2": 0.966791428253758,
+            "n": 206,
+            "psi_col": "E",
+            "error_col": "rmse_deg",
+            "band": [
+              300.0,
+              390.0
+            ],
+            "fixed_axis_range_ratio": 1.3
+          },
+          {
+            "slope": -0.49627226502798705,
+            "slope_ci95": [
+              -0.5095227356503398,
+              -0.4838632863788118
+            ],
+            "r2": 0.961031656972347,
+            "n": 201,
+            "psi_col": "E",
+            "error_col": "rmse_deg",
+            "band": [
+              390.0,
+              693.0
+            ],
+            "fixed_axis_range_ratio": 1.7769230769230768
+          }
+        ],
+        "n_bands_used": 4,
+        "slope_median": -0.49529564635220663
+      }
+    },
+    "theory": -0.5,
+    "note": "同方差代理 E（σ_i 取均值）下的同一组拟合，误差投影用同一算子的方向 rmse_deg；正文头条用异方差定义量 E_het 及其自己的方向 rmse_deg_het。【RYA-569】本块与头条块各自算子闭环，不再跨算子配对。"
+  },
+  "projection_operator_audit": {
+    "obligation": "1f9bcf45",
+    "defect": "PRE-FIX 的头条把异方差算子的特征值 E_het 与同方差算子的最小特征方向 v_deg 配对；POST-FIX 两者同出于异方差算子。",
+    "eigendirection_angle_deg": {
+      "median": 0.055920084436254874,
+      "p95": 0.5223112839763634,
+      "max": 1.2623327210462385,
+      "note": "这是【实测】夹角。RYA-569 任务书预测中位 0.000°/最大 0.001°，其论据（J 两列量级差 1e4）是把 R 当成 8.314 J/(mol·K) 的单位错误；本脚本 R_GAS=8.314e-3 kJ/(mol·K)，两列量级比只有 2.1–2.6 倍。预检见 04outputs/138eigendirection_angle_check.json。"
+    },
+    "rmse_ratio_het_over_hom": {
+      "median": 1.0000003990522477,
+      "p95": 1.0000554900570686,
+      "max": 1.000281719566939,
+      "min": 0.9998563612169385,
+      "note": "rmse 沿方向的二次型在主轴附近二阶平坦，故比值远比 sin(夹角) 小。"
+    },
+    "two_axis_pre_fix_mismatched": {
+      "all": {
+        "slope": -0.48642179952956793,
+        "slope_ci95": [
+          -0.4927037864011011,
+          -0.47958530340905897
+        ],
+        "r2": 0.9080605747048784,
+        "n": 1000,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg"
+      },
+      "narrow_window_half": {
+        "slope": -0.49962306287016656,
+        "slope_ci95": [
+          -0.5036572920407244,
+          -0.4955041478235694
+        ],
+        "r2": 0.9929001514880553,
+        "n": 500,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg"
+      },
+      "wide_window_half": {
+        "slope": -0.5239197963851235,
+        "slope_ci95": [
+          -0.5427231164380631,
+          -0.5052373832400766
+        ],
+        "r2": 0.7995297043318358,
+        "n": 500,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg"
+      },
+      "small_n_half": {
+        "slope": -0.4875600708794181,
+        "slope_ci95": [
+          -0.49598970194141373,
+          -0.47801485200858757
+        ],
+        "r2": 0.9030650877287119,
+        "n": 508,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg"
+      },
+      "large_n_half": {
+        "slope": -0.48499576460525057,
+        "slope_ci95": [
+          -0.49298297256954243,
+          -0.4752970563156949
+        ],
+        "r2": 0.9118972594183324,
+        "n": 492,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg"
+      }
+    },
+    "two_axis_post_fix_matched": {
+      "all": {
+        "slope": -0.48641878808947947,
+        "slope_ci95": [
+          -0.49271139182432855,
+          -0.479047416453756
+        ],
+        "r2": 0.9080536895556373,
+        "n": 1000,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg_het"
+      },
+      "narrow_window_half": {
+        "slope": -0.49962298242986697,
+        "slope_ci95": [
+          -0.5033747003604502,
+          -0.4958004721608757
+        ],
+        "r2": 0.9929001329977245,
+        "n": 500,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg_het"
+      },
+      "wide_window_half": {
+        "slope": -0.5239177387636431,
+        "slope_ci95": [
+          -0.5438309466000021,
+          -0.5050119237464114
+        ],
+        "r2": 0.7995175150461901,
+        "n": 500,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg_het"
+      },
+      "small_n_half": {
+        "slope": -0.48755593551698195,
+        "slope_ci95": [
+          -0.4960638260106939,
+          -0.47718114036883
+        ],
+        "r2": 0.903055705622501,
+        "n": 508,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg_het"
+      },
+      "large_n_half": {
+        "slope": -0.4849936177219929,
+        "slope_ci95": [
+          -0.4931483476965524,
+          -0.47492531357521073
+        ],
+        "r2": 0.9118927634359322,
+        "n": 492,
+        "psi_col": "E_het",
+        "error_col": "rmse_deg_het"
+      }
+    },
+    "two_axis_slope_delta_post_minus_pre": {
+      "all": 3.01144008846288e-06,
+      "narrow_window_half": 8.044029958798049e-08,
+      "wide_window_half": 2.0576214804224335e-06,
+      "small_n_half": 4.135362436152867e-06,
+      "large_n_half": 2.1468832576698738e-06
+    },
+    "saturation_pre_fix_mismatched": {
+      "slope_low_Psi_15pct": -0.49097140412982404,
+      "slope_high_Psi_50pct": -0.49548159354299237,
+      "median_observed_over_extrapolated": 0.912899688902667
+    },
+    "saturation_post_fix_matched": {
+      "slope_low_Psi_15pct": -0.4909713120748884,
+      "slope_high_Psi_50pct": -0.49547748526454305,
+      "median_observed_over_extrapolated": 0.9129084854808991
+    },
+    "note": "本块自带独立 RNG（SEED+2），与头条块的自助抽样流互不影响；因此本块的 CI 与 res['two_axis_rate_validation'] 的 CI 数值不必逐位相同，本块只用于 PRE/POST 的同流对照，稿面数字一律引头条块。"
+  },
+  "operator_mismatch_audit": {
+    "obligation": "de049d538e54",
+    "defect": "PRE-FIX 的准则对决把 E_het/D_het（异方差算子 fisher_het）与 A/c_deg/c_Ea/cond（同方差算子 fisher）排在同一张表上比较；两个算子并非相差一个公共标量，故该表无法把「判据选择」与「信息阵装配」拆开。",
+    "E_over_E_het_ratio": {
+      "min": 0.004373508778948292,
+      "p05": 0.5598694998956454,
+      "median": 0.9358316805941553,
+      "p95": 1.38249452050918,
+      "max": 3.544431139979517,
+      "note": "同方差代理 E 与异方差定义量 E_het 之比。若两算子只差一个公共标量，该比值应为常数；实测跨越两个数量级，故不是公共标量，混排表因此不是同一个信息阵上的判据对决。正文 §sec:mc 所引区间即取自本字段的 min/max。"
+    },
+    "cond_over_cond_het_ratio": {
+      "min": 0.053928604134880785,
+      "p05": 0.391803413467095,
+      "median": 0.8677039180508226,
+      "p95": 1.25003409137637,
+      "max": 1.4894237423178724,
+      "note": "条件数是尺度不变量，但对【装配口径】并不不变；本字段量化该敏感性。"
+    },
+    "grid_edge_hit_rate": {
+      "min": 0.0,
+      "p05": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "n_designs_with_any_hit": 0,
+      "n_designs": 1000,
+      "note": "k 搜索网格的边界命中率，逐设计统计。全为 0 即无一设计的 k̂ 被截在网格端点，故不可恢复档的饱和不是网格假象。正文 §sec:mc 所引「命中率恒为 0」即本字段。"
+    },
+    "spearman_marginal_pre_fix_mixed": {
+      "E_het": -0.90989820989821,
+      "E": -0.934924966924967,
+      "D_het": -0.8721763521763523,
+      "D": -0.8835173235173235,
+      "A": -0.934923094923095,
+      "c_deg": -0.934924966924967,
+      "c_Ea": -0.934922746922747,
+      "cond": 0.5704951264951266
+    },
+    "spearman_marginal_post_fix_heteroscedastic": {
+      "E_het": -0.90989820989821,
+      "D_het": -0.8721763521763523,
+      "A_het": -0.909897945897946,
+      "c_deg_het": -0.90989820989821,
+      "c_Ea_het": -0.9097033777033778,
+      "cond_het": 0.6019355059355059
+    },
+    "spearman_partial_pre_fix_mixed": {
+      "E_het": -0.8691734043121074,
+      "E": -0.9044409764362156,
+      "D_het": -0.8550662443560909,
+      "D": -0.8929900449398754,
+      "A": -0.9044359234359001,
+      "c_deg": -0.9044409764362156,
+      "c_Ea": -0.9043915235035841,
+      "cond": 0.09358447617884944
+    },
+    "decision_regret_pre_fix_mixed": {
+      "n_scenarios": 3000,
+      "rng": "独立流 SEED+3，故与头条块场景不同批；只可用于量级对照",
+      "by_criterion": {
+        "E_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.27564497745181565,
+          "p90_regret_vs_oracle": 0.7527567727265625
+        },
+        "D_het": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.3097685939685287,
+          "p90_regret_vs_oracle": 0.948979129636043
+        },
+        "A": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.1775894782492106,
+          "p90_regret_vs_oracle": 0.7089140028599361
+        },
+        "c_deg": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.1775894782492106,
+          "p90_regret_vs_oracle": 0.7089140028599361
+        },
+        "c_Ea": {
+          "median_regret_vs_oracle": 0.0,
+          "mean_regret_vs_oracle": 0.16838366291462076,
+          "p90_regret_vs_oracle": 0.6785807863765876
+        },
+        "cond": {
+          "median_regret_vs_oracle": 0.9656677816967651,
+          "mean_regret_vs_oracle": 7.087014532437247,
+          "p90_regret_vs_oracle": 16.180313517985688
+        }
+      }
+    },
+    "note": "PRE 表与 POST 表的差别只在 A/c_deg/c_Ea/cond 四列所用的算子；E_het/D_het 两列两表相同（本轮之前即已是异方差）。本块自带独立 RNG（SEED+3），与头条块的自助流互不影响。"
+  },
+  "unrecoverable_branch_saturation": {
+    "slope_low_Psi_15pct": -0.4909713120748884,
+    "n_low": 150,
+    "slope_high_Psi_50pct": -0.49547748526454305,
+    "n_high": 500,
+    "median_observed_over_extrapolated": 0.9129084854808991,
+    "ci95": [
+      0.8966395735116547,
+      0.9300288792901256
+    ],
+    "relerr_Ea_median_at_low_Psi": 0.14402454250836005,
+    "note": "可恢复档斜率外推到最低 15% 的 Ψ；比值 <1 即实测误差低于外推 = 误差饱和（第三档）。Cramér--Rao 界不预测饱和，故这是三分律相对纯 CRB 的独有预测。饱和的力学来源是 Θ 紧致：估计量被约束在有界参数空间内，误差不能无界增长。"
+  },
+  "honesty": [
+    "这是模拟研究：设计独立、真值已知、误差为真 RMSE，但数据非真实测量。",
+    "它替代的是被嵌套结构毁掉的自由度，不替代真实数据。",
+    "量程全部锚定到本项目已核验的真实值（见 anchors），非凭空设定。"
+  ]
+}

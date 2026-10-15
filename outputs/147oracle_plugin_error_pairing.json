@@ -1,0 +1,38 @@
+{
+  "script": "126trichotomy_plugin_psi.py",
+  "produces": "147oracle_plugin_error_pairing.json",
+  "why_separate": "本块本应写进 126 的 json，但 126 的 json 是取证台账里义务 c13bd67a3388 的 resolve 收据所指的证据文件，而收据是【每次门禁都重新验哈希】的。把新字段写进那份产物会让一条既有收据当场自失效（实测：门禁因此判 BLOCK）。故拆成独立产物：126 的 json 逐字节保持不变，新字段落在这里。",
+  "honesty": [
+    "这是跨脚本配对（读 43 的 percell 与本脚本的 percell），不是 126 内部两列之差；",
+    "若 43 的 percell 不在盘上，本文件记 reference_missing 而不静默省略。"
+  ],
+  "oracle_vs_plugin_error_pairing": {
+    "reference_file": "43trichotomy_formal-percell.csv",
+    "join_keys": [
+      "regime",
+      "n",
+      "seed"
+    ],
+    "n_paired_cells": 140,
+    "n_cells_43": 140,
+    "n_cells_126": 140,
+    "n_cells_differing": 140,
+    "all_cells_differ": true,
+    "max_abs_diff": 0.0003641778916483873,
+    "max_abs_diff_cell": {
+      "regime": "subcritical",
+      "n": 10000,
+      "seed": 19810915
+    },
+    "max_rel_diff": 0.0008356687934044559,
+    "max_rel_diff_cell": {
+      "regime": "subcritical",
+      "n": 10000,
+      "seed": 19810915
+    },
+    "median_abs_diff": 5.892836781734578e-07,
+    "median_rel_diff": 1.3261497950813217e-06,
+    "spearman_err_oracle_layer_vs_plugin_layer": 1.0,
+    "note": "两列的唯一制度性差异是主拟合多起点初值区间不同（43: phi in [20,55], logA in [22,42]；126: phi in [15,60], logA in [15,45]），故本块量化的正是稿面自陈的那处非严格单因子替换的幅度。退化方向一律取 oracle 方向 vdeg(theta_0)，两列同口径。"
+  }
+}
