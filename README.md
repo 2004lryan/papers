@@ -7,6 +7,11 @@ number followed by a short name.
 
 | Folder | Paper | Status |
 |---|---|---|
+| [009within-city-no2-gradients](009within-city-no2-gradients/) | Within-city nitrogen dioxide exposure gradients in China narrowed ahead of electric vehicle fleet growth | In preparation |
+| [015calibration-transfer-label-economics](015calibration-transfer-label-economics/) | Calibration transfer under limited target labels: a five-benchmark comparison of correction and representation methods | Submitted to *Chemometrics and Intelligent Laboratory Systems* |
+| [016apple-nir-crossyear](016apple-nir-crossyear/) | Evaluation leakage through learnt components in cross-domain Vis-NIR classification: apple origin and five public data sets | — |
+| [020nir-reference-error-budget](020nir-reference-error-budget/) | Within-fruit variability of reference soluble solids sets a ceiling on near-infrared calibration performance in apple | In preparation |
+| [023arrhenius-recoverability](023arrhenius-recoverability/) | A recoverability trichotomy for Arrhenius inversion: critical design scaling and its consequences for experimental design | In preparation |
 
 ## Folder contents
 
