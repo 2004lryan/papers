@@ -68,7 +68,7 @@ command below from it.
 │   ├── 21smallsample_repeats.py              # small-sample experiment, 20 draws per training set size
 │   ├── 18svr_align_and_sensitivity.py, 20cv_selection_mechanism.py   # Appendix A2: SVR input scaling, selection by cross-validation
 │   ├── 49rebuttal_derived_stats.py           # derived statistics of the small-sample, recalibration and coefficient-function results
-│   ├── 46rebuttal_R1_3_recalibration.py      # cross-batch recalibration, 200 draws per setting
+│   ├── 46rebuttal_R1_3_recalibration.py      # cross-batch recalibration, 200 draws per setting and k
 │   ├── 48rebuttal_R1_13_bspline_beta.py      # regression coefficient function of the deployed FPLR model (Fig. 6)
 │   ├── 56rebuttal_smallsample_selection.py   # Appendix A8: selection-stage rules
 │   ├── 57rebuttal_smallsample_guard.py       # Appendix A8: prediction-time safeguards
@@ -194,7 +194,8 @@ that script 47 compares; without them it runs all six methods on five seeds). `2
 `71beta_contribution.py` reads the output of script 48.
 
 In the study the random forest was run on the CPU of a remote server and the 1D-CNN
-on its GPU (script 45 exits if the 1D-CNN is selected without `RNCV_DEVICE=cuda`).
+on its GPU (script 45 exits if the 1D-CNN is selected without `RNCV_DEVICE=cuda`, unless
+`RNCV_SANITY_CPU_CNN=1` is set for a CPU smoke check whose output script 47 does not read).
 Both were launched, split into shards and collected by helper shell scripts of the
 working project (`02code/deploy45/`), which are not shipped here. The file header
 of script 45 describes the sharding variables.
@@ -251,7 +252,8 @@ Comments in the scripts also cite documents of the working project that are not
 shipped: the project rules (cited as 项目规范 or by a bare chapter number such as
 7.1), the preregistered protocol (协议 or 预注册, items B10.x), the submission
 checklist (投稿清单) and the comments of the corresponding author on an earlier
-draft (导师意见, 批注). They also name helper scripts and logs of the working
+draft (导师意见, 批注), the project proposal (申报书) and a study of papers of the target
+journal (`research-wiki/目标期刊论文/00VENUE_STUDY.md`). They also name helper scripts and logs of the working
 project that are not shipped, such as the shell scripts under `02code/deploy45/`,
 `35export_code.py` and files under `05logs/`. A path written as
 `08github/data/DATA.md` in a comment is `data/DATA.md` of this repository.
@@ -273,8 +275,8 @@ text. When these fonts are not installed, matplotlib falls back to its default
 font. `70batch_overview.py`, `48rebuttal_R1_13_bspline_beta.py` and
 `50rebuttal_figures.py` then still export their figures, with the fallback font.
 On a machine without the two fonts, `40figure_flow.py` exited with code 1 at its
-check for overlapping or out-of-bounds text. The study ran it with both fonts
-installed; install them before running it.
+check for overlapping or out-of-bounds text. Fig. 1 of the manuscript was exported
+with Arial; install the two fonts before running it.
 
 ### Check on a second platform
 
@@ -295,10 +297,11 @@ study: the two files of script 59, the three tables of script 70,
 `25nested_cv.csv`, the six fold-level tables of script 45 for the four CPU methods
 (without their `fingerprint` column, which differs by construction, see the note
 on the provenance check), the tables of scripts 10, 19 and 21, the summary and
-the draws of script 46, the two tables of script 48, three tables of script 49 and
+the draws of script 46, two of the three tables of script 48 (`48rebuttal_beta.csv` and
+`48rebuttal_beta_windows.csv`), three tables of script 49 and
 `71beta_contribution.csv`. The other files that the scripts write were not
 compared, among them the per-sample predictions of scripts 25 and 45,
-`46rebuttal_recal_batches.csv`, `49rebuttal_smallsample_paired.csv`, the two other
+`46rebuttal_recal_batches.csv`, `48rebuttal_deploy.csv`, `49rebuttal_smallsample_paired.csv`, the two other
 tables of script 71 and the figures. 5 of the 23 files were byte-identical
 (`59data_clean_list.csv`, `59data_clean_summary.csv`, `70batch_stats.csv`, `48rebuttal_beta_windows.csv`, `49rebuttal_recal_range.csv`), and 5 more had no cell with a relative
 difference above 1e-9 (`70batch_spectra_summary.csv`, `45rebuttal_ncv_bspline_FPCR.csv`, `45rebuttal_ncv_none_PLSR.csv`, `10smallsample_hyperparam.csv`, `49rebuttal_beta_band.csv`).
@@ -326,7 +329,10 @@ version strings and the text of `grids.py` together with the data, the draws and
 the code, so it differs between the two runs by construction. The partial output of
 script 47 was compared with the corresponding rows of the complete output of the
 study: in its table (6 rows) the largest absolute difference was 7.35e-06
-(`RPD_sd`), and in its paired tests (6 rows) 0.000363 (`t`).
+(`RPD_sd`), and in the six pairs of its main analysis 0.000363 (`t`). For these
+pairs the nine columns from `n_pairs` to `a_wins` were compared; `shapiro_p`,
+`wilcoxon_p`, `holm_p` and `family_size` were not, the last two because they depend
+on the number of pairs in the family.
 `21smallsample_repeats.py` reconciles the 49 means of its draws, at three decimals,
 with the tables that scripts 10 and 19 had written in the same run; none disagreed.
 A rerun on another platform can thus differ from the reported numbers in the third
