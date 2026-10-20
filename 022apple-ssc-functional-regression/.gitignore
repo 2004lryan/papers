@@ -1,0 +1,85 @@
+# ─── Raw / restricted data (NEVER commit) ───────────────────────────
+# Original spectral / imaging / binary formats — always excluded.
+*.mat
+*.bil
+*.bsq
+*.hdr
+*.bin
+*.tif
+*.tiff
+*.img
+*.lan
+*.raw
+*.dat
+# Preprocessed spectra / restricted tables — ship DATA CARDS ONLY, not data.
+data/processed/*.csv
+data/processed/*.parquet
+data/processed/*.npz
+data/*.xlsx
+data/*.csv
+# generated intermediate tables
+outputs/*.csv
+# Run-time layout created for reproduction (see README): the link to code/, results, logs,
+# the deployed model written by script 48, and the folders that export_utils.py creates on import.
+# Result tables hold per-sample reference values of the restricted dataset.
+02code
+03data/
+04outputs/
+05logs/
+07checkpoints/
+refine-logs/
+research-wiki/
+
+# ─── Model weights / large binaries ─────────────────────────────────
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.safetensors
+checkpoints/
+
+# ─── Credentials / secrets (NEVER commit) ───────────────────────────
+.env
+*.env
+*api*key*
+*apikey*
+*token*
+*secret*
+*credential*
+id_rsa*
+*.pem
+api.json
+
+# ─── Experiment tracking / logs ─────────────────────────────────────
+wandb/
+logs/
+*.log
+
+# ─── Python / tooling caches ────────────────────────────────────────
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ─── OS / editor cruft ──────────────────────────────────────────────
+._*
+RELEASE_PROMPT.md
+.DS_Store
+.vscode/
+.idea/
+
+# ─── LaTeX build intermediates ──────────────────────────────────────
+*.aux
+*.out
+*.toc
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz

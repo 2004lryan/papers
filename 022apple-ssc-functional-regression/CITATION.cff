@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated manuscript."
+title: "Functional regression modelling of soluble solids content in apple and hyperparameter selection with small calibration sets"
+abstract: >-
+  Code and reproducibility materials for a study comparing functional penalized
+  linear regression and functional principal component regression with PLSR,
+  SVR, random forest and a 1D-CNN for near-infrared prediction of soluble solids
+  content in apple, under nested cross-validation with equal numbers of
+  candidate configurations, with emphasis on hyperparameter selection with small
+  training sets and on cross-batch recalibration.
+authors:
+  - family-names: "Li"
+    given-names: "Panlin"
+    affiliation: "College of Mathematics and Physics, Xinjiang Agricultural University"
+  - family-names: "Yang"
+    given-names: "Shuangze"
+    affiliation: "College of Mathematics and Physics, Xinjiang Agricultural University"
+  - family-names: "Li"
+    given-names: "Yuchang"
+    affiliation: "College of Mathematics and Physics, Xinjiang Agricultural University"
+  - family-names: "Liu"
+    given-names: "Ya"
+    affiliation: "Urumqi Comprehensive Experimental Station, Xinjiang Academy of Agricultural Sciences"
+  - family-names: "Li"
+    given-names: "Longjie"
+    affiliation: "College of Mechanical and Electrical Engineering, Xinjiang Agricultural University; Xinjiang Key Laboratory of Intelligent Agricultural Equipment"
+  - family-names: "Guo"
+    given-names: "Junxian"
+    affiliation: "College of Mechanical and Electrical Engineering, Xinjiang Agricultural University; Xinjiang Key Laboratory of Intelligent Agricultural Equipment"
+  - family-names: "Huang"
+    given-names: "Hua"
+    affiliation: "College of Mathematics and Physics, and Research Center of Numerical Simulation and Data Analysis, Xinjiang Agricultural University"
+keywords:
+  - functional data analysis
+  - near-infrared spectroscopy
+  - soluble solids content
+  - small sample
+  - hyperparameter selection
+  - cross-batch recalibration
+license: MIT
+repository-code: "https://github.com/2004lryan/papers/tree/main/022apple-ssc-functional-regression"
+date-released: "2026-10-04"
+contact:
+  - name: "HUANG Hua"
+    email: "huanghua@xjau.edu.cn"
